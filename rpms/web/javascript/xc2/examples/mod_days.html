@@ -1,0 +1,334 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+
+<head>
+<title>Xin Calendar 2 Mods: Special Days</title>
+<link rel=stylesheet href="xc2.css" type="text/css">
+<link rel=stylesheet href="../css/xc2_default.css" type="text/css">
+<style type="text/css">
+.head {
+  line-height:20px;
+  color:#ffffff;
+  background:url("../images/color.jpg") no-repeat;
+}
+.row_week {
+  background-color:#99b3cc;
+}
+
+.Sun {
+  font-family:verdana;
+  font-size:11px;
+  line-height:14px;
+  width:23px;
+  text-align:center;
+  color:#000000;
+  background-color:#f9c000;
+  border:1px solid #f9c000;
+  padding:1px;
+  cursor:pointer;
+}
+.SunO {
+  font-family:verdana;
+  font-size:9px;
+  line-height:14px;
+  width:23px;
+  text-align:center;
+  color:#f0f0f0;
+  background-color:#c69000;
+  border:1px solid #c69000;
+  padding:1px;
+  cursor:pointer;
+}
+
+.Mon {
+  font-family:verdana;
+  font-size:11px;
+  line-height:14px;
+  width:23px;
+  text-align:center;
+  color:#000000;
+  background-color:#f9c9f6;
+  border:1px solid #f9c9f6;
+  padding:1px;
+  cursor:pointer;
+}
+.MonO {
+  font-family:verdana;
+  font-size:9px;
+  line-height:14px;
+  width:23px;
+  text-align:center;
+  color:#f0f0f0;
+  background-color:#c696f3;
+  border:1px solid #c696f3;
+  padding:1px;
+  cursor:pointer;
+}
+
+.Tue {
+  font-family:verdana;
+  font-size:11px;
+  line-height:14px;
+  width:23px;
+  text-align:center;
+  color:#000000;
+  background-color:#69c9c6;
+  border:1px solid #69c9c6;
+  padding:1px;
+  cursor:pointer;
+}
+.TueO {
+  font-family:verdana;
+  font-size:9px;
+  line-height:14px;
+  width:23px;
+  text-align:center;
+  color:#f0f0f0;
+  background-color:#369693;
+  border:1px solid #369693;
+  padding:1px;
+  cursor:pointer;
+}
+
+.Wed {
+  font-family:verdana;
+  font-size:11px;
+  line-height:14px;
+  width:23px;
+  text-align:center;
+  color:#000000;
+  background-color:#f9c9c0;
+  border:1px solid #f9c9c0;
+  padding:1px;
+  cursor:pointer;
+}
+.WedO {
+  font-family:verdana;
+  font-size:9px;
+  line-height:14px;
+  width:23px;
+  text-align:center;
+  color:#f0f0f0;
+  background-color:#c69690;
+  border:1px solid #c69690;
+  padding:1px;
+  cursor:pointer;
+}
+
+.Thu {
+  font-family:verdana;
+  font-size:11px;
+  line-height:14px;
+  width:23px;
+  text-align:center;
+  color:#000000;
+  background-color:#bee8e8;
+  border:1px solid #bee8e8;
+  padding:1px;
+  cursor:pointer;
+}
+.ThuO {
+  font-family:verdana;
+  font-size:9px;
+  line-height:14px;
+  width:23px;
+  text-align:center;
+  color:#f0f0f0;
+  background-color:#9cc6c6;
+  border:1px solid #9cc6c6;
+  padding:1px;
+  cursor:pointer;
+}
+
+.Fri {
+  font-family:verdana;
+  font-size:11px;
+  line-height:14px;
+  width:23px;
+  text-align:center;
+  color:#000000;
+  background-color:#dfd744;
+  border:1px solid #dfd744;
+  padding:1px;
+  cursor:pointer;
+}
+.FriO {
+  font-family:verdana;
+  font-size:9px;
+  line-height:14px;
+  width:23px;
+  text-align:center;
+  color:#f0f0f0;
+  background-color:#ada411;
+  border:1px solid #ada411;
+  padding:1px;
+  cursor:pointer;
+}
+
+.Sat {
+  font-family:verdana;
+  font-size:11px;
+  line-height:14px;
+  width:23px;
+  text-align:center;
+  color:#000000;
+  background-color:#9c96cc;
+  border:1px solid #9c96cc;
+  padding:1px;
+  cursor:pointer;
+}
+.SatO {
+  font-family:verdana;
+  font-size:9px;
+  line-height:14px;
+  width:23px;
+  text-align:center;
+  color:#f0f0f0;
+  background-color:#696399;
+  border:1px solid #696399;
+  padding:1px;
+  cursor:pointer;
+}
+</style>
+<script language="javascript" src="../config/xc2_default.js"></script>
+<script language="javascript">
+xcMods[2].order=1;
+xcArrowPosition=1;
+xcGridWidth=1;
+</script>
+
+<script language="javascript" src="../script/xc2_inpage.js"></script>
+<script language="javascript">
+setLoopWeek("conf", "Sun:SunO", "", 1, 1, "Sun");
+setLoopWeek("conf", "Mon:MonO", "", 1, 1, "Mon");
+setLoopWeek("conf", "Tue:TueO", "", 1, 1, "Tue");
+setLoopWeek("conf", "Wed:WedO", "", 1, 1, "Wed");
+setLoopWeek("conf", "Thu:ThuO", "", 1, 1, "Thu");
+setLoopWeek("conf", "Fri:FriO", "", 1, 1, "Fri");
+setLoopWeek("conf", "Sat:SatO", "", 1, 1, "Sat");
+</script>
+
+</head>
+
+<body>
+
+<p align="center" class="title">Xin Calendar 2 Mods: Special Days</p>
+<p align="center" class="copyright"><a href="http://www.yxscripts.com">yxScripts.com</a></p>
+
+<form method="post">
+<table align="center"><tr><td id="holder1"><input type="text" name="date1" value="" onfocus="showCalendar('conf',this,this,'','holder1',0,30,1)"></td></tr></table>
+</form>
+
+<p class="para">The Special Days mod lets us apply different CSS styles to the dates at a weekly, monthly and yearly base.</p>
+<p class="para">To turn it on:</p>
+<pre style="font-family:courier">
+xcMods=[...
+        {"order": <font color="red">1</font>,  "mod": "Special Days",  "script": "mod_days.js"},
+        ...
+</pre>
+<p class="para">or:</p>
+<pre>
+&lt;script language="javascript" src="../config/xc2_default.js"&gt;&lt;/script&gt;
+&lt;script language="javascript"&gt;
+  xcMods[2].order=1;
+&lt;/script&gt;
+</pre><br>
+
+<p class="para">Now we need to specify some dates and the CSS styles for those dates, and we have:</p>
+<ul>
+<li><p>setLoopWeek(conf_name, css, css_disabled, start_week, week_offset, [week_day]) ... special dates at a weekly base
+<ol>
+<li>conf_name ... a name for the configuration reference</li>
+<li>css ... css class (or two classes separated by a colon) for special dates, if empty, use the ones defined by the [ xcCSSDaySpecial ] array and the [ xcCSSDayOtherSpecial ] array</li>
+<li>css_disabled ... css class (or two classes separated by a colon) for special dates that are disabled, if empty, use the ones defined by the [ xcCSSDaySpecial ] array and the [ xcCSSDayOtherSpecial ] array</li>
+<li>start_week ... number from 1 to 5</li>
+<li>week_offset ... repeating interval</li>
+<li>[week_day] ... any of "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"</li>
+</ol>
+<pre>
+setLoopWeek("special", "", "", 1, 1, "Sun", "Sat") ... Sunday and Saturday on every week
+</pre>
+</p><br></li>
+
+<li><p>setLoopMonth(conf_name, css, css_disabled, start_month, month_offset, [day_in_month]) ... special dates at a monthly base
+<ol>
+<li>conf_name ... a name for the configuration reference</li>
+<li>css ... css class (or two classes separated by a colon) for special dates, if empty, use the ones defined by [ xcCSSDaySpecial ] and [ xcCSSDayOtherSpecial ]</li>
+<li>css_disabled ... css class (or two classes separated by a colon) for special dates that are disabled, if empty, use the ones defined by [ xcCSSDaySpecial ] and [ xcCSSDayOtherSpecial ]</li>
+<li>start_month ... number from 1 to 12</li>
+<li>month_offset ... repeating interval</li>
+<li>[day_in_month] ... any of 1 to 31</li>
+</ol>
+<pre>
+setLoopMonth("special", "", "", <font color="purple">1</font>, <font color="blue">2</font>, <font color="red">1</font>, <font color="green">15</font>) ... The <font color="red">first</font> and <font color="green">fifteenth</font> day on <font color="blue">every other month</font> starting from <font color="purple">Jan</font>.
+</pre>
+</p><br></li>
+
+<li><p>setLoopYear(conf_name, css, css_disabled, date_format, [date_in_year]) ... special dates at a yearly base
+<ol>
+<li>conf_name ... a name for the configuration reference</li>
+<li>css ... css class (or two classes separated by a colon) for special dates, if empty, use the ones defined by [ xcCSSDaySpecial ] and [ xcCSSDayOtherSpecial ]</li>
+<li>css_disabled ... css class (or two classes separated by a colon) for special dates that are disabled, if empty, use the ones defined by [ xcCSSDaySpecial ] and [ xcCSSDayOtherSpecial ]</li>
+<li>date_format ... date format used for [date_in_year], if empty, use the one defined by [ xcDateFormat ]</li>
+<li>[date_in_year] ... any date strings (the year portion will be ignored)</li>
+</ol>
+<pre>
+setLoopYear("special", "", "", "yyyymmdd", "20040101", "20040214", "20040401", "20040701", ...)
+</pre>
+</p><br></li>
+</ul>
+
+<p class="para">Here we have different CSS styles for different weekdays:</p>
+<pre>
+&lt;head&gt;
+...
+&lt;link rel=stylesheet href="../css/xc2_default.css" type="text/css"&gt;
+&lt;style type="text/css"&gt;
+.Sun { background-color:... }
+.SunO { background-color:... }
+.Mon { background-color:... }
+.MonO { background-color:... }
+.Tue { background-color:... }
+.TueO { background-color:... }
+.Wed { background-color:... }
+.WedO { background-color:... }
+.Thu { background-color:... }
+.ThuO { background-color:... }
+.Fri { background-color:... }
+.FriO { background-color:... }
+.Sat { background-color:... }
+.SatO { background-color:... }
+&lt;/style&gt;
+...
+&lt;head&gt;
+</pre>
+<p class="note"><font color="red">Note:</font> The above CSS settings should be defined in the calendar template file (script/xc2_template.html) for Popup-Window calendars.</p>
+<p class="para">and we call the setLoopWeek() for each weekday:</p>
+<pre>
+&lt;head&gt;
+...
+&lt;link rel=stylesheet href="../css/xc2_default.css" type="text/css"&gt;
+&lt;style type="text/css"&gt;
+.Sun { background-color:#c69000; ... }
+...
+&lt;/style&gt;
+...
+&lt;script language="javascript" src="../script/xc2_inpage.js"&gt;&lt;/script&gt;
+&lt;script language="javascript"&gt;
+setLoopWeek("conf", "Sun:SunO", "", 1, 1, "Sun");
+setLoopWeek("conf", "Mon:MonO", "", 1, 1, "Mon");
+setLoopWeek("conf", "Tue:TueO", "", 1, 1, "Tue");
+setLoopWeek("conf", "Wed:WedO", "", 1, 1, "Wed");
+setLoopWeek("conf", "Thu:ThuO", "", 1, 1, "Thu");
+setLoopWeek("conf", "Fri:FriO", "", 1, 1, "Fri");
+setLoopWeek("conf", "Sat:SatO", "", 1, 1, "Sat");
+&lt;/script&gt;
+&lt;head&gt;
+</pre>
+
+<p class="para">[<a href="mod_info.html">Date Info</a>]&nbsp;[<a href="../index.html#mod">Back to index page</a>]</p>
+<p align="center"># # #</p>
+<p>&nbsp;</p>
+</body>
+
+</html>

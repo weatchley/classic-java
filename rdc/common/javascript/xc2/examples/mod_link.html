@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+
+<head>
+<title>Xin Calendar 2 Mods: Date Link</title>
+<link rel=stylesheet href="xc2.css" type="text/css">
+
+<link rel=stylesheet href="../css/xc2_default.css" type="text/css">
+<style type="text/css">
+.head { background-color:#f0f0ff; }
+.foot, .foot_over, .foot_down { width:100px; margin:0px; }
+</style>
+
+<script language="javascript" src="../config/xc2_default.js"></script>
+<script language="javascript">
+xcMods[5].order=1;
+
+xcFootTagSwitch=[0, 0, 0, 0, 0, 0, 0, 0];
+xcShowCurrentDate=0;
+
+xcLinkTargetWindow="link";
+</script>
+
+<script language="javascript" src="../script/xc2_inpage.js"></script>
+<script language="javascript">
+addDateLink("conf", "day_current", "", "", "2004-08-15", "http://www.google.com");
+addDateLink("conf", "day_current", "", "", "2004-08-31", "http://www.yahoo.com");
+</script>
+</head>
+
+<body onload="showCalendar('conf',null,null,'2004-08-01','holder',0,0,0)">
+
+<p align="center" class="title">Xin Calendar 2 Mods: Date Link</p>
+<p align="center" class="copyright"><a href="http://www.yxscripts.com">yxScripts.com</a></p>
+
+<table cellpadding="0" cellspacing="0" border="0" align="right" width="220" height="180">
+<tr valign="top">
+<td id="holder"></td>
+</tr>
+</table>
+
+<p class="para">The Date Link mod will open pages defined for dates.</p>
+<p class="para">To turn it on:</p>
+<pre style="font-family:courier">
+xcMods=[...
+        {"order": <font color="red">1</font>,  "mod": "Date Link",  "script": "mod_link.js"},
+        ...
+</pre>
+<p class="para">or:</p>
+<pre>
+&lt;script language="javascript" src="../config/xc2_default.js"&gt;&lt;/script&gt;
+&lt;script language="javascript"&gt;
+  xcMods[5].order=1;
+&lt;/script&gt;
+</pre><br>
+
+<p class="para">To define page URLs with dates, we have:</p>
+<ul>
+<li><p>addDateLink(conf_name, css, css_disabled, date_format, date, url)
+<ol>
+<li>conf_name ... a name for the configuration reference</li>
+<li>css ... css class (or two classes separated by a colon) for dates with page URL defined, if empty, use the ones defined by [ xcCSSDaySpecial ] and [ xcCSSDayOtherSpecial ] in the config file</li>
+<li>css_disabled ... css class (or two classes separated by a colon) for dates with page URL defined that are disabled, if empty, use the ones defined by [ xcCSSDaySpecial ] and [ xcCSSDayOtherSpecial ]</li>
+<li>date_format ... date format used for following date parameter, if empty, use the one defined by [ xcDateFormat ]</li>
+<li>date ... date string</li>
+<li>url ... page URL</li>
+</ol>
+<pre>
+addDateLink("conf", "day_current", "", "", "2004-08-01", "http://www.google.com");
+addDateLink("conf", "day_current", "", "", "2004-08-31", "http://www.yahoo.com");
+</pre>
+</p><br></li>
+</ul>
+<p class="para">The Date Link mod shares some settings with the Journal mod in the default config file (config/xc2_default.js):</p>
+<pre>
+xcLinkBasePath="";
+xcLinkTargetWindow="_blank";
+xcLinkTargetWindowPara="location=1,menubar=1,resizable=1,scrollbars=1,status=1,titlebar=1,toolbar=1";
+</pre>
+
+<p class="para">[<a href="mod_long.html">Long Date Format</a>]&nbsp;[<a href="../index.html#mod">Back to index page</a>]</p>
+<p align="center"># # #</p>
+<p>&nbsp;</p>
+</body>
+
+</html>

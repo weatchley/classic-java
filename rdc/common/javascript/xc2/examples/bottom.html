@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+<title>Xin Calendar 2 Example: Scrolling arrows on bottom</title>
+<link rel=stylesheet href="xc2.css" type="text/css">
+
+<link rel=stylesheet href="../css/xc2_default.css" type="text/css">
+<style type="text/css">
+.head { background-color:#f0f0ff; }
+.foot { width:100px; }
+.foot_over { width:100px; }
+.foot_down { width:100px; }
+</style>
+
+<script language="javascript" src="../config/xc2_default.js"></script>
+<script language="javascript">
+xcDateFormat="mon. dd (day), yyyy";
+xcArrowPosition=1;
+xcFootTagSwitch=[1, 0, 0, 0, 0, 0, 0, 0];
+</script>
+
+<script language="javascript" src="../script/xc2_inpage.js"></script>
+</head>
+
+<body>
+
+<p align="center" class="title">Xin Calendar 2 Example: Scrolling arrows on bottom</p>
+<p align="center" class="copyright"><a href="http://www.yxscripts.com">yxScripts.com</a></p>
+
+<form method="post">
+
+<table cellpadding="0" cellspacing="0" border="0" align="center">
+<tr valign="top">
+<td id="holder1">&nbsp;</td>
+<td><input type="text" name="date1" value="" onfocus="showCalendar('',this,this,'','holder1',0,30,1)"></td>
+<td id="holder2">&nbsp;</td>
+<td><input type="text" name="date2" value="" onfocus="showCalendar('',this,this,'','holder2',0,30,1)"></td>
+</tr>
+</table>
+
+</form>
+
+<p class="para">This example demonstrates how to twist the calendar settings quickly without making new config files.</p>
+<p class="para">We put the scrolling arrows in the foot link block and there is only one foot link (today) available. The popup trigger is set to the onfocus event so that the user has to pick a date to close the calendar.</p>
+<p class="para">We use a date format of "mon. dd (day), yyyy" in the example.</p>
+<p class="para">To do so, we take the default config (xc2_default.js) and put some lines after that to overwrite the default settings:</p>
+<pre>
+&lt;script language="javascript" src="../config/xc2_default.js"&gt;&lt;/script&gt;
+&lt;script language="javascript"&gt;
+xcDateFormat="mon. dd (day), yyyy";
+xcArrowPosition=1;
+xcFootTagSwitch=[1, 0, 0, 0, 0, 0, 0, 0];
+&lt;/script&gt;
+</pre>
+<p class="para">Of course, we also take the default CSS file (xc2_default.css) and put some lines after it to overwrite some style settings so that we can have a wider foot link:</p>
+<pre>
+&lt;link rel=stylesheet href="../css/xc2_default.css" type="text/css"&gt;
+&lt;style type="text/css"&gt;
+.head { background-color:#f0f0ff; }
+.foot { width:100px; }
+.foot_over { width:100px; }
+.foot_down { width:100px; }
+&lt;/style&gt;
+</pre>
+<p class="para">If we mouse-over the [Today] button, the tooltip of today's date will show up.</p>
+<p class="para">Simply put, this example shows the "usual" way to do minor customization to the default settings:</p>
+<pre>
+&lt;head&gt;
+&lt;link rel=stylesheet href="../css/xc2_default.css" type="text/css"&gt;
+&lt;style type="text/css"&gt;
+... customized CSS settings ...
+&lt;/style&gt;
+
+&lt;script language="javascript" src="../config/xc2_default.js"&gt;&lt;/script&gt;
+&lt;script language="javascript"&gt;
+... customized config settings ...
+&lt;/script&gt;
+
+&lt;script language="javascript" src="../script/xc2_inpage.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+</pre>
+
+<p class="para">For the Popup-Window version, it would be:</p>
+<pre>
+&lt;head&gt;
+&lt;script language="javascript" src="../config/xc2_default.js"&gt;&lt;/script&gt;
+&lt;script language="javascript"&gt;
+... customized config settings ...
+&lt;/script&gt;
+
+&lt;script language="javascript" src="../script/xc2_window.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+</pre>
+<p class="para">and the calendar template:</p>
+<pre>
+&lt;head&gt;
+&lt;link rel=stylesheet href="../css/xc2_default.css" type="text/css"&gt;
+&lt;style type="text/css"&gt;
+... customized CSS settings ...
+&lt;/style&gt;
+
+&lt;script language="javascript" src="xc2_control.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+</pre>
+
+<p class="para">[<a href="image.html">Using images in calendar</a>]&nbsp;[<a href="../index.html#examples">Back to index page</a>]</p>
+<p align="center"># # #</p>
+<p>&nbsp;</p>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!-- Begin Image Frame Start -->
+<form <%= ((useFileUpload) ? "enctype=\"multipart/form-data\" " : "") %>name='main' METHOD='POST' action=>
+
+<input type=hidden name=id value=''>
+<input type=hidden name=command value=''>
+
+<% if ((session.getAttribute("user.name")  == null && !request.getServletPath().equals("/login.jsp")) || !request.getScheme().equals("https")) { %>
+<% //if ((session.getAttribute("user.name")  == null && !request.getServletPath().equals("/login.jsp")) ) { %>
+<script language=javascript><!--
+document.location= 'https://<%= request.getServerName() %>:8443/<%= getServletContext().getServletContextName().toLowerCase()  %>/login.jsp';
+//-->
+</script>
+<% } else {
+       if (!request.getServletPath().equals("/login.jsp")) {
+           isAuthenticated = true;
+       }
+       if (!request.getServletPath().equals("/login.jsp") && !request.getServletPath().equals("/changePass.jsp")) {
+           User sUsr = new User((String) session.getAttribute("user.name"));
+           if (sUsr.hasAdmin()) {
+               isAdmin = true;
+           }
+           if (sUsr.getOrg().equals("SN")) {
+               isState = true;
+           }
+       }
+   } %>
+
+<TABLE WIDTH=805 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+	<TR>
+		<TD ROWSPAN=2 valign=top>
+			<IMG SRC="images/left_<%= ((isAuthenticated) ? ((isAdmin || isState) ?  "admin" : "main") : "login") %>.png" WIDTH=124 HEIGHT=462 usemap="#leftmap" border=0></TD>
+<% if (!request.getServletPath().equals("/login.jsp") && !request.getServletPath().equals("/changePass.jsp")) { %>
+			<map name="leftmap">
+			    <area coords="5,81,97,98" href="home.jsp">
+			    <area coords="5,108,97,137" href="currentdocs.jsp">
+			    <area coords="5,146,97,177" href="archives.jsp">
+			    <area coords="5,185,97,217" href="changePass.jsp">
+			    <area coords="5,226,97,244" href="logout.jsp">
+    <% if (isAdmin || isState) { %>
+			    <area coords="5,255,97,271" href="utilities.jsp">
+    <% } %>
+			</map>
+<% } %>
+		<TD valign=top>
+			<IMG SRC="images/top.png" WIDTH=681 HEIGHT=79 usemap="#topmap" border=0></TD>
+			<map name="topmap">
+			    <area coords="422,7,677,23" href="http://www.ocrwm.doe.gov" target=_top>
+			    <area coords="422,23,677,38" href="http://www.ocrwm.doe.gov" target=_top>
+<% if (!request.getServletPath().equals("/login.jsp") && !request.getServletPath().equals("/changePass.jsp")) { %>
+			    <area coords="180,47,502,68" href="home.jsp">
+<% } %>
+			</map>
+		<TD>
+			<IMG SRC="images/spacer.gif" WIDTH=1 HEIGHT=79></TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=2 valign=top>
+<!-- End Image Frame Start -->

@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+
+<head>
+<title>Xin Calendar 2 Mods: Month/Year List</title>
+<link rel=stylesheet href="xc2.css" type="text/css">
+<link rel=stylesheet href="../css/xc2_default.css" type="text/css">
+
+<script language="javascript" src="../config/xc2_default.js"></script>
+<script language="javascript">
+xcMods[0].order=1;
+
+xcArrowSwitch=[0, 1]; // year off
+xcArrowPosition=1; // in foot block
+</script>
+
+<script language="javascript" src="../script/xc2_inpage.js"></script>
+</head>
+
+<body>
+
+<p align="center" class="title">Xin Calendar 2 Mods: Month/Year List</p>
+<p align="center" class="copyright"><a href="http://www.yxscripts.com">yxScripts.com</a></p>
+
+<form method="post">
+
+<table cellpadding="0" cellspacing="0" border="0" align="center">
+<tr valign="top">
+<td id="holder1">&nbsp;</td>
+<td><input type="text" name="date1" value="" onfocus="showCalendar('',this,this,'','holder1',0,30,1)"></td>
+<td id="holder2">&nbsp;</td>
+<td><input type="text" name="date2" value="" onfocus="showCalendar('',this,this,'','holder2',0,30,1)"></td>
+</tr>
+</table>
+
+</form>
+
+<p class="para">The Month/Year List mod turns the month/year title into two select lists for faster scrolling between months and years.</p>
+<p class="para">To install the Month/Year List mod, we can change the mod order in the default config file:</p>
+<pre>
+xcMods=[{"order": <font color="red">1</font>,  "mod": "Month/Year List",  "script": "mod_list.js"},
+        ...
+</pre>
+<p class="para">or we turn the mod order on in the JS way:</p>
+<pre>
+&lt;script language="javascript" src="../config/xc2_default.js"&gt;&lt;/script&gt;
+&lt;script language="javascript"&gt;
+  xcMods[0].order=1;
+&lt;/script&gt;
+</pre><br>
+
+<p class="para">By default, the CSS style for the select lists is already defined in the default CSS file (css/xc2_default.css) and named as "list":</p>
+<pre>
+.list {
+  font-family:verdana;
+  font-size:12px;
+  color:#000000;
+  background-color:#f0f0f0;
+}
+</pre><br>
+<p class="para">and the Month/Year List mod also has some default settings in the default config file (config/xc2_default.js):</p>
+<pre>
+xcCSSMonthYearList="list"; // "list" defined in css/xc2_default.css
+
+xcMonthListFormat="Month"; // one of "Month", "MONTH", "Mon", "MON" and "mm"
+xcYearListRange=5; // year - range ... year + range
+xcYearListPrevRange="&amp;#171;&amp;nbsp;"; // &#171;&nbsp;1999
+xcYearListNextRange="&amp;nbsp;&amp;#187;" // 2009&nbsp;&#187;
+</pre>
+<p class="para">Since the select lists will occupy more room than a normal month/year title, we usually move the scrolling arrows to the foot link block.</p>
+
+<p class="para">[<a href="mod_date.html">Date Range</a>]&nbsp;[<a href="../index.html#mod">Back to index page</a>]</p>
+<p align="center"># # #</p>
+<p>&nbsp;</p>
+</body>
+
+</html>

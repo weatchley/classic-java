@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+
+<head>
+<title>Xin Calendar 2 Step-by-step: The helper functions</title>
+<link rel=stylesheet href="xc2.css" type="text/css">
+
+<link rel=stylesheet href="../css/xc2_default.css" type="text/css">
+
+<script language="javascript" src="../config/xc2_default.js"></script>
+<script language="javascript">
+xcDateFormat="Mon. dd (day), yyyy";
+</script>
+
+<script language="javascript" src="../script/xc2_inpage.js"></script>
+<script language="javascript">
+function showCheck(date) {
+  var result=checkDate(date);
+  if (result==0) {
+    alert("The date is valid.");
+  }
+  else if (result==1) {
+    alert("The date is not valid.");
+  }
+  else {
+    alert("The date is empty.");
+  }
+}
+
+function showCompare(date1, date2) {
+  var result1=checkDate(date1), result2=checkDate(date2);
+
+  if (result1==2) {
+    alert("The first date is empty.");
+  }
+  else if (result1==1) {
+    alert("The first date is not valid.");
+  }
+  if (result2==2) {
+    alert("The second date is empty.");
+  }
+  else if (result2==1) {
+    alert("The second date is not valid.");
+  }
+
+  if (result1==0 && result2==0) {
+    var result=compareDates(date1,date2);
+    if (result==0) {
+      alert("The first date is equal to the second date.");
+    }
+    else if (result==1) {
+      alert("The first date is later than the second date.");
+    }
+    else {
+      alert("The first date is earlier than the second date.");
+    }
+  }
+}
+</script>
+</head>
+
+<body>
+
+<p align="center" class="title">Xin Calendar 2 Step-by-step: The helper functions</p>
+<p align="center" class="copyright"><a href="http://www.yxscripts.com">yxScripts.com</a></p>
+
+<form method="post">
+
+<table cellpadding="0" cellspacing="0" border="0" align="center">
+<tr valign="top">
+<td id="holder1">&nbsp;</td>
+<td><input type="text" name="date1" value="" onfocus="showCalendar('',this,this,'','holder1',0,30,1)"></td>
+<td id="holder2">&nbsp;</td>
+<td><input type="text" name="date2" value="" onfocus="showCalendar('',this,this,'','holder2',0,30,1)"></td>
+</tr>
+</table><br>
+<div align="center">
+<input type="button" value="Check First Date" onclick="showCheck(this.form.date1.value)">
+<input type="button" value="Check Second Date" onclick="showCheck(this.form.date2.value)">
+<input type="button" value="Compare Dates" onclick="showCompare(this.form.date1.value,this.form.date2.value)">
+<input type="button" value="Show First Date" onclick="alert('['+getDateNumbers(this.form.date1.value).join('] [')+']')">
+</div>
+
+</form>
+
+<p class="para">Say we have a date format of [ Mon. dd (day), yyyy ] which will give us some nice reading dates such as [ Jul. 28 (Wed), 2004 ], but we would have some hard time if we want to validate such a date or compare two dates. Luckily with the helper functions, this is an easy job.</p>
+<p class="para">Xin Calendar 2 not only lets us choose our own date format but also provides us some helper functions to deal with the dates in our own date format.</p>
+<p class="para">The helper functions we currently have are:</p>
+<ul>
+<li><p>toCalendarDate(date)<br>
+... takes a JS date parameter and returns the date string in date format</p></li>
+
+<li><p>toJSDate(date)<br>
+... takes a date string parameter in date format and returns the JS date</p></li>
+
+<li><p>getCurrentDate()<br>
+... returns today's date in date format</p></li>
+
+<li><p>checkDate(date)<br>
+... takes a date string parameter, returns 0 if it's compliant to the date format, or returns 1 if it is not, or returns 2 if it's empty or undefined</p></li>
+
+<li><p>compareDates(date1, date2)<br>
+... takes two date string parameters, returns 0 if they are the same date, or returns 1 if date1 comes later than date2, or returns -1 if date1 comes earlier than date2</p></li>
+
+<li><p>getDateNumbers(date)<br>
+... takes a date string parameter, returns an array of strings for its year, month and day</p></li>
+</ul>
+
+<p class="para">[<a href="func.html">The user functions</a>]&nbsp;[<a href="../index.html#steps">Back to index page</a>]</p>
+<p align="center"># # #</p>
+<p>&nbsp;</p>
+</body>
+
+</html>

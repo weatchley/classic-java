@@ -1,0 +1,21 @@
+div#homemessage {
+/*
+	font-family: Verdana;
+  	color: Navy;
+  	font-size: 8pt;
+  	text-align: left;
+*/
+}
+
+div#homemessage a {
+
+	font-family: Verdana;
+  	color: #0000FF;
+ 	/* font-size: 8pt; */  
+}
+
+div#homemessage a:hover {
+	font-family: Verdana;
+  	color: #0000FF;
+ 	/* font-size: 8pt; */
+}

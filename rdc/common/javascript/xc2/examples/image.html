@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+
+<head>
+<title>Xin Calendar 2 Example: Using images in calendar</title>
+<link rel=stylesheet href="xc2.css" type="text/css">
+
+<link rel=stylesheet href="../css/xc2_image.css" type="text/css">
+
+<script language="javascript" src="../config/xc2_default.js"></script>
+<script language="javascript">
+xcCSSArrowMonthPrev=["","",""];
+xcCSSArrowMonthNext=["","",""];
+
+xcCSSArrowYearPrev=["","",""];
+xcCSSArrowYearNext=["","",""];
+
+xcArrowMonth=["<img src='../images/month_prev.gif' width='15' height='15' border='0' hspace='2'>",
+              "<img src='../images/month_next.gif' width='15' height='15' border='0' hspace='2'>"];
+xcArrowYear=["<img src='../images/year_prev.gif' width='15' height='15' border='0'>",
+             "<img src='../images/year_next.gif' width='15' height='15' border='0'>"];
+
+xcFootTagSwitch=[0, 0, 0, 0, 0, 0, 0, 0];
+</script>
+
+<script language="javascript" src="../script/xc2_inpage.js"></script>
+</head>
+
+<body onload="showCalendar('',null,null,'2004-07-01','holder',0,0,0)">
+
+<p align="center" class="title">Xin Calendar 2 Example: Using images in calendar</p>
+<p align="center" class="copyright"><a href="http://www.yxscripts.com">yxScripts.com</a></p>
+
+<table cellpadding="0" cellspacing="0" border="0" align="right" width="220" height="180">
+<tr valign="top"><td id="holder"></td></tr>
+</table>
+
+<p class="para">Images can be added in two ways, as display content or as background image.</p>
+<p class="para">Scrolling arrows and foot links are good candidates to use images as display contents, and we have the following settings for the scrolling arrows in this example:</p>
+<pre>
+xcArrowMonth=[
+  "&lt;img src='../images/month_prev.gif' width='15' height='15' border='0' hspace='2'&gt;",
+  "&lt;img src='../images/month_next.gif' width='15' height='15' border='0' hspace='2'&gt;"
+];
+xcArrowYear=[
+  "&lt;img src='../images/year_prev.gif' width='15' height='15' border='0'&gt;",
+  "&lt;img src='../images/year_next.gif' width='15' height='15' border='0'&gt;"
+];
+</pre>
+<p class="para">In such a case, we don't really need CSS for the scrolling arrows, so we also have:</p>
+<pre>
+xcCSSArrowMonthPrev=["","",""];
+xcCSSArrowMonthNext=["","",""];
+
+xcCSSArrowYearPrev=["","",""];
+xcCSSArrowYearNext=["","",""];
+</pre>
+<p class="para">The blocks are good candidates to use images as backgrounds, and in this example we simply pick the outer panel:</p>
+<pre>
+.panel {
+  border:1px solid #000000;
+  padding:7px;
+  background:url("../images/pad.gif") no-repeat;
+}
+</pre>
+<p class="para">We can also use background images for scrolling arrows and foot links, and do the mouse-over/mouse-out image swapping. The trick is just to define different background images for their CSS classes used at mouse-over stage and mouse-out stage, and set the display contents to empty strings.</p>
+<p class="para">For example, if we have the following CSS definitions:</p>
+<pre>
+.today_link {
+  width:20px;
+  height:20px;
+  line-height:20px;
+  cursor:pointer;
+  background:url("../images/today.gif") center center no-repeat;
+}
+.today_over {
+  width:20px;
+  height:20px;
+  line-height:20px;
+  cursor:pointer;
+  background:url("../images/today_over.gif") center center no-repeat;
+}
+.today_down {
+  width:20px;
+  height:20px;
+  line-height:20px;
+  cursor:pointer;
+  background:url("../images/today_down.gif") right bottom no-repeat;
+}
+</pre>
+<p class="para">and the following config settings:</p>
+<pre>
+xcCSSFootToday=["today_link", "today_over", "today_down"];
+
+xcFootTags=["", ...];
+</pre>
+<p class="para">then we will have some image swapping effects for the foot link of [ Today ]. We can see this in action in the next example.</p>
+<p class="para">[<a href="foot.html">The foot links</a>]&nbsp;[<a href="../index.html#examples">Back to index page</a>]</p>
+<p align="center"># # #</p>
+<p>&nbsp;</p>
+</body>
+
+</html>

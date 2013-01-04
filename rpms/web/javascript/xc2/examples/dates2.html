@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+
+<head>
+<title>Xin Calendar 2 Examples: Start date & end date II</title>
+<link rel=stylesheet href="xc2.css" type="text/css">
+
+<link rel=stylesheet href="../css/xc2_default.css" type="text/css">
+
+<script language="javascript" src="../config/xc2_default.js"></script>
+
+<script language="javascript" src="../script/xc2_inpage.js"></script>
+<script language="javascript">
+var date_interval=5;
+
+function dateOffset(date,n) {
+  var d=toJSDate(date||"");
+  d.setTime(d.getTime()+86400000*n);
+  return toCalendarDate(d);
+}
+
+function beforeSetDateValue(ref_field, target_field, date) {
+  if (date!="") {
+    var startDate=document.forms[0]["start_date"];
+    var endDate=document.forms[0]["end_date"];
+
+    if (target_field==endDate &&
+        checkDate(getDateValue(startDate))==0 &&
+        compareDates(dateOffset(getDateValue(startDate), date_interval), date)>0) {
+      date=getDateValue(endDate);
+      alert("End Date should be at least "+date_interval+" days later, please select again.");
+    }
+  }
+
+  return date;
+}
+
+function afterSetDateValue(ref_field, target_field, date) {
+  if (date!="") {
+    var startDate=document.forms[0]["start_date"];
+    var endDate=document.forms[0]["end_date"];
+
+    if (target_field==startDate &&
+        checkDate(getDateValue(endDate))==0 &&
+        compareDates(dateOffset(date, date_interval), getDateValue(endDate))>0) {
+      setDateValue(endDate, dateOffset(date, date_interval));
+      alert("End Date was too early, and it's reset to "+date_interval+" days after Start Date.");
+    }
+  }
+}
+
+function checkForm() {
+  var startDate=document.forms[0]["start_date"];
+  var endDate=document.forms[0]["end_date"];
+
+  if (checkDate(getDateValue(startDate))!=0) {
+    alert("Please select a Start Date.");
+  }
+  else if (checkDate(getDateValue(endDate))!=0) {
+    alert("Please select an End Date.");
+  }
+  else if (compareDates(dateOffset(getDateValue(startDate), date_interval), getDateValue(endDate))>0) {
+    alert("End Date should be at least "+date_interval+" days after Start Date.");
+  }
+  else {
+    alert("Dates are good.");
+  }
+}
+</script>
+</head>
+
+<body>
+
+<p align="center" class="title">Xin Calendar 2 Examples: Start date & end date II</p>
+<p align="center" class="copyright"><a href="http://www.yxscripts.com">yxScripts.com</a></p>
+
+<form method="post">
+
+<table cellpadding="0" cellspacing="0" border="0" align="center">
+<tr>
+<td>&nbsp;</td>
+<td>Start Date</td>
+<td>&nbsp;</td>
+<td>End Date</td>
+</tr>
+<tr valign="top">
+<td id="holder1">&nbsp;</td>
+<td><input type="text" name="start_date" value="" onfocus="showCalendar('',this,this,'','holder1',0,30,1)"></td>
+<td id="holder2">&nbsp;</td>
+<td><input type="text" name="end_date" value="" onfocus="showCalendar('',this,this,'','holder2',0,30,1)"></td>
+<td>&nbsp;</td>
+<td><input type="button" value="Check" onclick="checkForm()"></td>
+</tr>
+</table>
+
+</form>
+
+<p class="para">This example is almost identical to the previous one except that we want a minimum 5-day interval between the Start Date and End Date.</p>
+<p class="para">To check whether the End Date is at least five days later than the Start Date, we "copy" a function from the Date Range mod:</p>
+<pre>
+function dateOffset(date,n) {
+  var d=toJSDate(date||"");
+  d.setTime(d.getTime()+86400000*n);
+  return toCalendarDate(d);
+}
+</pre>
+<p class="para">Here we are taking advantage of some helper functions, the dateOffset() function takes a date string parameter, converts it to a Javascript date object (toJSDate), adds the number of days to it (86400000 is the number of ms in a day) and converts it back to the calendar date (toCalendarDate).</p>
+<p class="para">Thus, we can compare dateOffset([ Start Date ], 5) to the [ End Date ] to see whether the End Date is good enough or not without worrying about the date format.</p>
+
+<p class="para">[<a href="dates3.html">Start date & end date III</a>]&nbsp;[<a href="../index.html#examples">Back to index page</a>]</p>
+<p align="center"># # #</p>
+<p>&nbsp;</p>
+</body>
+
+</html>

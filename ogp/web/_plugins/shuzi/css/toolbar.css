@@ -1,0 +1,148 @@
+select { 
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px; border: #000000;
+	border-style: solid; border-top-width: 1px;
+	border-right-width: 1px; border-bottom-width: 1px;
+	border-left-width: 1px;
+	width:100px;
+} 
+
+table.toolbar {
+	background-color: #E1EAEB;
+	background-image: url(../../../graphics/toolbarbg.gif);
+	background-repeat: repeat-x;
+	width: 100%;
+	height: 20px;
+	border: 1px outset #E1EAEB;
+	z-index: 1;
+	float: right;
+}
+
+div#menuButton {
+	float:left;
+	border-top: 1px solid #FFFFFF;
+	border-left: 1px solid #FFFFFF;
+	border-right: 1px outset #FFFFFF;
+	border-bottom: 1px outset #FFFFFF;
+}
+
+div#menuButton td {
+	color: Navy;
+	text-decoration: none;
+	font-family: Verdana;
+	font-size: 10pt;
+}
+
+div#sliderButton {
+	color: Navy;
+	text-decoration: none;
+	font-family: Verdana;
+}
+
+span#menuOverlay {
+	z-index: 2;
+	visibility: hidden;
+	background-color: #E1EAEB;
+	position: absolute;
+	display: block;
+	border: 1px outset #E1EAEB;
+}
+
+span#menuOverlay td {
+	font-family: Verdana;
+	color: Navy;
+	font-size: 8pt;
+	text-decoration: None;
+}
+
+span#menuOverlay a {
+	font-family: Verdana;
+	color: Navy;
+	font-size: 8pt;
+	text-decoration: None;
+}
+
+span#menuOverlay a:hover {
+	font-family: Verdana;
+	color: #0000FF;
+	font-size: 8pt;
+	text-decoration: Underline;
+}
+
+ul#menuList {
+	visibility: hidden;
+	display: none;
+}
+
+span.subMenu {
+	z-index: 3;
+	visibility: hidden;
+	background-color: #E1EAEB;
+	position: absolute;
+	display: block;
+	border: 1px outset #E1EAEB;
+}
+
+span.subMenu a {
+	font-family: Verdana;
+	color: Navy;
+	font-size: 8pt;
+	text-decoration: Underline;
+}
+
+span.subMenu a:hover {
+	font-family: Verdana;
+	color: #0000FF;
+	font-size: 8pt;
+	text-decoration: Underline;
+}
+
+INPUT {
+	background-color: #FFFFFF;
+	background-image: url(../../../graphics/elementbg.gif);
+	background-repeat: repeat-x;
+	font-family: Verdana;
+	color: Navy;
+	font-size: 8pt;
+	border: 1px outset #E1EAEB;
+}
+
+div#clock {
+	font-family: Verdana;
+	color: Navy;
+	font-size: 8pt;
+}
+
+div#showusername {
+	font-family: Verdana;
+	color: Navy;
+	font-size: 8pt;
+}
+
+div#showusername a{
+	font-family: Verdana;
+	color: Navy;
+	font-size: 6pt;
+	text-decoration: None;
+}
+
+div#showusername a:hover{
+	font-family: Verdana;
+	color: Blue;
+	font-size: 6pt;
+	text-decoration: Underline;
+}
+
+div#toolbarSearch a{
+	font-family: Verdana;
+	color: Navy;
+	font-size: 6pt;
+	text-decoration: None;
+}
+
+div#toolbarSearch a:hover{
+	font-family: Verdana;
+	color: Blue;
+	font-size: 6pt;
+	text-decoration: Underline;
+}

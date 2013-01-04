@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/j2ee/dtds/web-app_2_3.dtd">
+
+<web-app>
+
+    <display-name>NACRD</display-name>
+    <description>
+	Native American CRD
+    </description>
+
+    <servlet>
+        <servlet-name>nacrd</servlet-name>
+        <servlet-class>gov.ymp.nacrd</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>doLogin</servlet-name>
+        <servlet-class>gov.ymp.nacrd.doLogin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>doDocument</servlet-name>
+        <servlet-class>gov.ymp.nacrd.doDocument</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>doUser</servlet-name>
+        <servlet-class>gov.ymp.nacrd.doUser</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>doComment</servlet-name>
+        <servlet-class>gov.ymp.nacrd.doComment</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>nacrd</servlet-name>
+        <url-pattern>/nacrd</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>doLogin</servlet-name>
+        <url-pattern>/doLogin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>doDocument</servlet-name>
+        <url-pattern>/doDocument</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>doUser</servlet-name>
+        <url-pattern>/doUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>doComment</servlet-name>
+        <url-pattern>/doComment</url-pattern>
+    </servlet-mapping>
+
+    <env-entry>
+      <env-entry-name>DBServer</env-entry-name>
+      <env-entry-value>ws-atchleyb.ydservices.ymp.gov</env-entry-value>
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>
+    <env-entry>
+      <env-entry-name>csi-db</env-entry-name>
+      <env-entry-value>nacrd</env-entry-value>
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>
+    <env-entry>
+      <env-entry-name>csi-schema</env-entry-name>
+      <env-entry-value>120006076027122028086031039087</env-entry-value>
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>
+    <env-entry>
+      <env-entry-name>csi-k</env-entry-name>
+      <env-entry-value>tgf6tzvy3edh01l7gfcx84i1nmp76fhd</env-entry-value>
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>
+<!--of2ksmu3z925nnwx27xvidcevh5nl3cm-->
+<!--120073089125121003092094-->
+</web-app>

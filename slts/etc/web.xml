@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Development version of web.xml file -->
+
+<web-app>
+
+    <!-- Set up ******************************************** -->
+    <display-name>slts</display-name>
+    <description>
+	Software License Tracking System
+    </description>
+
+    <session-config>
+      <session-timeout>240</session-timeout>
+    </session-config>
+
+    <welcome-file-list>
+      <welcome-file>/index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- Servlet config/mapping ******************************************** -->
+    <servlet>
+        <servlet-name>slts</servlet-name>
+        <servlet-class>gov.ymp.slts</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>slts</servlet-name>
+        <url-pattern>/slts</url-pattern>
+    </servlet-mapping>
+
+    <!--servlet>
+        <servlet-name>doLogin</servlet-name>
+        <servlet-class>gov.ymp.slts.doLogin</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doLogin</servlet-name>
+        <url-pattern>/doLogin</url-pattern>
+    </servlet-mapping-->
+
+    <!--servlet>
+        <servlet-name>doPerson</servlet-name>
+        <servlet-class>gov.ymp.slts.doPerson</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doPerson</servlet-name>
+        <url-pattern>/doPerson</url-pattern>
+    </servlet-mapping-->
+
+    <servlet>
+        <servlet-name>doDomains</servlet-name>
+        <servlet-class>gov.ymp.slts.doDomains</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doDomains</servlet-name>
+        <url-pattern>/doDomains</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doAppIgnore</servlet-name>
+        <servlet-class>gov.ymp.slts.doAppIgnore</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doAppIgnore</servlet-name>
+        <url-pattern>/doAppIgnore</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doServIgnore</servlet-name>
+        <servlet-class>gov.ymp.slts.doServIgnore</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doServIgnore</servlet-name>
+        <url-pattern>/doServIgnore</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doCompIgnore</servlet-name>
+        <servlet-class>gov.ymp.slts.doCompIgnore</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doCompIgnore</servlet-name>
+        <url-pattern>/doCompIgnore</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doSWProduct</servlet-name>
+        <servlet-class>gov.ymp.slts.doSWProduct</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doSWProduct</servlet-name>
+        <url-pattern>/doSWProduct</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doSWTransaction</servlet-name>
+        <servlet-class>gov.ymp.slts.doSWTransaction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doSWTransaction</servlet-name>
+        <url-pattern>/doSWTransaction</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>runInventoryUpdate</servlet-name>
+        <servlet-class>gov.ymp.slts.runInventoryUpdate</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>runInventoryUpdate</servlet-name>
+        <url-pattern>/runInventoryUpdate</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doAppPCReportXLS</servlet-name>
+        <servlet-class>gov.ymp.slts.doAppPCReportXLS</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doAppPCReportXLS</servlet-name>
+        <url-pattern>/doAppPCReportXLS</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doPCSearchReportXLS</servlet-name>
+        <servlet-class>gov.ymp.slts.doPCSearchReportXLS</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doPCSearchReportXLS</servlet-name>
+        <url-pattern>/doPCSearchReportXLS</url-pattern>
+    </servlet-mapping>
+
+
+    <!-- Filter Entries ******************************************** -->
+    <filter>
+        <description>
+            Check for multipart HttpServletRequests and parse the multipart form data so that all
+            regular form fields are available in the parameterMap of the HttpServletRequest and that
+            all form file fields are available as attribute of the HttpServletRequest. The attribute
+            value of a form file field can be an instance of FileItem or FileUploadException.
+        </description>
+        <filter-name>multipartFilter</filter-name>
+        <filter-class>net.balusc.webapp.MultipartFilter</filter-class>
+        <init-param>
+            <description>
+                Sets the maximum file size of the uploaded file in bytes. Set to 0 to indicate an
+                unlimited file size. The example value of 1048576 indicates a maximum file size of
+                1MB. This parameter is not required and can be removed safely.
+            </description>
+            <param-name>maxFileSize</param-name>
+            <param-value>0</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>multipartFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+    <!-- Environment Entries ******************************************** -->
+    <env-entry>
+      <env-entry-name>SystemName</env-entry-name>
+      <env-entry-value>Software License Tracking System</env-entry-value>
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>
+    
+    <env-entry>
+      <env-entry-name>SystemAcronym</env-entry-name>
+      <env-entry-value>slts</env-entry-value>
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>
+    
+    <env-entry>
+      <env-entry-name>AppSchema</env-entry-name>
+      <env-entry-value>slts</env-entry-value>
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>
+    
+</web-app>

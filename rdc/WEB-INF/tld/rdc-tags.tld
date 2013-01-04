@@ -1,0 +1,441 @@
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" 
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+ xsi:schemaLocation=
+    "http://java.sun.com/xml/ns/j2ee 
+    http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+ version="2.0"
+>
+
+
+    <tlib-version>1.0</tlib-version>
+    <jsp-version>2.0</jsp-version>
+    <short-name>rdc</short-name>
+    <uri>gov.ymp.rdc.tags</uri>
+    <description>RDC custom tags</description>
+    
+    <tag>
+
+        <name>colapseString</name>
+
+        <tag-class>gov.ymp.rdc.tags.ColapseString</tag-class>
+
+        <description>This tag makes the body string colapsable.</description>
+
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+              The unique name of this string.
+            </description>
+        </attribute>
+        
+        <attribute>
+            <name>maxLen</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>The maximum length of the string when colapsed.</description>
+        </attribute>
+
+        <attribute>
+            <name>isOpen</name>
+            <required>true</required>
+            <rtexprvalue>false</rtexprvalue>
+            <description>Is the string uncolapsed by default? ("true" or "false").</description>
+        </attribute>
+
+        <attribute>
+            <name>activeText</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>Can the string be clicked to open/close? ("true" (default) or "false").</description>
+        </attribute>
+
+    </tag>
+
+    <tag>
+
+        <name>doSection</name>
+
+        <tag-class>gov.ymp.rdc.tags.DoSection</tag-class>
+
+        <description>This tag makes a colapsable section basedon the passed in title and body contents.</description>
+
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+              The unique name of this string.
+            </description>
+        </attribute>
+        
+        <attribute>
+            <name>title</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>The maximum length of the string when colapsed.</description>
+        </attribute>
+
+        <attribute>
+            <name>isOpen</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>Is the string uncolapsed by default? ("true" or "false").</description>
+        </attribute>
+
+    </tag>
+
+    <tag>
+
+        <name>notProductionWarning</name>
+
+        <tag-class>gov.ymp.rdc.tags.NotProductionWarning</tag-class>
+        
+        <body-content>empty</body-content>
+
+        <description>This tag displays a hidable warning when not on production. 
+        (Requires the Tomcat environment variable "ProductionStatus" to be set to "prod" for production or "dev" for development</description>
+
+        <attribute>
+            <name>size</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+              The font size to use for the warning, default is "150%".
+            </description>
+        </attribute>
+
+        <attribute>
+            <name>width</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+              The width to use for the warning, default is "180".
+            </description>
+        </attribute>
+
+    </tag>
+
+    <tag>
+
+        <name>envDisplay</name>
+
+        <tag-class>gov.ymp.rdc.tags.EnvDisplay</tag-class>
+        
+        <body-content>empty</body-content>
+
+        <description>This tag displays environment information in a colapsed section when not on production. 
+        (Requires the Tomcat environment variable "ProductionStatus" to be set to "prod" for production or "dev" for development</description>
+
+    </tag>
+
+    <tag>
+
+        <name>topMenu</name>
+
+        <tag-class>gov.ymp.rdc.tags.TopMenu</tag-class>
+
+        <description>This tag makes a horizontal menu suitable for the top of a page.</description>
+
+        <attribute>
+            <name>id</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+              The UNID or the Description of the UList containing the menu.
+            </description>
+        </attribute>
+
+        <attribute>
+            <name>showUser</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>Is the use name displayed when authenticated? ("true" or "false").</description>
+        </attribute>
+
+        <attribute>
+            <name>editUser</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>Can the user edit thier information? ("true" or "false").</description>
+        </attribute>
+
+        <attribute>
+            <name>target</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>The target frame to edit the user in (default is _self).</description>
+        </attribute>
+
+        <attribute>
+            <name>cssStyle</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>Class name for desired link style.</description>
+        </attribute>
+
+        <attribute>
+            <name>dbConnection</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>Database Connection (dbConn).</description>
+        </attribute>
+
+    </tag>
+
+    <tag>
+
+        <name>productionTest</name>
+
+        <tag-class>gov.ymp.rdc.tags.ProductionTest</tag-class>
+
+        <description>This tag only displays body when production status matches defined conditions.</description>
+
+        <attribute>
+            <name>onMatch</name>
+            <required>false</required>
+            <rtexprvalue>false</rtexprvalue>
+            <description>True will only succeed when status matches, False will only succeed when status does not match.</description>
+        </attribute>
+
+        <attribute>
+            <name>status</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+              The production status ("prod", "dev", "stage").
+            </description>
+        </attribute>
+
+    </tag>
+
+    <tag>
+
+        <name>isAuthenticated</name>
+
+        <tag-class>gov.ymp.rdc.tags.IsAuthenticated</tag-class>
+
+        <description>This tag only displays body when the user is authenticated.</description>
+
+        <attribute>
+            <name>doOpposite</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>Will make tag display content only when not authenticated. ("true" or "false")</description>
+        </attribute>
+
+    </tag>
+
+    <tag>
+
+        <name>contentPane</name>
+
+        <tag-class>gov.ymp.rdc.tags.ContentPane</tag-class>
+
+        <description>This tag creates an editable content pane.</description>
+        
+        <body-content>empty</body-content>
+
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+              The unique name of this content pane.
+            </description>
+        </attribute>
+
+        <attribute>
+            <name>id</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+              The Description of the Uhash containing the content.
+            </description>
+        </attribute>
+
+        <attribute>
+            <name>dbConnection</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>Database Connection (dbConn).</description>
+        </attribute>
+
+        <attribute>
+            <name>firstOnPage</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>Will insert the required TinyMCE code. ("true" - default or "false")</description>
+        </attribute>
+
+        <attribute>
+            <name>isNewsletter</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>Determines if content is a newsletter.. ("true" or "false" - default)</description>
+        </attribute>
+
+        <attribute>
+            <name>newsletterArchiveLength</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>Length of list of archived newsletters before old ones are hidden (default = 6)</description>
+        </attribute>
+
+        <attribute>
+            <name>newsletterShowDate</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>Determines if newsletter date will show at top of content pane.. ("false" or "true" - default)</description>
+        </attribute>
+
+    </tag>
+
+    <tag>
+
+        <name>leftMenu</name>
+
+        <tag-class>gov.ymp.rdc.tags.LeftMenu</tag-class>
+
+        <description>This tag makes a vertical menu suitable for the left of a page.</description>
+
+        <attribute>
+            <name>id</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+              The UNID or the Description of the UList containing the menu.
+            </description>
+        </attribute>
+
+        <attribute>
+            <name>includeLogin</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>Shall the menu include a login? ("true" or "false")  
+            The loginForm.inc file must be included at the place where the form is needed.</description>
+        </attribute>
+
+        <attribute>
+            <name>cssStyle</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>Class name for desired link style.</description>
+        </attribute>
+
+        <attribute>
+            <name>dbConnection</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>Database Connection (dbConn).</description>
+        </attribute>
+
+        <attribute>
+            <name>menuType</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>Type of menu (standard, submenu, etc...)</description>
+        </attribute>
+
+        <attribute>
+            <name>title</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>title for submenus, etc...</description>
+        </attribute>
+
+        <attribute>
+            <name>isOpen</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>Is sub menu open? ("true" or "false", default to "false")</description>
+        </attribute>
+
+    </tag>
+
+    <tag>
+
+        <name>hasPermission</name>
+
+        <tag-class>gov.ymp.rdc.tags.HasPermission</tag-class>
+
+        <description>This tag only displays body when the user is authenticated and has the given permission.</description>
+
+        <attribute>
+            <name>permission</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>Permission to test for ("8-admin" i.e. "system-permission")</description>
+        </attribute>
+
+    </tag>
+
+    <tag>
+
+        <name>sessionTest</name>
+
+        <tag-class>gov.ymp.rdc.tags.SessionTest</tag-class>
+        
+        <body-content>empty</body-content>
+
+        <description>This tag tests if a session is available and valid</description>
+
+    </tag>
+
+    <tag>
+
+        <name>sessionClose</name>
+
+        <tag-class>gov.ymp.rdc.tags.SessionClose</tag-class>
+        
+        <body-content>empty</body-content>
+
+        <description>This tag closes a session</description>
+
+    </tag>
+
+    <tag>
+
+        <name>cacheControl</name>
+
+        <tag-class>gov.ymp.rdc.tags.CacheControl</tag-class>
+
+        <description>Cache Conrol tag</description>
+
+        <attribute>
+            <name>fileLocation</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>The cache file name including the full path of the location on disk</description>
+        </attribute>
+
+    </tag>
+
+    <tag>
+
+        <name>buildCacheControl</name>
+
+        <tag-class>gov.ymp.rdc.tags.BuildCacheControl</tag-class>
+        
+        <body-content>empty</body-content>
+
+        <description>Build Cache Conrol tag</description>
+
+        <attribute>
+            <name>url</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>The address (URL) of the page to cache</description>
+        </attribute>
+
+        <attribute>
+            <name>fileLocation</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>The cache file name including the full path of the location on disk</description>
+        </attribute>
+
+    </tag>
+
+</taglib>

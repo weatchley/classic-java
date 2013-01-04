@@ -1,0 +1,241 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+
+<head>
+<title>Xin Calendar 2 Mods II</title>
+<link rel=stylesheet href="xc2.css" type="text/css">
+</head>
+
+<body>
+
+<p align="center" class="title">Xin Calendar 2 Mods II</p>
+<p align="center" class="copyright"><a href="http://www.yxscripts.com">yxScripts.com</a></p>
+
+<p class="para">More than one mod can be turned on in the same page, the following table shows the interference between mods:</p>
+<table cellpadding="0" cellspacing="1" border="0" bgcolor="#cccccc" align="center"><tr><td>
+<table cellpadding="6" cellspacing="1" border="0" bgcolor="#ffffff">
+<tr class="section" align="center" align="center">
+<td></td>
+<td>[0]</td>
+<td>[1]</td>
+<td>[2]</td>
+<td>[3]</td>
+<td>[4]</td>
+<td>[5]</td>
+<td>[6]</td>
+<td>[7]</td>
+<td>[8]</td>
+<td>[9]</td>
+</tr>
+
+<tr valign="top" class="odd" align="center">
+<td align="right" nowrap><p>Month/Year List [0]</p></td>
+<td bgcolor="#cccccc"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr valign="top" class="even" align="center">
+<td align="right" nowrap>Date Range [1]</td>
+<td></td>
+<td bgcolor="#cccccc"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr valign="top" class="odd" align="center">
+<td align="right" nowrap>Special Days [2]</td>
+<td></td>
+<td></td>
+<td bgcolor="#cccccc"></td>
+<td>+</td>
+<td></td>
+<td>+</td>
+<td></td>
+<td></td>
+<td>+</td>
+<td></td>
+</tr>
+
+<tr valign="top" class="even" align="center">
+<td align="right" nowrap>Date Info [3]</td>
+<td></td>
+<td></td>
+<td>+</td>
+<td bgcolor="#cccccc"></td>
+<td></td>
+<td>+</td>
+<td></td>
+<td></td>
+<td>+</td>
+<td></td>
+</tr>
+
+<tr valign="top" class="odd" align="center">
+<td align="right" nowrap>Journal [4]</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td bgcolor="#cccccc"></td>
+<td><font color="red">&#215;</font></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr valign="top" class="even" align="center">
+<td align="right" nowrap>Date Link [5]</td>
+<td></td>
+<td></td>
+<td>+</td>
+<td>+</td>
+<td><font color="red">&#215;</font></td>
+<td bgcolor="#cccccc"></td>
+<td></td>
+<td></td>
+<td>=</td>
+<td></td>
+</tr>
+
+<tr valign="top" class="odd" align="center">
+<td align="right" nowrap>Long Date Format [6]</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td bgcolor="#cccccc"></td>
+<td></td>
+<td></td>
+<td><font color="red">&#215;</font></td>
+</tr>
+
+<tr valign="top" class="even" align="center">
+<td align="right" nowrap>Tiles [7]</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td bgcolor="#cccccc"></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr valign="top" class="odd" align="center">
+<td align="right" nowrap>Date Tips [8]</td>
+<td></td>
+<td></td>
+<td>+</td>
+<td>+</td>
+<td></td>
+<td>=</td>
+<td></td>
+<td></td>
+<td bgcolor="#cccccc"></td>
+<td></td>
+</tr>
+
+<tr valign="top" class="odd" align="center">
+<td align="right" nowrap>Time [9]</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><font color="red">&#215;</font></td>
+<td></td>
+<td></td>
+<td bgcolor="#cccccc"></td>
+</tr>
+</table>
+</td></tr></table><br><br>
+<p class="note">+: the mod with a smaller order number takes precedence on styling if the same date is specified by both mods<br><font color="red">&#215;</font>: these two mods won't work with each other<br>=: the Date Link mod should have a smaller order number than the Date Tips mod</p><br>
+
+<p class="para">Thus, if we want to turn on the Date Range mod and Date Tips mod, we can have the following settings in the default config file (config/xc2_default.js):</p>
+<pre style="font-family:courier">
+xcMods=[{"order": 0,  "mod": "Month/Year List",   "script": "mod_list.js"},
+        {"order": <font color="red">1</font>,  "mod": "Date Range",        "script": "mod_date.js"},
+        {"order": 0,  "mod": "Special Days",      "script": "mod_days.js"},
+        {"order": 0,  "mod": "Date Info",         "script": "mod_info.js"},
+        {"order": 0,  "mod": "Journal",           "script": "mod_journal.js"},
+        {"order": 0,  "mod": "Date Link",         "script": "mod_link.js"},
+        {"order": 0,  "mod": "Long Date Format",  "script": "mod_long.js"},
+        {"order": 0,  "mod": "Tiles",             "script": "mod_tiles.js"},
+        {"order": <font color="red">1</font>,  "mod": "Date Tips",         "script": "mod_tips.js"},
+        {"order": 0,  "mod": "Time",              "script": "mod_time.js"}];
+</pre>
+<p class="para">The order numbers won't matter here since the Date Range mod and Date Tips mod have no interference. We can also do it in the JS way:</p>
+<pre>
+&lt;script language="javascript" src="../config/xc2_default.js"&gt;&lt;/script&gt;
+&lt;script language="javascript"&gt;
+  xcMods[1].order=1;
+  xcMods[8].order=1;
+&lt;/script&gt;
+</pre>
+<p class="para">After that, we can put together the settings for these two mods:</p>
+<pre>
+&lt;script language="javascript" src="../script/xc2_inpage.js"&gt;&lt;/script&gt;
+&lt;script language="javascript"&gt;
+... settings for Date Range mod ...
+... settings for Date Tips mod ...
+&lt;/script&gt;
+</pre><br>
+
+<p class="para">If we want to turn on the Special Days mod and the Date Tips mod, and we noticed that the Special Days mod and the Date Tips mod have a + sign in the interference table, which means if a date is defined in both mods, the mod with a smaller order number will set the style for the date. So we would like to have the Date Tips mod to take the precedence:</p>
+<pre style="font-family:courier">
+xcMods=[{"order": 0,  "mod": "Month/Year List",   "script": "mod_list.js"},
+        {"order": 0,  "mod": "Date Range",        "script": "mod_date.js"},
+        {"order": <font color="red">2</font>,  "mod": "Special Days",      "script": "mod_days.js"},
+        {"order": 0,  "mod": "Date Info",         "script": "mod_info.js"},
+        {"order": 0,  "mod": "Journal",           "script": "mod_journal.js"},
+        {"order": 0,  "mod": "Date Link",         "script": "mod_link.js"},
+        {"order": 0,  "mod": "Long Date Format",  "script": "mod_long.js"},
+        {"order": 0,  "mod": "Tiles",             "script": "mod_tiles.js"},
+        {"order": <font color="red">1</font>,  "mod": "Date Tips",         "script": "mod_tips.js"},
+        {"order": 0,  "mod": "Time",              "script": "mod_time.js"}];
+</pre>
+<p class="para">or in the JS way:</p>
+<pre>
+&lt;script language="javascript" src="../config/xc2_default.js"&gt;&lt;/script&gt;
+&lt;script language="javascript"&gt;
+  xcMods[2].order=2;
+  xcMods[8].order=1;
+&lt;/script&gt;
+</pre>
+<p class="para">After that, we can put together the settings for these two mods:</p>
+<pre>
+&lt;script language="javascript" src="../script/xc2_inpage.js"&gt;&lt;/script&gt;
+&lt;script language="javascript"&gt;
+... settings for Special Days mod ...
+... settings for Date Tips mod ...
+&lt;/script&gt;
+</pre><br>
+
+<p class="para">We can turn on all nine mods, but since the Journal mod won't work with the Date Link mod, so actually we can only have up to eight mods working together in one page. Now let's look at a 3-mod combo example.</p>
+
+<p class="para">[<a href="mod_tips_info_days.html">The 3-mod combo</a>]&nbsp;[<a href="../index.html#mod">Back to index page</a>]</p>
+<p align="center"># # #</p>
+<p>&nbsp;</p>
+</body>
+
+</html>

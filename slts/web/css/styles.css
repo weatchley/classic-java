@@ -1,0 +1,12 @@
+body {
+    SCROLLBAR-FACE-COLOR: #6699CC;
+    SCROLLBAR-HIGHLIGHT-COLOR: #ffffff;
+    SCROLLBAR-SHADOW-COLOR: #cccccc;
+    SCROLLBAR-3DLIGHT-COLOR: #669999;
+    SCROLLBAR-ARROW-COLOR: silver;
+    SCROLLBAR-TRACK-COLOR: silver;
+    SCROLLBAR-DARKSHADOW-COLOR: #9999CC;
+	COLOR: #000044;
+	BACKGROUND-COLOR: #ffffff;
+	font-family: Verdana, Arial, Helvetica, sans-serif; font-size: x-small; font-style: normal; font-weight: normal;
+}

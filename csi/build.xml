@@ -1,0 +1,281 @@
+<project name="CSI Library" default="" basedir=".">
+
+
+<!--  ==================== Initial Property setup ==================== -->
+
+<property name="project.name" value="csi" />
+<property file="${user.home}/${project.name}.build.properties" />
+
+<!-- ===================== Task Definitions =========================== -->
+
+<taskdef name="deploy"   classname="org.apache.catalina.ant.DeployTask"/>
+<taskdef name="install"  classname="org.apache.catalina.ant.InstallTask"/>
+<taskdef name="list"     classname="org.apache.catalina.ant.ListTask"/>
+<taskdef name="reload"   classname="org.apache.catalina.ant.ReloadTask"/>
+<taskdef name="undeploy" classname="org.apache.catalina.ant.UndeployTask"/>
+<taskdef name="start"    classname="org.apache.catalina.ant.StartTask"/>
+<taskdef name="stop"     classname="org.apache.catalina.ant.StopTask"/>
+
+<!--  ==================== Property setup ==================== -->
+
+<property name="app.path"      value="/${app.name}"/>
+
+<property name="build.home"    location="${basedir}/build"   />
+<property name="dist.home"     location="${basedir}/dist"    />
+<property name="web.home"      location="${basedir}/web"     />
+<property name="src.home"      location="${basedir}/src"     />
+<property name="lib.home"      location="${basedir}/lib"     />
+<property name="class.root" value="${build.home}/WEB-INF/classes"/>
+
+<!--  ==================== Compilation Control Options ==================== -->
+
+<property name="compile.debug"       value="true"  />
+<property name="compile.deprecation" value="false" />
+<property name="compile.optimize"    value="true"  />
+
+<!-- ==================== Compilation Classpath =========================== -->
+
+<path id="compile.classpath">
+    <fileset dir="${catalina.home}/common/endorsed">
+    <include name="*.jar"/>
+    </fileset>
+
+    <fileset dir="${catalina.home}/common/lib">
+    <include name="*.jar"/>
+    </fileset>
+
+    <fileset dir="${catalina.base}/shared/lib">
+    <include name="*.jar"/>
+    </fileset>
+
+    <fileset dir="${lib.home}">
+    <include name="*.jar"/>
+    </fileset>
+</path>
+
+<!-- ==================== Project Classpath =========================== -->
+<path id="project.class.path">
+    <pathelement location="${class.root}" />
+    <pathelement location="${basedir}/lib"/>
+    <fileset dir="${basedir}/lib">
+        <include name="*.jar"/>
+    </fileset>
+</path>
+
+<!-- ==================== All Target ====================================== -->
+<target name="all" depends="clean,compile" />
+
+<!-- ==================== List Target ====================================== -->
+<target name="list">
+    <list url="${manager.url}" username="${manager.username}" password="${manager.password}" />
+</target>
+
+<!-- ==================== Clean Target ====================================== -->
+<target name="clean">
+    <delete dir="${build.home}"/>
+    <delete dir="${dist.home}"/>
+</target>
+
+<!-- ==================== Deploy Target ====================================== -->
+<target name="deploy" depends="install" />
+
+<!-- ==================== Install Target ====================================== -->
+<target name="install" depends="compile,dist">
+    <deploy url="${manager.url}" username="${manager.username}" password="${manager.password}" path="${app.path}" war="${dist.home}/${app.name}.war" update="true" />
+</target>
+
+<!-- ==================== Remove Target ====================================== -->
+<target name="remove">
+    <undeploy url="${manager.url}" username="${manager.username}" password="${manager.password}" path="${app.path}"/>
+</target>
+
+<!-- ==================== Dist Target ====================================== -->
+<target name="dist" depends="compile,jar,javadoc">
+    <mkdir dir="${dist.home}"/>
+    <mkdir dir="${build.home}/lib"/>
+    <copy todir="${build.home}/lib">
+        <fileset dir="${dist.home}/lib" />
+    </copy>
+    <mkdir dir="${build.home}/docs"/>
+    <copy todir="${build.home}/docs">
+        <fileset dir="${dist.home}/docs" />
+    </copy>
+    <jar jarfile="${dist.home}/${app.name}.war" basedir="${build.home}"/>
+</target>
+
+<!-- ==================== Javadoc Target ================================== -->
+<target name="javadoc" depends="compile"
+   description="Create Javadoc API documentation">
+    <mkdir dir="${dist.home}/docs/api"/>
+
+    <javadoc sourcepath="${basedir}/src" destdir="${dist.home}/docs/api" packagenames="*">
+        <classpath refid="compile.classpath"/>
+    </javadoc>
+
+    <javadoc doclet="com.tarsec.javadoc.pdfdoclet.PDFDoclet"
+        docletpath="./jar/pdfdoclet-1.0.0-all.jar"
+        packagenames="*"
+        overview="./docs/csi-overview.htm"
+        additionalparam="-pdf ${dist.home}/docs/csi-javadocs.pdf -config ./jar/pdfdoclet.properties"
+        private="no">
+        <sourcepath>
+            <pathelement location="./src"/>
+        </sourcepath>
+    </javadoc>
+
+</target>
+
+<!-- ==================== Jar Target ================================== -->
+<target name="jar" depends="compile">
+    <mkdir dir="${dist.home}/lib"/>
+    <jar destfile="${dist.home}/lib/${app.name}.jar" basedir="${build.home}/WEB-INF/classes"/>
+</target>
+
+<!-- ==================== Compile Target ====================================== -->
+<target name="compile" depends="prepare">
+    <javac srcdir="${src.home}"
+          destdir="${build.home}/WEB-INF/classes"
+            debug="${compile.debug}"
+      deprecation="${compile.deprecation}"
+         optimize="${compile.optimize}">
+        <classpath refid="compile.classpath"/>
+    </javac>
+    <copy  todir="${build.home}/WEB-INF/classes">
+        <fileset dir="${src.home}" includes="**/*.properties"/>
+    	<fileset dir="${src.home}" includes="**/*.xml"/>
+    </copy>
+</target>
+
+<!-- ==================== Prepare Target ====================================== -->
+<target name="prepare">
+
+    <!-- Create build directories as needed -->
+    <mkdir dir="${build.home}"/>
+    <mkdir dir="${build.home}/WEB-INF"/>
+    <mkdir dir="${build.home}/WEB-INF/lib"/>
+    <mkdir dir="${build.home}/WEB-INF/classes"/>
+
+    <!-- Copy static content of this web application -->
+
+    <copy todir="${build.home}">
+        <fileset dir="${web.home}" />
+    </copy>
+
+    <copy todir="${build.home}/WEB-INF">
+        <fileset dir="${basedir}/etc" />
+    </copy>
+
+    <copy todir="${build.home}/WEB-INF/lib">
+        <fileset dir="${lib.home}" />
+    </copy>
+
+</target>
+
+	<!-- ==================== Environmet Variable Reader Target ================================== -->	
+		
+	<target name="run-OSEnvironment" depends="compile,compile-test">
+	    <java fork="true" classname="gov.ymp.csi.misc.OSEnvironment" classpathref="project.class.path">
+	        <classpath refid="project.class.path"/>
+	        <arg value=""/>
+	    </java>
+	</target>
+	
+	<!-- ==================== CSI/LDAP Synchronization Target ================================== -->
+
+	<target name="run-CLSynch" depends="compile,compile-test">
+	    <java fork="true" classname="gov.ymp.csiTest.people.CLSynch" classpathref="project.class.path">
+	        <classpath refid="project.class.path"/>
+	        <arg value="ydservices"/>
+	    </java>
+		<!--java fork="true" classname="gov.ymp.csiTest.people.CLSynch" classpathref="project.class.path">
+			<classpath refid="project.class.path"/>
+			<arg value="rw.doe.gov"/>
+	    </java-->
+	</target>
+	
+	<!-- ==================== Mock Test Targets ================================== -->
+	
+	<target name="run-MockCLSynch" depends="compile,compile-test">
+	    <java fork="true" classname="gov.ymp.csiTest.people.CLSynch" classpathref="project.class.path">
+			<classpath refid="project.class.path"/>
+			<arg value="rw.doe.gov"/>
+	    </java>
+	</target>
+
+	<!--target name="run-AddressResolver" depends="compile,compile-test">
+		    <java fork="true" classname="gov.ymp.csi.misc.AddressResolver" classpathref="project.class.path">
+				<classpath refid="project.class.path"/>
+		    	<arg value="rw.doe.gov"/>
+		    </java>
+	</target-->
+	
+	<target name="run-MockCSIUtils" depends="compile,compile-test">
+	    <java fork="true" classname="gov.ymp.csiTest.people.MockCSIUtils" classpathref="project.class.path">
+	        <classpath refid="project.class.path"/>
+	        <arg value=""/>
+	    </java>
+	</target>
+
+	<target name="run-MockLDAPUtilsSpring" depends="compile">
+	    <java fork="true" classname="gov.ymp.csiTest.spring.ldap.MockLDAPUtilsSpring" classpathref="project.class.path">
+	        <classpath refid="project.class.path"/>
+	        <arg value=""/>
+	</java>
+	</target>
+
+<!-- ==================== Notes CSI Synchronization Target ================================== -->
+			
+	<target name="run-NotesSynch" depends="clean,compile,compile-test">
+		    <java fork="true" classname="gov.ymp.csiTest.people.NotesSynch" classpathref="project.class.path">
+		        <classpath refid="project.class.path"/>
+		        <arg value=""/>
+		    </java>
+	</target>
+	
+	<!-- ==================== Junit Related Targets ================================== -->
+
+	<target name="compile-test" depends="compile"
+	   description="Compile Java sources for jUnit testing">
+	    <mkdir dir="${build.home}/WEB-INF/classes"/>
+	    <javac srcdir="src/gov/ymp/csiTest"
+	          destdir="${build.home}/WEB-INF/classes"
+	          debug="${compile.debug}"
+	          deprecation="${compile.deprecation}"
+	          optimize="${compile.optimize}">
+	        <classpath refid="compile.classpath"/>
+	    </javac>
+	</target>
+
+	<target name="test-junit" depends="compile-test">
+	        <delete dir="${reports}" failonerror="false" />
+			<mkdir dir="${reports}"/>
+			<mkdir dir="${reports}/raw/"/>
+	    	<mkdir dir="${reports}/html/"/>
+
+		<junit printsummary="yes" haltonfailure="no"
+			showoutput="yes"
+			failureproperty="tests.failed">
+			 <classpath refid="compile.classpath" />
+			  <batchtest fork="yes" todir="${reports}/raw/">
+		  	<formatter type="xml"/>
+		    <fileset dir="${src.home}">
+		      <include name="**/*Test*.java"/>
+	            <exclude name="**/CsiDBTest.java" />
+	            <exclude name="**/CsiTest.java" />
+	        	<exclude name="**/csiPersonTest.java" />
+	            <exclude name="**/FormatTestFrame.java" />
+		    </fileset>
+		  </batchtest>
+		</junit>
+		    <junitreport todir="${reports}">
+					  <fileset dir="${reports}/raw/">
+					    <include name="TEST-*.xml"/>
+					  </fileset>
+					  <report format="frames" todir="${reports}\html\"/>
+			</junitreport>
+	        <fail if="tests.failed" message="Some unit tests failed" />
+	</target>
+
+
+</project>
+

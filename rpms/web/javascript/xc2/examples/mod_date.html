@@ -1,0 +1,236 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+
+<head>
+<title>Xin Calendar 2 Mods: Date Range</title>
+<link rel=stylesheet href="xc2.css" type="text/css">
+
+<link rel=stylesheet href="../css/xc2_default.css" type="text/css">
+
+<script language="javascript" src="../config/xc2_default.js"></script>
+<script language="javascript">
+xcMods[1].order=1;
+</script>
+
+<script language="javascript" src="../script/xc2_inpage.js"></script>
+<script language="javascript">
+setRange("1", dayOffset(getWeekBegin(getMonthBegin("",-1),1),1), getWeekEnd(getMonthEnd("",1),-1));
+setWeekDays("2", 0, 1, 1, 1, 1, 1, 0);
+</script>
+</head>
+
+<body>
+
+<p align="center" class="title">Xin Calendar 2 Mods: Date Range</p>
+<p align="center" class="copyright"><a href="http://www.yxscripts.com">yxScripts.com</a></p>
+
+<form method="post">
+
+<table cellpadding="0" cellspacing="0" border="0" align="center">
+<tr valign="top">
+<td id="holder1">&nbsp;</td>
+<td><input type="text" name="date1" value="" onfocus="showCalendar('1',this,this,'','holder1',0,30,1)"></td>
+<td id="holder2">&nbsp;</td>
+<td><input type="text" name="date2" value="" onfocus="showCalendar('2',this,this,'','holder2',0,30,1)"></td>
+</tr>
+</table>
+
+</form>
+
+<p class="para">The Date Range mod allows us to:</p>
+<ul>
+<li>set up an absolute date range</li>
+<li>enable/disable date ranges within the absolute date range</li>
+<li>enable/disable weekends and working days</li>
+<li>enable/disable dates</li>
+</ul>
+<p class="para">It also provides some helper functions to specify date offsets.</p>
+<p class="para">Like what we did for the Month/Year List mod, we can either change the mod order in the default config file:</p>
+<pre style="font-family:courier">
+xcMods=[{"order": 0,  "mod": "Month/Year List",   "script": "mod_list.js"},
+        {"order": <font color="red">1</font>,  "mod": "Date Range",        "script": "mod_date.js"},
+        ...
+</pre>
+<p class="para">or we turn the mod order on in the JS way:</p>
+<pre>
+&lt;script language="javascript" src="../config/xc2_default.js"&gt;&lt;/script&gt;
+&lt;script language="javascript"&gt;
+  xcMods[1].order=1;
+&lt;/script&gt;
+</pre><br>
+
+<p class="para">Now we need to set up the date ranges and dates. To do so, the Date Range mod provides us some function calls:</p>
+
+<ul>
+<li><p>setRange("conf_name", "start_date", "end_date") ... to define the absolute date range
+<ol>
+<li>conf_name ... a name for the configuration reference</li>
+<li>start_date ... a date string for the beginning of date range, or an empty string for an open end</li>
+<li>end_date ... a date string for the end of date range, or an empty string for an open end</li>
+</ol>
+<pre>
+setRange("conf", "2004-07-01", "");
+</pre>
+</p></li>
+
+<li><p>enableDates("conf_name", "date_list") ... to enable some dates
+<ol>
+<li>conf_name ... a name for the configuration reference</li>
+<li>date_list ... a list of dates separated by characters that are not used as separators in the date format</li>
+</ol>
+<pre>
+enableDates("conf", "2004-08-01, 2004-12-31");
+</pre>
+</p></li>
+
+<li><p>disableDates("conf_name", "date_list") ... to disable some dates
+<ol>
+<li>conf_name ... a name for the configuration reference</li>
+<li>date_list ... a list of dates separated by characters that are not used as separators in the date format</li>
+</ol>
+<pre>
+disableDates("conf", "2004-01-01, 2004-03-31");
+</pre>
+</p></li>
+
+<li><p>setWeekDays("conf_name", Sun, Mon, Tue, Wed, Thu, Fri, Sat) ... to enable/disable individual weekdays
+<ol>
+<li>conf_name ... a name for the configuration reference</li>
+<li>Sun ... 1: Sunday enabled, 0: Sunday disabled</li>
+<li>Mon ... 1: Monday enabled, 0: Monday disabled</li>
+<li>Tue ... 1: Tuesday enabled, 0: Tuesday disabled</li>
+<li>Wed ... 1: Wednesday enabled, 0: Wednesday disabled</li>
+<li>Thu ... 1: Thursday enabled, 0: Thursday disabled</li>
+<li>Fri ... 1: Friday enabled, 0: Friday disabled</li>
+<li>Sat ... 1: Saturday enabled, 0: Saturday disabled</li>
+</ol>
+<pre>
+setWeekDays("conf", 0, 1, 1, 1, 1, 1, 0);
+</pre>
+<pre>
+Note: If xcWeekStart is set to 1, it becomes setWeekDays("conf_name", Mon, Tue, Wed, Thu, Fri, Sat, Sun)
+</pre>
+</p></li>
+
+<li><p>enableRange("conf_name", "start_date", "end_date") ... to enable a date range
+<ol>
+<li>conf_name ... a name for the configuration reference</li>
+<li>start_date ... a date string for the beginning of date range, or an empty string for an open end</li>
+<li>end_date ... a date string for the end of date range, or an empty string for an open end</li>
+</ol>
+<pre>
+enableRange("conf", "2005-01-01", "");
+</pre>
+</p></li>
+
+<li><p>disableRange("conf_name", "start_date", "end_date") ... to disable a date range
+<ol>
+<li>conf_name ... a name for the configuration reference</li>
+<li>start_date ... a date string for the beginning of date range, or an empty string for an open end</li>
+<li>end_date ... a date string for the end of date range, or an empty string for an open end</li>
+</ol>
+<pre>
+disableRange("conf", "", "2006-12-31");
+</pre>
+</p></li>
+</ul><br>
+
+<p class="para">The enableDates(), disableDates(), enableRange() and disableRange() can be called many times until they form the desired settings. When a calendar with date and date range settings shows up, for each date in the calendar the following checkings happen in order:</p>
+<ol>
+<li>if there is an absolute date range defined and the date is out off range, disable the date and return, otherwise</li>
+<li>if the date is enabled/disabled by a enableDates()/disableDates() call, enable/disable it and return, otherwise</li>
+<li>if the date is enabled/disabled by a setWeekDays()/enableRange()/disableRange() call, enable/disable it and return, otherwise</li>
+<li>enable the date and return</li>
+</ol>
+
+<p class="para">As we can see, a checking step won't happen if its previous step has already enabled or disabled a date.</p>
+<p class="para">For enableDates() and disableDates(), they have the same priority in the checking order, but for a given date, the last call executed overwrites the previous calls. For example, if we have the following settings:</p>
+<pre>
+disableDates("conf", "2004-07-01, <b>2004-07-15</b>, 2004-07-31");
+enableDates("conf", "2004-06-15, <b>2004-07-15</b>, 2004-08-15");
+</pre>
+<p class="para">then a calendar with reference to the configuration of "conf" will enable the date of "2004-07-15". The reason is that, as "2004-07-15" is defined twice but the enableDates() call comes after the disableDates() call and thus overwrites the previous setting.</p>
+<p class="para">Likewise, setWeekDays(), enableRange() and disableRange() have the same priority in the checking order, and for a given date, the last call executed overwrites the previous calls.</p>
+
+<br><p class="para">Many times we might want to specify the dates and date ranges by date offsets instead of static dates, for example, 10 days after today, within this week and the following week, or 5 days before the end of month. To address this issue, the Date Range mod provides some helper functions:</p>
+
+<ul>
+<li><p>dayOffset("date_base", number_of_days)<br>
+... return a date string that is number_of_days away from the given date_base</p></li>
+
+<li><p>daysBefore(number_of_days)<br>
+... return a date string that is number_of_days before today</p></li>
+
+<li><p>daysAfter(number_of_days)<br>
+... return a date string that is number_of_days after today</p></li>
+
+<li><p>getWeekBegin("date_base", number_of_weeks)<br>
+... return the first date of a week that is number_of_weeks away from the week of the given date_base</p></li>
+
+<li><p>getWeekEnd("date_base", number_of_weeks)<br>
+... return the last date of a week that is number_of_weeks away from the week of the given date_base</p></li>
+
+<li><p>getMonthBegin("date_base", number_of_months)<br>
+... return the first date of a month that is number_of_months away from the month of the given date_base</p></li>
+
+<li><p>getMonthEnd("date_base", number_of_months)<br>
+... return the last date of a month that is number_of_months away from the month of the given date_base</p></li>
+
+<li><p>getYearBegin(number_of_years)<br>
+... return the first date of a year that is number_of_years away from the current year</p></li>
+
+<li><p>getYearEnd(number_of_years)<br>
+... return the last date of a year that is number_of_years away from the current year</p></li>
+</ul>
+
+<p class="para">So, for the examples just mentioned, the "10 days after today" would be:</p>
+<pre>
+daysAfter(10)
+</pre>
+<p class="para">"within this week and the following week" would be a date range of:</p>
+<pre>
+getWeekBegin("",0), getWeekEnd("",1)
+</pre>
+<p class="para">and "5 days before the end of month" would be:</p>
+<pre>
+dayOffset(getMonthEnd("",0), -5)
+</pre>
+
+<br><p class="para">The date and date range calls with the same configuration reference name will be grouped together and applied to calendars that refer to it. If we still remember the syntax of the showCalendar() call, we would know that the first parameter is the configuration reference name, as shown below:</p>
+<pre>
+showCalendar("conf_name", target_field, reference_field, "default_date", "holder_id", dx, dy, mode);
+</pre>
+
+<p class="para">In this example, we have a date range of [the second Monday of the previous month, the week before the last week of the next month] for the first date field:</p>
+<pre>
+&lt;script language="javascript" src="../script/xc2_inpage.js"&gt;&lt;/script&gt;
+&lt;script language="javascript"&gt;
+<font color="red">setRange("<b>1</b>", dayOffset(getWeekBegin(getMonthBegin("",-1),1),1), getWeekEnd(getMonthEnd("",1),-1));</font>
+setWeekDays("2", ...);
+&lt;/script&gt;
+
+...
+
+&lt;input ... onfocus="showCalendar('<b>1</b>',this,this,'','holder1',0,30,1)"&gt;
+</pre>
+<p class="para">In order to get the second Monday of the previous month, we first get the first day (and also the fisrt week of course) of previous month with [ getMonthBegin("",-1) ], then we get the second week of the previous month with [ getWeekBegin(prev_month,1) ], and finally we get the second day (assuming that Monday is the second day of a week) from the second week of previous month with [ dayOffset(second_week_of_prev_month,1) ].</p>
+<p class="para">For the second date field, we simply disable the weekends:</p>
+<pre>
+&lt;script language="javascript" src="../script/xc2_inpage.js"&gt;&lt;/script&gt;
+&lt;script language="javascript"&gt;
+setRange("1", ...);
+<font color="red">setWeekDays("<b>2</b>", 0, 1, 1, 1, 1, 1, 0);</font>
+&lt;/script&gt;
+
+...
+
+&lt;input ... onfocus="showCalendar('<b>2</b>',this,this,'','holder2',0,30,1)"&gt;
+</pre>
+
+
+<p class="para">[<a href="mod_days.html">Special Days</a>]&nbsp;[<a href="../index.html#mod">Back to index page</a>]</p>
+<p align="center"># # #</p>
+<p>&nbsp;</p>
+</body>
+
+</html>

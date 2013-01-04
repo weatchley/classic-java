@@ -1,0 +1,168 @@
+      body {
+		font-family: Verdana;
+		color: #000000;
+		font-size: 12pt;
+        background-color: #FFFFFF;
+		margin-left: 0;
+		margin-top: 0;
+		margin-right: 0; 
+		margin-bottom: 0;
+       }
+
+	   body a {
+		color:blue;
+		font-family: Verdana;
+		text-decoration: None;
+		font-weight:100;
+	    }
+
+	   body a:hover {
+		color:purple;
+		font-family: Verdana;
+	   }
+
+	   div#signin{
+		background-color: #FFFFFF;
+	   }
+
+	   td.headerlogo{
+	   	width: 205px; height: 44px;
+ 		background-image: url('../graphics/header-logo-5.gif');
+ 		background-repeat: no-repeat; 
+	   }
+	   
+	   td.headercorners{
+	   	width: 21px; height: 44px;
+ 		background-image: url('../graphics/header-corners-5.gif');
+ 		background-repeat: no-repeat; 
+	   }	   
+
+	   td.headerbg {
+	     background-image: url('../graphics/header-bg-5.gif');
+		 background-repeat: repeat-x;
+		 color:#FFFFFF;
+	   }
+	   
+	   
+	   td.ppanel {
+  		/*
+  		font-family: Verdana;
+  		color: #999999;
+		*/
+		vertical-align:top;
+	   }
+	   
+	   
+	   td.tl{
+	   	width: 20px; height: 20px;
+ 		background-image: url('../graphics/tl-5.gif');
+ 		background-repeat: no-repeat; 
+	   }
+	   
+	   	td.tr{
+	   	width: 20px; height: 20px;
+ 		background-image: url('../graphics/tr-5.gif');
+ 		background-repeat: no-repeat; 
+	   }
+
+	   	td.bl{
+	   	width: 20px; height: 20px;
+ 		background-image: url('../graphics/bl-5.gif');
+ 		background-repeat: no-repeat; 
+	   }
+
+	   	td.br{
+	   	width: 20px; height: 20px;
+ 		background-image: url('../graphics/br-5.gif');
+ 		background-repeat: no-repeat; 
+	   }
+	   
+	   td.pbgt{
+	    background-image: url('../graphics/tborder-5.gif');
+		background-repeat: repeat-x; 
+		font-weight:600;
+		color:#FFFFFF;
+	   }
+	   	   
+	   td.pbgl{
+	   	 background-image: url('../graphics/lborder-5.gif');
+		 background-repeat: repeat-y;
+	   }
+	   
+	   td.pbgr{
+	   	 background-image: url('../graphics/rborder-5.gif');
+		 background-repeat: repeat-y;
+	   }
+	   	   
+	   td.pbgb{
+	   	 background-image: url('../graphics/bborder-5.gif');
+		 background-repeat: repeat-x;
+		 background-color:transparent;
+	   }
+	      
+	label
+	{
+	width: 4em;
+	float: left;
+	text-align: right;
+	/*
+	margin-right: 0.5em;
+	*/
+	display: block
+	}
+	
+	textarea
+	{
+	color: #ffffff;
+	background: #666666;
+	border: 1px solid #999999;
+	}
+	
+	input
+	{
+	color: #ffffff;
+	background: #cccccc;
+	border: 1px solid #999999;
+	cursor: pointer;
+	cursor: hand;	
+	}
+	
+	input.checkbox{
+	border: 0px solid #999999;
+	cursor: pointer;
+	cursor: hand;
+	}
+	
+	.submit input
+	{
+	color: #000;
+	background: #cccccc;
+	border: 2px outset #d7b9c9;
+	}
+	
+	input.btn {
+  	font: bold 84%'trebuchet ms',helvetica,sans-serif;
+  	/*
+	background-color: #fed;
+	color:#050;
+  	*/
+	}
+
+	
+	fieldset
+	{
+	border: 1px solid #cccccc;
+	padding: 1em;
+	/* width: 20em; */
+	}
+	
+	legend
+	{
+	color: #000000;
+	background: #ffffff;
+	border: 1px solid #999999;
+	padding: 2px 6px;
+	/* font-size: 10pt; */	
+	} 
+
+	   

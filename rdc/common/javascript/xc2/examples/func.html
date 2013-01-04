@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+
+<head>
+<title>Xin Calendar 2 Step-by-step: The user functions</title>
+<link rel=stylesheet href="xc2.css" type="text/css">
+
+<link rel=stylesheet href="../css/xc2_default.css" type="text/css">
+
+<script language="javascript" src="../config/xc2_default.js"></script>
+
+<script language="javascript" src="../script/xc2_inpage.js"></script>
+<script language="javascript">
+function getDateValue(id) {
+  return document.getElementById(id).innerHTML;
+}
+function setDateValue(id, date) {
+  document.getElementById(id).innerHTML=date;
+}
+</script>
+</head>
+
+<body>
+
+<p align="center" class="title">Xin Calendar 2 Step-by-step: The user functions</p>
+<p align="center" class="copyright"><a href="http://www.yxscripts.com">yxScripts.com</a></p>
+
+<p class="para">Please pick a date: [ <span title="Click me" style="cursor:pointer;" id="holder" onclick="showCalendar('', 'holder', 'holder', '', 'holder', -55, 20, 1)">2004-08-01</span> ]</p>
+<p class="para">Besides the helper functions, Xin Calendar 2 also provides some user functions that can be overwritten for customization purposes:</p>
+<ul>
+<li>beforeGetDateValue(ref_field, target_field) ... a void function, executes before the calendar gets the value of ref_field.</li>
+<ol>
+<li>ref_field ... defined in the showCalendar() call, the date field whose value is the date reference for the calendar</li>
+<li>target_field ... defined in the showCalendar() call, the date field whose value will be set by the calendar</li>
+</ol><br>
+<li>afterGetDateValue(ref_field, target_field, date) ... simply returns the [ date ] given, executes after the calendar gets the value of ref_field.</li>
+<ol>
+<li>ref_field ... same as above</li>
+<li>target_field ... same as above</li>
+<li>date ... the field value from the ref_field</li>
+</ol><br>
+<li>getDateValue(field) ... returns [ field.value ], the calendar calls it to get the value of the given field object.<br><br></li>
+<li>beforeSetDateValue(ref_field, target_field, date) ... returns the [ date ], executes before the calendar sets the value for target_field.<br><br></li>
+<li>afterSetDateValue(ref_field, target_field, date) ... a void function, executes after the calendar sets the value for target_field.<br><br></li>
+<li>setDateValue(field, date) ... simply executes [ field.value = date ], the calendar calls it to set the value for target_field.</li>
+</ul><br>
+
+<p class="para">For example, we want to alert the date picked instead of updating a date field, then we can have:</p>
+<pre>
+&lt;script language="javascript" src="../script/xc2_inpage.js"&gt;&lt;/script&gt;
+&lt;script language="javascript"&gt;
+function setDateValue(field, date) {
+  alert("You have picked: "+date);
+}
+&lt;/script&gt;
+</pre><br>
+
+<p class="para">We can also pass a function handler as the [ target_field ] parameter in the showCalendar() call and execute that function with the date picked as the parameter:</p>
+<pre>
+...
+&lt;script language="javascript"&gt;
+function setDateValue(func, date) {
+  func(date);
+}
+&lt;/script&gt;
+...
+&lt;input ... onfocus="showCalendar('', <font color="red">alert</font>, this, '', 'holder', 0, 0, 1)"&gt;
+</pre><br>
+
+<p class="para">Likewise, we can customize the getDateValue() function to change the way a date reference is read. Thus, if we have the following setup, we can associate a calendar to a SPAN tag just like the one on page top:</p>
+<pre>
+function getDateValue(id) {
+  return document.getElementById(id).innerHTML;
+}
+function setDateValue(id, date) {
+  document.getElementById(id).innerHTML=date;
+}
+...
+&lt;SPAN ID="cal_tag" onclick="showCalendar('', 'cal_tag', 'cal_tag', ..., 1)"&gt;2004-08-01&lt;/SPAN&gt;
+</pre>
+
+<p class="para">[<a href="bottom.html">Scrolling arrows on bottom</a>]&nbsp;[<a href="../index.html#steps">Back to index page</a>]</p>
+<p align="center"># # #</p>
+<p>&nbsp;</p>
+</body>
+
+</html>

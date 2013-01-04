@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Development version of web.xml file -->
+
+<web-app>
+
+    <!-- Set up ******************************************** -->
+    <display-name>rdc</display-name>
+    <description>
+	Reusable Dynamic Components
+    </description>
+
+    <session-config>
+      <session-timeout>480</session-timeout>
+    </session-config>
+
+    <welcome-file-list>
+      <welcome-file>/index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- Servlet config/mapping ******************************************** -->
+    <servlet>
+        <servlet-name>rdc</servlet-name>
+        <servlet-class>gov.ymp.rdc</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>rdc</servlet-name>
+        <url-pattern>/rdc</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doLogin</servlet-name>
+        <servlet-class>gov.ymp.rdc.doLogin</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doLogin</servlet-name>
+        <url-pattern>/doLogin</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doPerson</servlet-name>
+        <servlet-class>gov.ymp.rdc.doPerson</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doPerson</servlet-name>
+        <url-pattern>/doPerson</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doUpdatePage</servlet-name>
+        <servlet-class>gov.ymp.rdc.doUpdatePage</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doUpdatePage</servlet-name>
+        <url-pattern>/doUpdatePage</url-pattern>
+    </servlet-mapping>
+
+
+    <!-- Filter Entries ******************************************** -->
+    <filter>
+        <description>
+            Check for multipart HttpServletRequests and parse the multipart form data so that all
+            regular form fields are available in the parameterMap of the HttpServletRequest and that
+            all form file fields are available as attribute of the HttpServletRequest. The attribute
+            value of a form file field can be an instance of FileItem or FileUploadException.
+        </description>
+        <filter-name>multipartFilter</filter-name>
+        <filter-class>net.balusc.webapp.MultipartFilter</filter-class>
+        <init-param>
+            <description>
+                Sets the maximum file size of the uploaded file in bytes. Set to 0 to indicate an
+                unlimited file size. The example value of 1048576 indicates a maximum file size of
+                1MB. This parameter is not required and can be removed safely.
+            </description>
+            <param-name>maxFileSize</param-name>
+            <param-value>0</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>multipartFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+    <!-- Environment Entries ******************************************** -->
+    <env-entry>
+      <env-entry-name>SystemName</env-entry-name>
+      <env-entry-value>ITS Reusable Dynamic Components</env-entry-value>
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>
+    
+    <env-entry>
+      <env-entry-name>SystemAcronym</env-entry-name>
+      <env-entry-value>rdc</env-entry-value>
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>
+    
+    <env-entry>
+      <env-entry-name>AppSchema</env-entry-name>
+      <env-entry-value>csi</env-entry-value>
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>
+    
+</web-app>

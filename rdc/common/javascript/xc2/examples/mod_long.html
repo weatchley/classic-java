@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+
+<head>
+<title>Xin Calendar 2 Mods: Long Date Format</title>
+<link rel=stylesheet href="xc2.css" type="text/css">
+<link rel=stylesheet href="../css/xc2_default.css" type="text/css">
+
+<script language="javascript" src="../config/xc2_default.js"></script>
+<script language="javascript">
+xcDateFormat="Month dd (Week) yyyy";
+xcMods[6].order=1;
+</script>
+
+<script language="javascript" src="../script/xc2_inpage.js"></script>
+</head>
+
+<body>
+
+<p align="center" class="title">Xin Calendar 2 Mods: Long Date Format</p>
+<p align="center" class="copyright"><a href="http://www.yxscripts.com">yxScripts.com</a></p>
+
+<form method="post">
+
+<table cellpadding="0" cellspacing="0" border="0" align="center">
+<tr valign="top">
+<td id="holder">&nbsp;</td>
+<td><input type="text" size="30" name="date1" value="" onfocus="showCalendar('',this,this,'','holder',0,30,1)"></td>
+</tr>
+</table>
+
+</form>
+
+<p class="para">With the Long Date Format mod, we can use full names of weekdays and months in date format. To use full weekday names, we use "Week" or "WEEK" as the place holder in the date format, and to use full month names, we use "Month" or "MONTH" as the place holder, for example:</p>
+<pre>
+xcDateFormat="Month dd (Week) yyyy";
+</pre>
+
+<p class="para">To turn it on:</p>
+<pre style="font-family:courier">
+xcMods=[...
+        {"order": <font color="red">1</font>,  "mod": "Long Date Format",  "script": "mod_long.js"},
+        ...
+</pre>
+<p class="para">or:</p>
+<pre>
+&lt;script language="javascript" src="../config/xc2_default.js"&gt;&lt;/script&gt;
+&lt;script language="javascript"&gt;
+  xcMods[6].order=1;
+  <font color="red">xcDateFormat="Month dd (Week) yyyy";</font>
+&lt;/script&gt;
+</pre><br>
+
+<p class="para">[<a href="mod_tiles.html">Tiles</a>]&nbsp;[<a href="../index.html#mod">Back to index page</a>]</p>
+<p align="center"># # #</p>
+<p>&nbsp;</p>
+</body>
+
+</html>

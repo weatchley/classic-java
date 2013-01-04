@@ -1,0 +1,24 @@
+#!/bin/sh
+echo "cisldapsync called"
+#\
+date
+#\
+JAVA_HOME=/usr/local/jdk1.6.0_03
+#\
+export JAVA_HOME
+#\
+JAVA_OPTS="-Djava.library.path=/usr/local/jdk1.6.0_03/bin/java"
+#\
+export JAVA_OPTS
+#\
+PATH=$JAVA_HOME/bin
+#\
+export PATH
+#\
+CSIPS=prod
+#\
+export CSIPS
+#\
+java -Djava.library.path=/usr/local/jdk1.6.0_03/bin/java -classpath  /usr/local/homes/higashis/csi.jar:/usr/local/homes/higashis/ojdbc14.jar gov.ymp.csiTest.people.CLSynch ydservices
+#\
+java -Djava.library.path=/usr/local/jdk1.6.0_03/bin/java -classpath /usr/local/homes/higashis/csi.jar:/usr/local/homes/higashis/ojdbc14.jar gov.ymp.csiTest.people.CLSynch rw.doe.gov

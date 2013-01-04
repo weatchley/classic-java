@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Development version of web.xml file -->
+
+<web-app>
+
+    <!-- Set up ******************************************** -->
+    <display-name>csiShell</display-name>
+    <description>
+	CSI Shell Sample Application
+    </description>
+
+    <session-config>
+      <session-timeout>480</session-timeout>
+    </session-config>
+
+    <welcome-file-list>
+      <welcome-file>/index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- Servlet config/mapping ******************************************** -->
+    <servlet>
+        <servlet-name>csiShell</servlet-name>
+        <servlet-class>gov.ymp.csiShell</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>csiShell</servlet-name>
+        <url-pattern>/csiShell</url-pattern>
+    </servlet-mapping>
+
+
+    <!-- Environment Entries ******************************************** -->
+    <env-entry>
+      <env-entry-name>SystemName</env-entry-name>
+      <env-entry-value>Sample Shell Application Using CSI/RDC</env-entry-value>
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>
+    <env-entry>
+      <env-entry-name>SystemAcronym</env-entry-name>
+      <env-entry-value>N/A</env-entry-value>
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>
+    
+    <env-entry>
+      <env-entry-name>AppSchema</env-entry-name>
+      <env-entry-value>csi</env-entry-value>
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>
+
+</web-app>

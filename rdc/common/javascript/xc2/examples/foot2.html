@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+
+<head>
+<title>Xin Calendar 2 Example: Customizable foot links</title>
+<link rel=stylesheet href="xc2.css" type="text/css">
+
+<link rel=stylesheet href="../css/xc2_default.css" type="text/css">
+<style type="text/css">
+.foot, .foot_over, .foot_down { width:56px; margin:0px; }
+</style>
+
+<script language="javascript" src="../config/xc2_default.js"></script>
+<script language="javascript">
+xcMods[1].order=1;
+
+function setPrev(targetField, refField, defaultDate, lastDate) {
+  targetField.value = dayOffset(lastDate,-7);
+}
+
+function setNext(targetField, refField, defaultDate, lastDate) {
+  targetField.value = dayOffset(lastDate,7);
+}
+
+xcCSSFootOther=[["foot", "foot_over", "foot_down"],["foot", "foot_over", "foot_down"]];
+
+xcFootTagSwitch=[2, 0, 0, 0, 0, 0, 0, 0];
+xcFootButtons=["&#171; 7 days", "7 days &#187;"];
+xcFootButtonSwitch=[1, 3];
+xcFootButtonLinks=[setPrev, setNext]
+</script>
+
+<script language="javascript" src="../script/xc2_inpage.js"></script>
+</head>
+
+<body>
+
+<p align="center" class="title">Xin Calendar 2 Example: Customizable foot links</p>
+<p align="center" class="copyright"><a href="http://www.yxscripts.com">yxScripts.com</a></p>
+
+<form>
+
+<table cellpadding="0" cellspacing="0" border="0" align="center">
+<tr valign="top">
+<td id="holder">&nbsp;</td>
+<td><input type="text" name="date" value="" onfocus="showCalendar('',this,this,'','holder',0,30,1)"></td>
+</tr>
+</table>
+
+</form>
+
+<p class="para">Besides the "default" ones, we can also add some customized user foot links to the calendar foot bar.</p>
+<p class="para">XC2 introduces four array variables for this purpose:</p>
+<ul>
+<li type="square">xcCSSFootOther ... CSS classes for user foot links</li>
+<li type="square">xcFootButtons ... display of user foot links</li>
+<li type="square">xcFootButtonSwitch ... order of the foot links</li>
+<li type="square">xcFootButtonLinks ... handling functions of foot links</li>
+</ul>
+
+<p class="para">These variables can be found in the config script (config/xc2_default.js), and by default they are empty.</p>
+<p class="para">The xcFootButtons array contains the display text for the user foot links, we can specify static values or function handlers that will return some values. For example:</p>
+<pre>
+function weather_icon() {
+  return "&lt;img src='http://www.myweather.com/weather_icon.cgi'&gt;";
+}
+
+xcFootButtons = ["Home", weather_icon];
+</pre>
+<p class="para">will show two user foot links of "Home" and the weather image.</p>
+
+<br><p class="para">The xcFootButtonSwitch is just like the	xcFootTagSwitch, these two arrays will be combined to sort out the order for default foot links and user foot links. For example:</p>
+<pre>
+xcFootTags=["Today", ...];
+xcFootTagSwitch = [2, 0, 0, 0, 0, 0, 0, 0];
+...
+xcFootButtons = ["Home", weather_icon];
+xcFootButtonSwitch = [1, 3];
+</pre>
+<p class="para">will show foot links of "Home", "Today" and the weather image.</p>
+
+<br><p class="para">The xcFootButtonLinks array is where we define the function handlers for the user foot links. For a function handler specified in the xcFootButtonLinks array, the function will be called when its user foot link is clicked. The function should expect four parameters to be passed. For example:</p>
+<pre>
+function open_home(cal_target_field, cal_ref_field, cal_default_date, last_date_picked) {
+  window.open("http://www.yxscripts.com");
+}
+
+function open_weather(cal_target_field, cal_ref_field, cal_default_date, last_date_picked) {
+  window.open("http://www.myweather.com/show_weather.cgi?date="+cal_target_field.value);
+}
+
+xcFootButtonLinks = [open_home, open_weather];
+</pre>
+
+<br><p class="para">The xcCSSFootOther array contains arrays of CSS class names for user foot links. For example:</p>
+<pre>
+xcCSSFootOther=[ ["home", "home_over", "home_down"], ["weather", "weather_over", "weather_down"] ];
+</pre>
+
+<br><p class="para">As a summary, to define an user foot link, we will put the display text in the "xcFootButtons" array, the display order in the "xcFootButtonSwitch" array, the function link in the "xcFootButtonLinks" array, and the CSS class array in the "xcCSSFootOther" array.</p><br>
+
+<p class="para">[<a href="static2.html">Static calendar 2</a>]&nbsp;[<a href="../index.html#examples">Back to index page</a>]</p>
+<p align="center"># # #</p>
+<p>&nbsp;</p>
+</body>
+
+</html>

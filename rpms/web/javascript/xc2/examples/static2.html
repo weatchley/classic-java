@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+
+<head>
+<title>Xin Calendar 2 Example: Static calendar 2</title>
+<link rel=stylesheet href="xc2.css" type="text/css">
+
+<link rel=stylesheet href="../css/xc2_default.css" type="text/css">
+<style type="text/css">
+.head {
+  font-family:verdana;
+  font-size:11px;
+  font-weight:bold;
+  text-align:center;
+  background-color:#f0f0f0;
+  color:#333333;
+}
+.box {
+  font-family:verdana;
+  font-size:11px;
+  font-weight:bold;
+  text-align:center;
+  color:#333333;
+  background-color:#99b3cc;
+  padding:1px;
+  cursor:default;
+}
+.foot { width:100px; margin:0px; }
+.foot_over { width:100px; margin:0px; }
+.foot_down { width:100px; margin:0px; }
+
+.item { text-indent:10px; font-size:11px; font-family:verdana; }
+</style>
+
+<script language="javascript" src="../config/xc2_default.js"></script>
+<script language="javascript">
+xcArrowPosition=1;
+xcFootTagSwitch=[0, 0, 0, 0, 0, 0, 1, 0];
+
+xcMods[8].order=1;
+
+xcShowCurrentDate=0;
+
+xcDateTipBoxPosition=6;
+xcDateTipBoxAlign=1;
+xcDateTipBoxOffsetX=20;
+</script>
+
+<script language="javascript" src="../script/xc2_inpage.js"></script>
+
+<script language="javascript">
+addDateTips("conf", "", "", "", "", "", "2004-07-28", "Celebration of Light - China<br><br>Location: English Bay, Vancouver<br>Web site: <a href='http://www.celebration-of-light.com/fireworks/info.html' target='_blank'>link</a>");
+addDateTips("conf", "", "", "", "", "", "2004-07-31", "Celebration of Light - Sweden<br><br>Location: English Bay, Vancouver<br>Web site: <a href='http://www.celebration-of-light.com/fireworks/info.html' target='_blank'>link</a>");
+addDateTips("conf", "", "", "", "", "", "2004-08-04", "Celebration of Light - Spain<br><br>Location: English Bay, Vancouver<br>Web site: <a href='http://www.celebration-of-light.com/fireworks/info.html' target='_blank'>link</a>");
+addDateTips("conf", "", "", "", "", "", "2004-08-07", "Celebration of Light - Grand Finale<br><br>Location: English Bay, Vancouver<br>Web site: <a href='http://www.celebration-of-light.com/fireworks/info.html' target='_blank'>link</a>");
+addDateTips("conf", "", "", "", "", "", "2004-08-31", "blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah");
+</script>
+</head>
+
+<body onload="showCalendar('conf',null,null,'2004-08-01','holder',0,0,2)">
+
+<p align="center" class="title">Xin Calendar 2 Example: Static calendar 2</p>
+<p align="center" class="copyright"><a href="http://www.yxscripts.com">yxScripts.com</a></p>
+
+<table cellpadding="0" cellspacing="0" border="0" align="center" width="90%">
+<tr valign="top">
+<td width="1" bgcolor="#99b3cc"><img src="../images/one_pixel.gif"></td>
+<td>&nbsp;</td>
+<td>
+<table cellpadding="0" cellspacing="0" border="0" height="100%">
+
+<tr>
+<td id="holder"></td>
+</tr>
+
+<tr>
+<td align="left">
+<div><img src="../images/one_pixel.gif" width="1" height="4"></div>
+
+<div class="panel">
+<div class="row_week box">Tools</div>
+<div><img src="../images/one_pixel.gif" width="1" height="4"></div>
+<div class="item">- Menu G5</div>
+<div class="item">&#187; Xin Calendar 2</div>
+<div class="item">- Chained Selects</div>
+<div class="item">- Xin Obfuscator</div>
+<div class="item">- Form Guard</div>
+<div class="item">- Select Menu 3</div>
+<div class="item">&nbsp;</div>
+</div>
+
+<div><img src="../images/one_pixel.gif" width="1" height="4"></div>
+
+<div class="panel">
+<div class="row_week box">Games</div>
+<div><img src="../images/one_pixel.gif" width="1" height="4"></div>
+<div class="item">- Simple Tetris 2</div>
+<div class="item">- Bubble Puzzle</div>
+<div class="item">- Jigsaw Puzzle</div>
+<div class="item">- Soul of Fighters</div>
+<div class="item">- Warship Battle</div>
+<div class="item">&nbsp;</div>
+</div>
+</td>
+</tr>
+</table>
+</td>
+
+<td>&nbsp;</td>
+<td width="1" bgcolor="#99b3cc"><img src="../images/one_pixel.gif"></td>
+
+<td>&nbsp;&nbsp;</td>
+
+<td>
+<p class="para">Sometimes we might just want to "stamp" the calendar right onto the spot and make it part of the page. The easiest way of doing so is to populate the spot with the calendar layout, like what we've done to the left page column.</p>
+<p class="para">It looks like a static calendar we had before, indeed it is basically a static calendar but with a bit difference from what we had before.</p>
+<p class="para">To set up a static calendar, we had:</p>
+<pre>
+&lt;body onload="showCalendar('config', null, null, 'date', 'holder', x-offset, y-offset, 0)"&gt;
+</pre>
+
+<p class="para">and we would need to size the holder to reserve space for the calendar as the calendar actually didn't take up any space of the holder but just referenced its coordinates.</p>
+
+<br><p class="para">Now to set up a static calendar like this, we will have:</p>
+<pre>
+&lt;body onload="showCalendar('config', null, null, 'date', 'holder', <b>0</b>, <b>0</b>, <b>2</b>)"&gt;
+</pre>
+<p class="para">The [x,y] offset from the holder will be ignored so we just use zeros here, and the calendar mode (the last parameter) should be set to 2 in the showCalendar() call.</p>
+</td>
+
+</tr>
+</table>
+<p align="center" class="para">[<a href="mods.html">Xin Calendar 2 Mods</a>]&nbsp;[<a href="../index.html#examples">Back to index page</a>]</p>
+<p align="center"># # #</p>
+<p>&nbsp;</p>
+</body>
+
+</html>

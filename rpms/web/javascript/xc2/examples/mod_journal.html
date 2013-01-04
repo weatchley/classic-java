@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+
+<head>
+<title>Xin Calendar 2 Mods: Journal</title>
+<link rel=stylesheet href="xc2.css" type="text/css">
+
+<link rel=stylesheet href="../css/xc2_default.css" type="text/css">
+<style type="text/css">
+.head { background-color:#f0f0ff; }
+.foot, .foot_over, .foot_down { width:100px; margin:0px; }
+</style>
+
+<script language="javascript" src="../config/xc2_default.js"></script>
+<script language="javascript">
+xcMods[4].order=1;
+
+xcArrowPosition=1;
+xcFootTagSwitch=[0, 0, 0, 0, 0, 0, 1, 0];
+
+xcLinkTargetWindow="journal";
+
+xcLinkPrefix="journal.html?";
+xcLinkSuffix="";
+xcLinkDateFormat="mon. dd (day), yyyy";
+</script>
+
+<script language="javascript" src="../script/xc2_inpage.js"></script>
+</head>
+
+<body onload="showCalendar('',null,null,'','holder',0,0,0)">
+
+<p align="center" class="title">Xin Calendar 2 Mods: Journal</p>
+<p align="center" class="copyright"><a href="http://www.yxscripts.com">yxScripts.com</a></p>
+
+<table cellpadding="0" cellspacing="0" border="0" align="right" width="220" height="180">
+<tr valign="top">
+<td id="holder"></td>
+</tr>
+</table>
+
+<p class="para">The Journal mod will open pages with dates as part of the URLs, it's better to be used with the Date Range mod so that only dates with journal pages are clickable.</p>
+<p class="para">To turn it on:</p>
+<pre style="font-family:courier">
+xcMods=[...
+        {"order": <font color="red">1</font>,  "mod": "Journal",  "script": "mod_journal.js"},
+        ...
+</pre>
+<p class="para">or:</p>
+<pre>
+&lt;script language="javascript" src="../config/xc2_default.js"&gt;&lt;/script&gt;
+&lt;script language="javascript"&gt;
+  xcMods[4].order=1;
+&lt;/script&gt;
+</pre><br>
+
+<p class="para">The default config file (config/xc2_default.js) has some settings for the Journal mod:</p>
+<pre>
+xcLinkBasePath="";
+xcLinkTargetWindow="_blank";
+xcLinkTargetWindowPara="location=1,menubar=1,resizable=1,scrollbars=1,status=1,titlebar=1,toolbar=1";
+
+xcLinkPrefix="";
+xcLinkSuffix=".html";
+xcLinkDateFormat="yyyymmdd";
+</pre>
+
+<p class="para">The URL of a journal page would be [ xcLinkBasePath ] + [ xcLinkPrefix ] + [ xcLinkDateFormat ] + [ xcLinkSuffix ], if we set them up this way:</p>
+<pre>
+xcLinkBasePath="http://www.yxscripts.com/";
+xcLinkPrefix="journal.asp?day=";
+xcLinkSuffix="";
+xcLinkDateFormat="yyyymmdd";
+</pre>
+<p class="para">then the URL of the journal page would be like this:</p>
+<pre>
+http://www.yxscripts.com/journal.asp?day=20040801
+</pre>
+<p class="para">[<a href="mod_link.html">Date Link</a>]&nbsp;[<a href="../index.html#mod">Back to index page</a>]</p>
+<p align="center"># # #</p>
+<p>&nbsp;</p>
+</body>
+
+</html>

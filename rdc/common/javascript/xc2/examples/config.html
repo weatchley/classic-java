@@ -1,0 +1,781 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+
+<head>
+<title>Xin Calendar 2 Step-by-step: Set up the layout and styles</title>
+<link rel=stylesheet href="xc2.css" type="text/css">
+</head>
+
+<body>
+
+<p align="center" class="title">Xin Calendar 2 Step-by-step: Set up the layout and styles</p>
+<p align="center" class="copyright"><a href="http://www.yxscripts.com">yxScripts.com</a></p>
+
+<p class="para">If we open the "config/xc2_default.js" in a text editor, we could notice that it consists of several sections:</p>
+<ul>
+<li>the date format</li>
+<li>the CSS settings</li>
+<li>the layout settings</li>
+<li>the mod settings</li>
+</ul>
+<p class="para">All the settings are defined with Javascript variables and the names of these variables should be quite self-explained. Now let's look at the first three sections and we will cover the mods later.</p>
+
+<table cellpadding="0" cellspacing="1" border="0" bgcolor="#cccccc" align="center" width="90%"><tr><td>
+<table cellpadding="6" cellspacing="1" border="0" bgcolor="#ffffff">
+<tr align="center" class="section"><td colspan="2"><b>Date Format</b></td></tr>
+<tr valign="top" class="odd">
+<td nowrap><p>xcDateFormat</p></td>
+<td>
+<p>A string with "yyyy" for the year, "mm" or "mon" for the month, "dd" for the day and "day" for the week day (optional). The separator can be any other characters.</p>
+<p>For example:</p>
+<pre>yyyy-mm-dd ... 2004-07-22</pre>
+<pre>mon. dd (day), yyyy ... Jul. 22 (Thu), 2004</pre>
+</td>
+</tr>
+
+<tr align="center" class="section"><td colspan="2"><b>CSS Settings</b></td></tr>
+<tr class="even">
+<td colspan="2">The calendar consists of couple DIV blocks: the outer panel, the year/month head block, the weekday block, the day block and the foot link block. When setting up the CSS definitions, we should make sure that the weekday block and the day block have the same width, and the weekday cells and day cells have the same width. Once we have the CSS definitions, we can assign them to the following variables accordingly.</td>
+</tr>
+
+<tr valign="top" class="odd">
+<td nowrap><p>xcCSSPanel</p></td>
+<td>the CSS class name for the outer panel</td>
+</tr>
+
+<tr class="separator"><td colspan="2"></td></tr>
+
+<tr valign="top" class="even">
+<td nowrap><p>xcCSSHeadBlock</p></td>
+<td>the CSS class name for the year/month head block</td>
+</tr>
+
+<tr valign="top" class="odd">
+<td nowrap><p>xcCSSHead</p></td>
+<td>the CSS class name for the year/month title string</td>
+</tr>
+
+<tr class="separator"><td colspan="2"></td></tr>
+
+<tr valign="top" class="even">
+<td nowrap><p>xcCSSArrowMonthPrev</p></td>
+<td>the CSS class name array for the previous month scrolling arrow at normal, mouse-overed and mouse-downed states</td>
+</tr>
+
+<tr valign="top" class="odd">
+<td nowrap><p>xcCSSArrowMonthNext</p></td>
+<td>the CSS class name array for the next month scrolling arrow at normal, mouse-overed and mouse-downed states</td>
+</tr>
+
+<tr valign="top" class="even">
+<td nowrap><p>xcCSSArrowYearPrev</p></td>
+<td>the CSS class name array for the previous year scrolling arrow at normal, mouse-overed and mouse-downed states/td>
+</tr>
+
+<tr valign="top" class="odd">
+<td nowrap><p>xcCSSArrowYearNext</p></td>
+<td>the CSS class name array for the next year scrolling arrow at normal, mouse-overed and mouse-downed states</td>
+</tr>
+
+<tr class="separator"><td colspan="2"></td></tr>
+
+<tr valign="top" class="even">
+<td nowrap><p>xcCSSWeekdayBlock</p></td>
+<td>the CSS class name for the weekday block</td>
+</tr>
+
+<tr valign="top" class="odd">
+<td nowrap><p>xcCSSWeekday</p></td>
+<td>the CSS class name for the weekday cells</td>
+</tr>
+
+<tr class="separator"><td colspan="2"></td></tr>
+
+<tr valign="top" class="even">
+<td nowrap><p>xcCSSDayBlock</p></td>
+<td>the CSS class name for the day block</td>
+</tr>
+
+<tr valign="top" class="odd">
+<td nowrap><p>xcCSSDay</p></td>
+<td>the CSS class name array for dates at normal, mouse-overed, mouse-downed and disabled states</td>
+</tr>
+
+<tr valign="top" class="even">
+<td nowrap><p>xcCSSDayCurrent</p></td>
+<td>the CSS class name array for the date picked or today at normal, mouse-overed and mouse-downed states</td>
+</tr>
+
+<tr valign="top" class="odd">
+<td nowrap><p>xcCSSDaySpecial</p></td>
+<td>the CSS class name array for special dates at normal, mouse-overed, mouse-downed and disabled states</td>
+</tr>
+
+<tr valign="top" class="even">
+<td nowrap><p>xcCSSDayOther</p></td>
+<td>the CSS class name array for dates of previous/next month at normal, mouse-overed, mouse-downed and disabled states</td>
+</tr>
+
+<tr valign="top" class="odd">
+<td nowrap><p>xcCSSDayOtherCurrent</p></td>
+<td>the CSS class name array for the date picked or today at normal, mouse-overed and mouse-downed states when it's not in the month being shown</td>
+</tr>
+
+<tr valign="top" class="even">
+<td nowrap><p>xcCSSDayOtherSpecial</p></td>
+<td>the CSS class name array for special dates of previous/next month at normal, mouse-overed, mouse-downed and disabled states</td>
+</tr>
+
+<tr valign="top" class="odd">
+<td nowrap><p>xcCSSDayEmpty</p></td>
+<td>the CSS class name for the empty day cells</td>
+</tr>
+
+<tr valign="top" class="even">
+<td nowrap><p>xcCSSVersion</p></td>
+<td>the version of XC2 that supports the CSS settings for dates</td>
+</tr>
+
+<tr class="separator"><td colspan="2"></td></tr>
+
+<tr valign="top" class="odd">
+<td nowrap><p>xcCSSFootBlock</p></td>
+<td>the CSS class name for the foot link block</td>
+</tr>
+
+<tr valign="top" class="even">
+<td nowrap><p>xcCSSFootToday</p></td>
+<td>the CSS class name array for the foot link of [Today] at normal, mouse-overed and mouse-downed states</td>
+</tr>
+
+<tr valign="top" class="odd">
+<td nowrap><p>xcCSSFootClear</p></td>
+<td>the CSS class name array for the foot link of [Clear] at normal, mouse-overed and mouse-downed states</td>
+</tr>
+
+<tr valign="top" class="even">
+<td nowrap><p>xcCSSFootBack</p></td>
+<td>the CSS class name array for the foot link of [Back] at normal, mouse-overed and mouse-downed states</td>
+</tr>
+
+<tr valign="top" class="odd">
+<td nowrap><p>xcCSSFootClose</p></td>
+<td>the CSS class name array for the foot link of [Close] at normal, mouse-overed and mouse-downed states</td>
+</tr>
+
+<tr valign="top" class="even">
+<td nowrap><p>xcCSSFootReset</p></td>
+<td>the CSS class name array for the foot link of [Reset] at normal, mouse-overed and mouse-downed states</td>
+</tr>
+
+<tr valign="top" class="odd">
+<td nowrap><p>xcCSSFootOther</p></td>
+<td>the CSS class name array for customized foot links at normal, mouse-overed and mouse-downed states</td>
+</tr>
+
+<tr align="center" class="section"><td colspan="2"><b>Layout Settings</b></td></tr>
+<tr class="even">
+<td colspan="2">The layout settings define the display and position for the calendar components.</td>
+</tr>
+
+<tr valign="top" class="odd">
+<td nowrap><p>xcMonthNames</p></td>
+<td>an array that lists the full month names for use in month part of the year/month title</td>
+</tr>
+
+<tr valign="top" class="even">
+<td nowrap><p>xcMonthShortNames</p></td>
+<td>an array that lists the short month names for use in date format</td>
+</tr>
+
+<tr valign="top" class="odd">
+<td nowrap><p>xcMonthPrefix</p></td>
+<td>a string that prefixes the month name in the year/month title</td>
+</tr>
+
+<tr valign="top" class="even">
+<td nowrap><p>xcMonthSuffix</p></td>
+<td>a string that suffixes the month name in the year/month title</td>
+</tr>
+
+<tr class="separator"><td colspan="2"></td></tr>
+
+<tr valign="top" class="odd">
+<td nowrap><p>xcYearDigits</p></td>
+<td>an array that lists the contents used for each digit of the year</td>
+</tr>
+
+<tr valign="top" class="even">
+<td nowrap><p>xcYearPrefix</p></td>
+<td>a string that prefixes the year in the year/month title</td>
+</tr>
+
+<tr valign="top" class="odd">
+<td nowrap><p>xcYearSuffix</p></td>
+<td>a string that suffixes the year in the year/month title</td>
+</tr>
+
+<tr class="separator"><td colspan="2"></td></tr>
+
+<tr valign="top" class="even">
+<td nowrap><p>xcHeadSeparator</p></td>
+<td>a string that separates the year and month in the year/month title</td>
+</tr>
+
+<tr valign="top" class="odd">
+<td nowrap><p>xcHeadTagOrder</p></td>
+<td>a flag number to tell the order of year and month in the year/month title</td>
+</tr>
+
+<tr valign="top" class="even">
+<td nowrap><p>xcHeadTagAdjustment</p></td>
+<td>a flag number to tell whether to stretch the year/month title to the available width of the head block, this should be used in conjunction with the CSS of xcCSSHead</td>
+</tr>
+
+<tr class="separator"><td colspan="2"></td></tr>
+
+<tr valign="top" class="odd">
+<td nowrap><p>xcArrowMonth</p></td>
+<td>an array of two strings for the month scrolling arrows</td>
+</tr>
+
+<tr valign="top" class="even">
+<td nowrap><p>xcArrowYear</p></td>
+<td>an array of two strings for the year scrolling arrows</td>
+</tr>
+
+<tr valign="top" class="odd">
+<td nowrap><p>xcArrowSwitch</p></td>
+<td>an array of two flag numbers to switch on/off the year and month scrolling arrows</td>
+</tr>
+
+<tr valign="top" class="even">
+<td nowrap><p>xcArrowPosition</p></td>
+<td>a flag number to tell whether to put the year/month scrolling arrows in the head block or in the foot link block</td>
+</tr>
+
+<tr class="separator"><td colspan="2"></td></tr>
+
+<tr valign="top" class="odd">
+<td nowrap><p>xcWeekdayNames</p></td>
+<td>an array that lists the full weekday names for use in the long date format mod</td>
+</tr>
+
+<tr valign="top" class="even">
+<td nowrap><p>xcWeekdayShortNames</p></td>
+<td>an array that lists the short weekday names for use in date format</td>
+</tr>
+
+<tr valign="top" class="odd">
+<td nowrap><p>xcWeekdayDisplay</p></td>
+<td>an array that lists the weekday display names for use in the weekday cells</td>
+</tr>
+
+<tr class="separator"><td colspan="2"></td></tr>
+
+<tr valign="top" class="even">
+<td nowrap><p>xcFootTags</p></td>
+<td>an array that lists the display titles of the foot links</td>
+</tr>
+
+<tr valign="top" class="odd">
+<td nowrap><p>xcFootTagSwitch</p></td>
+<td>an array of flag numbers to tell the display order of the foot links and switch on/off the foot links</td>
+</tr>
+
+<tr valign="top" class="even">
+<td nowrap><p>xcFootTagAdjustment</p></td>
+<td>a flag number to tell whether to stretch the foot links to the width of the foot link block, this should be used in conjunction with the CSS of xcCSSFoot</td>
+</tr>
+
+<tr valign="top" class="odd">
+<td nowrap><p>xcFootButtons</p></td>
+<td>an array that lists the display titles of the user foot links</td>
+</tr>
+
+<tr valign="top" class="even">
+<td nowrap><p>xcFootButtonSwitch</p></td>
+<td>an array of flag numbers to tell the display order of the user foot links and switch on/off the user foot links</td>
+</tr>
+
+<tr valign="top" class="odd">
+<td nowrap><p>xcFootButtonLinks</p></td>
+<td>an array that lists the handling functions for user foot links</td>
+</tr>
+
+<tr class="separator"><td colspan="2"></td></tr>
+
+<tr valign="top" class="even">
+<td nowrap><p>xcGridWidth</p></td>
+<td>a number to set the cellspacing width for grid effect</td>
+</tr>
+
+<tr valign="top" class="odd">
+<td nowrap><p>xcBaseZIndex</p></td>
+<td>the base z-index number for the calendar layers</td>
+</tr>
+
+<tr valign="top" class="even">
+<td nowrap><p>xcMultiCalendar</p></td>
+<td>a flag number to tell whether to display multiple popup calendars</td>
+</tr>
+
+<tr valign="top" class="odd">
+<td nowrap><p>xcShowCurrentDate</p></td>
+<td>a flag number to tell whether to apply the CSS styles of xcCSSDayCurrent/xcCSSDayCurrentMouseover/xcCSSDayCurrentMousedown to the date picked or today</td>
+</tr>
+
+<tr valign="top" class="even">
+<td nowrap><p>xcWeekStart</p></td>
+<td>a flag number to tell whether the week starts with Sunday or Monday</td>
+</tr>
+
+<tr valign="top" class="odd">
+<td nowrap><p>xcAutoHide</p></td>
+<td>a flag number to tell whether to auto-hide a calendar after mouseout</td>
+</tr>
+
+<tr valign="top" class="even">
+<td nowrap><p>xcStickyMode</p></td>
+<td>a flag number to tell whether the calendar should stay open after a date is picked</td>
+</tr>
+
+<tr valign="top" class="odd">
+<td nowrap><p>xcShowPrevNextMonth</p></td>
+<td>a flag number to tell whether the calendar should show dates of previous/next month</td>
+</tr>
+
+<tr class="separator"><td colspan="2"></td></tr>
+
+<tr valign="top" class="even">
+<td nowrap><p>xcDayContents</p></td>
+<td>an array that lists the contents used for days (1-31) at normal stage</td>
+</tr>
+
+<tr valign="top" class="odd">
+<td nowrap><p>xcDayContentsDisabled</p></td>
+<td>an array that lists the contents used for days out off the date range</td>
+</tr>
+
+<tr valign="top" class="even">
+<td nowrap><p>xcDayContentsCurrent</p></td>
+<td>an array that lists the contents used for days at current stage</td>
+</tr>
+
+</table>
+</td></tr></table><br clear="all"><br>
+
+<p class="para">So basically we have the option to set up CSS styles for individual click-able elements in the calendar at normal stage, mouse-over stage and mouse-down stage. Following is the default configuration used by Xin Calendar 2:</p>
+<table cellpadding="0" cellspacing="0" border="0" align="center" width="90%"><tr><td>
+<pre>
+// date format
+// -----------
+xcDateFormat="yyyy-mm-dd";
+
+
+// css conf
+// --------
+xcCSSPanel="panel";
+
+xcCSSHeadBlock="row_head";
+xcCSSHead="head";
+
+xcCSSArrowMonthPrev=["arrow_prev", "arrow_prev_over", "arrow_prev_down"];
+xcCSSArrowMonthNext=["arrow_next", "arrow_next_over", "arrow_next_down"];
+
+xcCSSArrowYearPrev=["arrow_prev", "arrow_prev_over", "arrow_prev_down"];
+xcCSSArrowYearNext=["arrow_next", "arrow_next_over", "arrow_next_down"];
+
+xcCSSWeekdayBlock="row_week";
+xcCSSWeekday="weekday";
+
+xcCSSDayBlock="row_day";
+xcCSSDay=["day", "day_over", "day_down", "day_disabled"];
+xcCSSDayCurrent=["day_current", "", ""];
+xcCSSDaySpecial=["day_special", "day_over", "day_down", "day_disabled"];
+xcCSSDayOther=["day_other", "day_other_over", "day_down", "day_disabled"];
+xcCSSDayOtherCurrent=["day_other_current", "", ""];
+xcCSSDayOtherSpecial=["", "", "", ""];
+xcCSSDayEmpty="day_empty";
+
+xcCSSVersion="2.9";
+
+xcCSSFootBlock="row_foot";
+xcCSSFootToday=["foot", "foot_over", "foot_down"];
+xcCSSFootClear=["foot", "foot_over", "foot_down"];
+xcCSSFootBack=["foot", "foot_over", "foot_down"];
+xcCSSFootClose=["foot", "foot_over", "foot_down"];
+xcCSSFootReset=["foot", "foot_over", "foot_down"];
+
+
+// layout conf
+// -----------
+xcMonthNames=["January", "February", ..., "December"];
+xcMonthShortNames=["Jan", "Feb", ..., "Dec"];
+xcMonthPrefix="";
+xcMonthSuffix="";
+xcYearDigits=["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+xcYearPrefix="";
+xcYearSuffix="";
+xcHeadSeparator=" "; // separator string between year and month
+xcHeadTagOrder=1; // 1: month/year, 0: year/month
+xcHeadTagAdjustment=1; // 1: 100% width, 0: actual width
+
+xcArrowMonth=["&amp;#139;", "&amp;#155;"];
+xcArrowYear=["&amp;#171;", "&amp;#187;"];
+xcArrowSwitch=[1, 1]; // [year, month] 1:on, 0:off
+xcArrowPosition=0; // 0:in head block, 1:in foot block
+
+// names for days
+xcWeekdayNames=["Sunday", "Monday", ..., "Sunday"];
+xcWeekdayShortNames=["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+xcWeekdayDisplay=["S", "M", "T", "W", "T", "F", "S", "S"];
+
+// foot links
+xcFootTags=["Today", "Clear", "Back", "Close", "Reset", "_Today_", "_Back_", "_Reset_"];
+xcFootTagSwitch=[1, 0, 0, 2, 0, 0, 0, 0]; // non-zero: display order, 0: off
+xcFootTagAdjustment=0; // 1: % width, 0: actual width
+
+// customized foot links
+xcFootButtons=[];
+xcFootButtonSwitch=[];
+xcFootButtonLinks=[];
+
+xcGridWidth=0; // used as cellspacing
+xcBaseZIndex=100; // z-index for calendar layers
+xcMultiCalendar=0; // 1:multi-calendar, 0:single-calendar
+xcShowCurrentDate=1; // 1:highlight current date/today, 0:no highlight
+xcWeekStart=0; // 0:Sunday, 1:Monday
+
+xcDayContents=["&amp;nbsp;", "1", "2", ..., "30", "31"];
+xcDayContentsDisabled=xcDayContents;
+xcDayContentsCurrent=xcDayContents;
+
+...
+
+</pre>
+<p class="para">and the default CSS definitions (css/xc2_default.css):</p>
+<pre>
+.panel {
+  border-width:1px;
+  border-style:solid;
+  border-color:#cce6ff #668099 #668099 #cce6ff;
+  background-color:#f0f0f0;
+}
+
+.row_head {
+  border-width:1px;
+  border-style:solid;
+  border-color:#f0f0f0;
+  background-color:#f0f0f0;
+}
+.head {
+  font-family:verdana;
+  font-size:11px;
+  font-weight:bold;
+  text-align:center;
+  color:#000000;
+  background-color:#f0f0f0;
+  cursor:default;
+}
+
+.arrow_prev {
+  font-family:verdana;
+  font-size:11px;
+  width:12px;
+  margin-right:1px;
+  text-align:center;
+  color:#ffffff;
+  background-color:#99b3cc;
+  border-width:1px;
+  border-style:solid;
+  border-color:#cce6ff #668099 #668099 #cce6ff;
+  padding:1px;
+  cursor:pointer;
+}
+.arrow_prev_over {
+  font-family:verdana;
+  font-size:11px;
+  width:12px;
+  margin-right:1px;
+  text-align:center;
+  color:#ffffff;
+  background-color:#afc6dd;
+  border-width:1px;
+  border-style:solid;
+  border-color:#cce6ff #668099 #668099 #cce6ff;
+  padding:1px;
+  cursor:pointer;
+}
+.arrow_prev_down {
+  font-family:verdana;
+  font-size:11px;
+  width:12px;
+  margin-right:1px;
+  text-align:center;
+  color:#ffffff;
+  background-color:#7e93aa;
+  border-width:1px;
+  border-style:solid;
+  border-color:#4b6077 #afc6dd #afc6dd #4b6077;
+  padding:2px 0px 0px 2px;
+  cursor:pointer;
+}
+
+.arrow_next {
+  font-family:verdana;
+  font-size:11px;
+  width:12px;
+  margin-left:1px;
+  text-align:center;
+  color:#ffffff;
+  background-color:#99b3cc;
+  border-width:1px;
+  border-style:solid;
+  border-color:#cce6ff #668099 #668099 #cce6ff;
+  padding:1px;
+  cursor:pointer;
+}
+.arrow_next_over {
+  font-family:verdana;
+  font-size:11px;
+  width:12px;
+  margin-left:1px;
+  text-align:center;
+  color:#ffffff;
+  background-color:#afc6dd;
+  border-width:1px;
+  border-style:solid;
+  border-color:#cce6ff #668099 #668099 #cce6ff;
+  padding:1px;
+  cursor:pointer;
+}
+.arrow_next_down {
+  font-family:verdana;
+  font-size:11px;
+  width:12px;
+  margin-left:1px;
+  text-align:center;
+  color:#ffffff;
+  background-color:#7e93aa;
+  border-width:1px;
+  border-style:solid;
+  border-color:#4b6077 #afc6dd #afc6dd #4b6077;
+  padding:2px 0px 0px 2px;
+  cursor:pointer;
+}
+
+.row_week {
+  border-width:1px;
+  border-style:solid;
+  border-color:#99b3cc #99b3cc #668099 #99b3cc;
+}
+.weekday {
+  font-family:verdana;
+  font-size:11px;
+  width:23px;
+  text-align:center;
+  color:#ffffff;
+  background-color:#99b3cc;
+  border:1px solid #99b3cc;
+  padding:1px;
+  cursor:default;
+}
+
+.row_day {
+  padding:1px;
+}
+.day {
+  font-family:verdana;
+  font-size:11px;
+  line-height:14px;
+  width:23px;
+  text-align:center;
+  color:#000000;
+  background-color:#f0f0f0;
+  border:1px solid #f0f0f0;
+  padding:1px;
+  cursor:pointer;
+}
+.day_over {
+  font-family:verdana;
+  font-size:11px;
+  line-height:14px;
+  width:23px;
+  text-align:center;
+  color:#000000;
+  background-color:#f0f0f0;
+  border-width:1px;
+  border-style:solid;
+  border-color:#ffffff #c0c0c0 #c0c0c0 #ffffff;
+  padding:1px;
+  cursor:pointer;
+}
+.day_down {
+  font-family:verdana;
+  font-size:11px;
+  line-height:14px;
+  width:23px;
+  text-align:center;
+  color:#000000;
+  background-color:#cfcfcf;
+  border-width:1px;
+  border-style:solid;
+  border-color:#9c9c9c #ffffff #ffffff #9c9c9c;
+  padding:1px;
+  cursor:pointer;
+}
+.day_empty {
+  font-family:verdana;
+  font-size:11px;
+  line-height:14px;
+  width:23px;
+  text-align:center;
+  color:#f0f0f0;
+  background-color:#f0f0f0;
+  border:1px solid #f0f0f0;
+  padding:1px;
+  cursor:default;
+}
+.day_disabled {
+  font-family:verdana;
+  font-size:11px;
+  line-height:14px;
+  width:23px;
+  text-align:center;
+  text-decoration:line-through;
+  color:#999999;
+  background-color:#f0f0f0;
+  border:1px solid #f0f0f0;
+  padding:1px;
+  cursor:default;
+}
+.day_current {
+  font-family:verdana;
+  font-size:11px;
+  line-height:14px;
+  width:23px;
+  text-align:center;
+  color:#ffffff;
+  background-color:#99b3cc;
+  border-width:1px;
+  border-style:solid;
+  border-color:#cce6ff #668099 #668099 #cce6ff;
+  padding:1px;
+  cursor:pointer;
+}
+.day_special {
+  font-family:verdana;
+  font-size:11px;
+  line-height:14px;
+  width:23px;
+  text-align:center;
+  color:#ffffff;
+  background-color:#cc9999;
+  border-width:1px;
+  border-style:solid;
+  border-color:#ffcccc #996666 #996666 #ffcccc;
+  padding:1px;
+  cursor:pointer;
+}
+.day_other {
+  font-family:verdana;
+  font-size:9px;
+  line-height:14px;
+  width:23px;
+  text-align:center;
+  color:#999999;
+  background-color:#f0f0f0;
+  border:1px solid #f0f0f0;
+  padding:1px;
+  cursor:pointer;
+}
+.day_other_over {
+  font-family:verdana;
+  font-size:9px;
+  line-height:14px;
+  width:23px;
+  text-align:center;
+  color:#666666;
+  background-color:#c0c0c0;
+  border-width:1px;
+  border-style:solid;
+  border-color:#f0f0f0 #909090 #909090 #f0f0f0;
+  padding:1px;
+  cursor:pointer;
+}
+.day_other_current {
+  font-family:verdana;
+  font-size:9px;
+  line-height:14px;
+  width:23px;
+  text-align:center;
+  color:#666666;
+  background-color:#c0c0c0;
+  border-width:1px;
+  border-style:solid;
+  border-color:#f0f0f0 #909090 #909090 #f0f0f0;
+  padding:1px;
+  cursor:pointer;
+}
+
+.row_foot {
+  margin:1px;
+}
+
+.foot {
+  font-family:verdana;
+  font-size:11px;
+  width:50px;
+  margin:0px 1px;
+  text-align:center;
+  color:#ffffff;
+  background-color:#99b3cc;
+  border-width:1px;
+  border-style:solid;
+  border-color:#cce6ff #668099 #668099 #cce6ff;
+  padding:1px;
+  cursor:pointer;
+}
+.foot_over {
+  font-family:verdana;
+  font-size:11px;
+  width:50px;
+  margin:0px 1px;
+  text-align:center;
+  color:#ffffff;
+  background-color:#afc6dd;
+  border-width:1px;
+  border-style:solid;
+  border-color:#cce6ff #668099 #668099 #cce6ff;
+  padding:1px;
+  cursor:pointer;
+}
+.foot_down {
+  font-family:verdana;
+  font-size:11px;
+  width:50px;
+  margin:0px 1px;
+  text-align:center;
+  color:#ffffff;
+  background-color:#7e93aa;
+  border-width:1px;
+  border-style:solid;
+  border-color:#4b6077 #afc6dd #afc6dd #4b6077;
+  padding:2px 0px 0px 2px;
+  cursor:pointer;
+}
+
+...
+
+</pre>
+</td></tr></table>
+
+<p class="para">Usually we don't need to modify the default config file but just overwrite some settings to change the look and feel of the calendar, which we demonstrate in the coming examples.</p>
+
+<p class="para">[<a href="helper.html">The helper functions</a>]&nbsp;[<a href="../index.html#examples">Back to index page</a>]</p>
+<p align="center"># # #</p>
+<p>&nbsp;</p>
+</body>
+
+</html>

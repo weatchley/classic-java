@@ -1,0 +1,36 @@
+      body {
+		font-family: Verdana;
+		color: Navy;
+		font-size: 10pt;
+        	background-color: #F3FBFF;
+		margin-left: 0;
+		margin-top: 0;
+		margin-right: 0; 
+		margin-bottom: 0;
+       }
+
+	   body.text {
+		font-family: Verdana;
+  		color: Navy;
+  		font-size: 10pt;
+	    }
+
+	   body a {
+		font-size: 10pt;
+		color: Navy;
+		font-family: Verdana;
+		text-decoration: None;
+	    }
+
+	   body a:hover {
+		font-size: 10pt;
+		color: #0000FF;
+		font-family: Verdana;
+		text-decoration: Underline;
+	   }
+
+	   td {
+  		font-family: Verdana;
+  		color: Navy;
+  		font-size: 10pt;
+	   }

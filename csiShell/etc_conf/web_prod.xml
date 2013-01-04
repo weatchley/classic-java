@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Production version of web.xml file -->
+
+<web-app>
+
+    <display-name>csiShell</display-name>
+    <description>
+	CSI Shell Sample Application
+    </description>
+
+    <session-config>
+      <session-timeout>480</session-timeout>
+    </session-config>
+
+    <welcome-file-list>
+      <welcome-file>/index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <servlet>
+        <servlet-name>csiShell</servlet-name>
+        <servlet-class>gov.ymp.csiShell</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>doLogin</servlet-name>
+        <servlet-class>gov.ymp.csiShell.doLogin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>doPermissions</servlet-name>
+        <servlet-class>gov.ymp.csiShell.doPermissions</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>doRoles</servlet-name>
+        <servlet-class>gov.ymp.csiShell.doRoles</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>csiShell</servlet-name>
+        <url-pattern>/csiShell</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>doLogin</servlet-name>
+        <url-pattern>/doLogin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>doPermissions</servlet-name>
+        <url-pattern>/doPermissions</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>doRoles</servlet-name>
+        <url-pattern>/doRoles</url-pattern>
+    </servlet-mapping>
+
+    <env-entry>
+      <env-entry-name>SystemName</env-entry-name>
+      <env-entry-value>Sample Shell Application Using CSI</env-entry-value>
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>
+    <env-entry>
+      <env-entry-name>SystemAcronym</env-entry-name>
+      <env-entry-value>N/A</env-entry-value>
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>
+
+    <env-entry>
+      <env-entry-name>ProductionStatus</env-entry-name>
+      <env-entry-value>prod</env-entry-value>
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>
+
+</web-app>

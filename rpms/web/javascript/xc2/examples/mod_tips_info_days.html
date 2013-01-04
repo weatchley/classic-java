@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+
+<head>
+<title>Xin Calendar 2 Mods: The 3-mod combo</title>
+<link rel=stylesheet href="xc2.css" type="text/css">
+<link rel=stylesheet href="../css/xc2_default.css" type="text/css">
+<style type="text/css">
+.head {
+  font-size:14px;
+}
+.row_week {
+  background-color:#99b3cc;
+}
+.weekday {
+  margin:1px;
+  font-size:14px;
+  width:100px;
+}
+.day, .day_over, .day_down, .day_empty, .day_disabled, .day_current, .day_special {
+  margin:1px;
+  width:100px; height:60px; overflow:hidden;
+  text-align:right;
+}
+.day_other, .day_other_over, .day_other_current {
+  margin:1px;
+  font-size:11px;
+  width:100px; height:60px; overflow:hidden;
+  text-align:left;
+}
+.day {
+  border-color:#cccccc;
+}
+.day_over {
+  color:#ffffff;
+  background-color:#6699cc;
+  border-color:#99ccff #336699 #336699 #99ccff;
+}
+.foot, .foot_over, .foot_down {
+  font-size:14px;
+  width:180px;
+}
+.arrow_prev, .arrow_prev_over, .arrow_prev_down, .arrow_next, .arrow_next_over, .arrow_next_down {
+  width:20px;
+  font-size:14px;
+}
+
+.weekend {
+  font-family:verdana;
+  font-size:11px;
+  margin:1px;
+  width:100px; height:60px; overflow:hidden;
+  text-align:right;
+  color:#000000;
+  background-color:#9cc6c6;
+  border-width:1px;
+  border-style:solid;
+  border-color:#cff9f9 #699393 #699393 #cff9f9;
+  padding:1px;
+  cursor:pointer;
+}
+
+.tip {
+  font-family:verdana;
+  font-size:11px;
+  line-height:14px;
+  margin:1px;
+  width:100px; height:60px; overflow:hidden;
+  text-align:right;
+  color:#000000;
+  background-color:#369693;
+  border-width:1px;
+  border-style:solid;
+  border-color:#69c9c6 #036360 #036360 #69c9c6;
+  padding:1px;
+  cursor:pointer;
+}
+</style>
+
+<script language="javascript" src="../config/xc2_default.js"></script>
+<script language="javascript">
+xcMods[8].order=1;
+xcMods[3].order=2;
+xcMods[2].order=3;
+
+xcWeekdayDisplay=["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+xcArrowPosition=1;
+
+xcFootTagSwitch[0]=0;
+xcFootTagSwitch[3]=0;
+xcFootTagSwitch[6]=1;
+
+xcDateTipBoxOffsetY=-30;
+</script>
+
+<script language="javascript" src="../script/xc2_inpage.js"></script>
+<script language="javascript">
+xcCopyrightDisplay="&#169;yxScripts.com";
+
+// date tips
+addDateTips("conf", "tip", "", "", "", "", "2004-08-04", "Celebration of Light - Spain<br><br>Location: English Bay, Vancouver<br>Web site: <a href='http://www.celebration-of-light.com/fireworks/info.html' target='_blank'>link</a>");
+addDateTips("conf", "tip", "", "", "", "", "2004-08-07", "Celebration of Light - Grand Finale<br><br>Location: English Bay, Vancouver<br>Web site: <a href='http://www.celebration-of-light.com/fireworks/info.html' target='_blank'>link</a>");
+addDateTips("conf", "tip", "", "", "", "", "2004-08-31", "blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah");
+
+// special days
+setLoopWeek("conf", "weekend", "", 1, 1, "Sun", "Sat");
+
+// date info
+addDateInfo("conf", "", "", "info", "", "2004-08-22", "Xin Calendar 2 released");
+addDateInfo("conf", "", "", "info", "", "2004-08-31", "Blah blah");
+</script>
+
+</head>
+
+<body onload="showCalendar('conf',null,null,'2004-08-20','holder',20,0,0)">
+
+<p align="center" class="title">Xin Calendar 2 Mods: The 3-mod combo</p>
+<p align="center" class="copyright"><a href="http://www.yxscripts.com">yxScripts.com</a></p>
+
+<table><tr><td id="holder" height="500">&nbsp;</td></tr></table>
+
+<p class="para">Here we turn on three mods: the Date Tips mod, the Date Info mod and the Special Days mod. Since each mod can have its own style for dates it defines, we want the Date Tips mod come first, then the Date Info mod followed by the Special Days mod. So we have the following orders for them:</p>
+<pre style="font-family:courier">
+xcMods=[{"order": 0,  "mod": "Month/Year List",   "script": "mod_list.js"},
+        {"order": 0,  "mod": "Date Range",        "script": "mod_date.js"},
+        {"order": <font color="red">3</font>,  "mod": "Special Days",      "script": "mod_days.js"},
+        {"order": <font color="red">2</font>,  "mod": "Date Info",         "script": "mod_info.js"},
+        {"order": 0,  "mod": "Journal",           "script": "mod_journal.js"},
+        {"order": 0,  "mod": "Date Link",         "script": "mod_link.js"},
+        {"order": 0,  "mod": "Long Date Format",  "script": "mod_long.js"},
+        {"order": 0,  "mod": "Tiles",             "script": "mod_tiles.js"},
+        {"order": <font color="red">1</font>,  "mod": "Date Tips",         "script": "mod_tips.js"},
+        {"order": 0,  "mod": "Time",              "script": "mod_time.js"}];
+</pre>
+<p class="para">or we can do it in the JS way without changing the default config file:</p>
+<pre>
+&lt;script language="javascript" src="../config/xc2_default.js"&gt;&lt;/script&gt;
+&lt;script language="javascript"&gt;
+  xcMods[8].order=1;
+  xcMods[3].order=2;
+  xcMods[2].order=3;
+&lt;/script&gt;
+</pre><br>
+
+<p class="para">We set up the dates like this:</p>
+<pre>
+// date tips
+addDateTips("conf", "tip", "", "", "", "", "2004-08-04", "Celebration of Light - Spain ...");
+addDateTips("conf", "tip", "", "", "", "", "2004-08-07", "Celebration of Light - Grand Finale ...");
+addDateTips("conf", "tip", "", "", "", "", "2004-08-31", "blah blah blah ...");
+
+// special days
+setLoopWeek("conf", "weekend", "", 1, 1, "Sun", "Sat");
+
+// date info
+addDateInfo("conf", "", "", "info", "", "2004-08-22", "Xin Calendar 2 released");
+addDateInfo("conf", "", "", "info", "", "2004-08-31", "Blah blah");
+</pre>
+<p class="para">And we will have the Date Tips mod to use the color of <span class="tip">&nbsp;&nbsp;</span>, the Date Info mod to use the default color of <span class="day_special">&nbsp;&nbsp;</span>, and the Special Days mod to use the color of <span class="weekend">&nbsp;&nbsp;</span>. Now for the overlapping dates like 2004-08-07, 2004-08-22 and 2004-08-31, we can notice that the Date Tips mod takes precedence over the other two mods and the Date Info mod takes over the Special Days mod.</p>
+
+
+<p class="para">[<a href="../index.html#mod">Back to index page</a>]</p>
+<p align="center"># # #</p>
+<p>&nbsp;</p>
+</body>
+
+</html>

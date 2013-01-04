@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+
+<head>
+<title>Xin Calendar 2 Example: Auto-hide & sticky mode</title>
+<link rel=stylesheet href="xc2.css" type="text/css">
+
+<link rel=stylesheet href="../css/xc2_default.css" type="text/css">
+
+<script language="javascript" src="../config/xc2_default.js"></script>
+<script language="javascript">
+xcAutoHide=1000;
+xcStickyMode=1;
+</script>
+
+<script language="javascript" src="../script/xc2_inpage.js"></script>
+</head>
+
+<body>
+
+<p align="center" class="title">Xin Calendar 2 Example: Auto-hide & sticky mode</p>
+<p align="center" class="copyright"><a href="http://www.yxscripts.com">yxScripts.com</a></p>
+
+<form method="post">
+
+<table cellpadding="0" cellspacing="0" border="0" align="center">
+<tr valign="top">
+<td id="holder1">&nbsp;</td>
+<td><input type="text" name="date1" value="" onfocus="showCalendar('',this,this,'','holder1',0,30,1)"></td>
+<td id="holder2">&nbsp;</td>
+<td><input type="text" name="date2" value="" onfocus="showCalendar('',this,this,'','holder2',0,30,1)"></td>
+</tr>
+</table>
+
+</form>
+
+<p class="para">Usually when a calendar (or a calendar window) pops up, it stays until we pick a date or click the [ Close ] link (or the [X] button for a calendar window). We can change this behavior by setting up the auto-hide interval and/or switching on the sticky mode.</p>
+<p class="para">When the auto-hide interval is set up, the calendar (or calendar window) will close by itself after we mouse-out the calendar box (or the calendar window) for a while. The [ xcAutoHide ] variable in the default config file (config/xc2_default.js) defines the interval in ms.</p>
+<p class="para">The sticky mode, if turned on, lets the calendar (or calendar window) stay open until we click the [ Close ] link (or the [X] button of the calendar window). The [ xcStickyMode ] variable in the default config file defines whether the sticky mode is turned on or not.</p>
+<p class="para">Both auto-hide and sticky mode are set up in the example. Just pop up the calendar, pick some dates and mouse-out for a while to see it closes by itself.</p>
+
+<p class="para">[<a href="foot2.html">Customizable foot links</a>]&nbsp;[<a href="../index.html#examples">Back to index page</a>]</p>
+<p align="center"># # #</p>
+<p>&nbsp;</p>
+</body>
+
+</html>

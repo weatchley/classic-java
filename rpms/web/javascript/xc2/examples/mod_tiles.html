@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+
+<head>
+<title>Xin Calendar 2 Mods: Tiles</title>
+<link rel=stylesheet href="xc2.css" type="text/css">
+<style type="text/css">
+.tile { width:120px; height:80px; }
+.cc { width:240px; height:160px; }
+.cal { width:370px; height:205px; }
+</style>
+
+<link rel=stylesheet href="../css/xc2_default.css" type="text/css">
+<style type="text/css">
+.panel {
+  border-width:0px;
+  padding:16px;
+  position:relative;
+  z-index:2;
+  background-color:transparent;
+}
+
+.row_head {
+  border-width:0px;
+  background-color:transparent;
+}
+.head {
+  color:#ffffff;
+  background-color:transparent;
+}
+
+.row_week {
+  border-color:#ffff99 #999933 #999933 #ffff99;
+}
+.weekday {
+  color:#ffffff;
+  background-color:#cccc66;
+  border:1px solid #cccc66;
+}
+
+.row_day {
+  border-width:1px;
+  border-style:solid;
+  border-color:#ffffff #c0c0c0 #c0c0c0 #ffffff;
+  padding:0px;
+}
+
+.tileTL { background:url("../images/1.gif") no-repeat; }
+.tileTC { background:url("../images/2.gif") repeat-x; }
+.tileTR { background:url("../images/3.gif") no-repeat; }
+.tileCL { background:url("../images/4.gif") repeat-y; }
+.tileCC { background:url("../images/5.gif") repeat; }
+.tileCR { background:url("../images/6.gif") repeat-y; }
+.tileBL { background:url("../images/7.gif") no-repeat; }
+.tileBC { background:url("../images/8.gif") repeat-x; }
+.tileBR { background:url("../images/9.gif") no-repeat; }
+</style>
+
+<script language="javascript" src="../config/xc2_default.js"></script>
+<script language="javascript">
+xcMods[7].order=1;
+
+xcFootTagSwitch[0]=0;
+xcFootTagSwitch[3]=0;
+</script>
+
+<script language="javascript" src="../script/xc2_inpage.js"></script>
+<script language="javascript">
+addTiles("conf",20,20,"tileTL","tileTC","tileTR","tileCL","tileCC","tileCR","tileBL","tileBC","tileBR");
+</script>
+</head>
+
+<body>
+
+<p align="center" class="title">Xin Calendar 2 Mods: Tiles</p>
+<p align="center" class="copyright"><a href="http://www.yxscripts.com">yxScripts.com</a></p>
+
+
+<p class="para">The Tiles mod provides us an option to enhance the look of the calendars with some background tiles.</p>
+<p class="para">The background consists of nine (9) tiles as below:</p>
+
+<form method="post">
+<table cellpadding="0" cellspacing="0" border="0" style="margin-left:22pt"><tr><td>
+<table border="1" style="position:absolute; margin:60px;" class="cal"><tr><td align="center" valign="top">&nbsp;</td></tr></table>
+<table cellpadding="0" cellspacing="1" border="0">
+<tr align="center" valign="middle"><td class="tile" bgcolor="#6699cc">Top-Left</td><td bgcolor="#cc9966">Top-Center</td><td class="tile" bgcolor="#6699cc">Top-Right</td></tr>
+<tr align="center" valign="middle"><td bgcolor="#cc9999">Center-Left</td><td class="cc" bgcolor="#cccc99">Center-Center</td><td bgcolor="#cc9999">Center-Right</td></tr>
+<tr align="center" valign="middle"><td class="tile" bgcolor="#6699cc">Bottom-Left</td><td bgcolor="#cc9966">Bottom-Center</td><td class="tile" bgcolor="#6699cc">Bottom-Right</td></tr>
+</table>
+</td>
+<td>&nbsp;</td>
+<td id="holder" valign="top"><input type="text" name="date1" value="" onfocus="showCalendar('conf',this,this,'','holder',0,30,1)"></td>
+</tr></table><br>
+</form>
+
+<p class="para">We will need to know the size of the corner tiles and we assume that the corner tiles have the same size. The width of the vertical center tiles and the height of the horizontal center tiles will be calculated basing on padding of the calendar outer panel and the inner size of the calendar.</p>
+
+<p class="para">The Tiles mod only works with In-Page version:</p>
+<pre style="font-family:courier">
+xcMods=[...
+        {"order": <font color="red">1</font>,  "mod": "Tiles",  "script": "mod_tiles.js"},
+        ...
+</pre>
+<p class="para">or:</p>
+<pre>
+&lt;script language="javascript" src="../config/xc2_default.js"&gt;&lt;/script&gt;
+&lt;script language="javascript"&gt;
+  xcMods[7].order=1;
+&lt;/script&gt;
+</pre><br>
+
+<p class="para">For the CSS settings, we could have something like:</p>
+<pre>
+.panel {
+  border-width:0px;
+  padding:16px;
+  position:relative;
+  z-index:2;
+  background-color:transparent;
+}
+
+.tileTL { background:url("../images/1.gif") no-repeat; }
+.tileTC { background:url("../images/2.gif") repeat-x; }
+.tileTR { background:url("../images/3.gif") no-repeat; }
+.tileCL { background:url("../images/4.gif") repeat-y; }
+.tileCC { background:url("../images/5.gif") repeat; }
+.tileCR { background:url("../images/6.gif") repeat-y; }
+.tileBL { background:url("../images/7.gif") no-repeat; }
+.tileBC { background:url("../images/8.gif") repeat-x; }
+.tileBR { background:url("../images/9.gif") no-repeat; }
+</pre>
+<p class="note"><font color="red">Note:</font> The panel CSS has to be set to "position:relative;" and "z-index:2;" so that the calendar can stay on top of the background tiles, and it also has to be set to "background-color:transparent;" so that the background tiles at a lower z-index could be visible. The padding can be any number depending on the visual effect.</p>
+
+<p class="para">In this example, we have the following images as tiles:</p>
+<table style="margin-left:22pt" cellpadding="0" cellspacing="2" border="0">
+<tr><td><img src="../images/1.gif"></td><td width="80" align="center"><img src="../images/2.gif"></td><td><img src="../images/3.gif"></td></tr>
+<tr valign="middle"><td height="40"><img src="../images/4.gif"></td><td width="80" align="center"><img src="../images/5.gif" width="40" height="20"></td><td><img src="../images/6.gif"></td></tr>
+<tr><td><img src="../images/7.gif"></td><td width="80" align="center"><img src="../images/8.gif"></td><td><img src="../images/9.gif"></td></tr>
+</table>
+
+<p class="para">And for the tile settings, we have:</p>
+<ul>
+<li><p>addTiles(conf_name, corner-width, corner-height, "cssTL", "cssTC", "cssTR", "cssCL", "cssCC", "cssCR", "cssBL", "cssBC", "cssBR")
+<ol>
+<li>conf_name ... a name for the configuration reference</li>
+<li>corner-width ... width in pixel of the corner tile</li>
+<li>corner-height ... height in pixel of the corner tile</li>
+<li>cssTL ... css class Top-Left tile</li>
+<li>cssTC ... css class Top-Center tile</li>
+<li>cssTR ... css class Top-Right tile</li>
+<li>cssCL ... css class Center-Left tile</li>
+<li>cssCC ... css class Center-Center tile</li>
+<li>cssCR ... css class Center-Right tile</li>
+<li>cssBL ... css class Bottom-Left tile</li>
+<li>cssBC ... css class Bottom-Center tile</li>
+<li>cssBR ... css class Bottom-Right tile</li>
+</ol>
+<pre>
+addTiles("conf", 20, 20, "tileTL", "tileTC", "tileTR", "tileCL", "tileCC", "tileCR", "tileBL", "tileBC", "tileBR");
+</pre>
+</p><br></li>
+</ul>
+
+<p class="para">[<a href="mod_tips.html">Date Tips</a>]&nbsp;[<a href="../index.html#mod">Back to index page</a>]</p>
+<p align="center"># # #</p>
+<p>&nbsp;</p>
+</body>
+
+</html>

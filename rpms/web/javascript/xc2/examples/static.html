@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+
+<head>
+<title>Xin Calendar 2 Example: Static calendar</title>
+<link rel=stylesheet href="xc2.css" type="text/css">
+
+<link rel=stylesheet href="../css/xc2_default.css" type="text/css">
+<style type="text/css">
+.head { background-color:#f0f0ff; }
+.foot { width:100px; margin:0px; }
+.foot_over { width:100px; margin:0px; }
+.foot_down { width:100px; margin:0px; }
+</style>
+
+<script language="javascript" src="../config/xc2_default.js"></script>
+<script language="javascript">
+xcArrowPosition=1;
+xcFootTagSwitch=[0, 0, 0, 0, 0, 0, 1, 0];
+</script>
+
+<script language="javascript" src="../script/xc2_inpage.js"></script>
+</head>
+
+<body onload="showCalendar('',null,null,'2004-07-01','holder',0,0,0); showCalendar('',null,null,'','holder',0,180,0)">
+
+<p align="center" class="title">Xin Calendar 2 Example: Static calendar</p>
+<p align="center" class="copyright"><a href="http://www.yxscripts.com">yxScripts.com</a></p>
+
+<table cellpadding="0" cellspacing="0" border="0" align="right" width="220" height="360">
+<tr valign="top">
+<td id="holder"></td>
+</tr>
+</table>
+
+<p class="para">The In-Page version supports popup calendar and static calendar. Static calendars will stay visible once shown. We can use [ null ] for both date fields in the showCalendar() call if we don't want to associate a static calendar to some input fields.</p>
+<p class="para">Usually we set up the showCalendar() calls for static calendars with the BODY onload event:</p>
+<pre>
+&lt;body onload="showCalendar('', null, null, '', 'holder', 10, 30, 0)"&gt;
+</pre>
+<p class="para">or we can put it this way when we don't want to touch the BODY tag:</p>
+<pre>
+&lt;script language="javascript"&gt;
+function showStaticCalendar() {
+  showCalendar('', null, null, '', 'holder', 10, 30, 0);
+}
+
+window.onload=showStaticCalendar;
+&lt;/script&gt;
+</pre>
+<p class="para">The only difference in calling a popup calendar and a static calendar is just the last parameter in the showCalendar() call, use 1 to get a popup calendar and use 0 (zero) to get a static one. Of course, though we can we don't usually position a static calendar with mouse clicks.</p>
+<p class="para">We can have more than one static calendar in the page, the [ xcMultiCalendar ] setting in the config file would only apply to popup calendars. In the example, the first calendar has a default date of 2004-07-01.</p>
+<p class="para">[<a href="dates.html">Start date & end date</a>]&nbsp;[<a href="../index.html#examples">Back to index page</a>]</p>
+<p align="center"># # #</p>
+<p>&nbsp;</p>
+</body>
+
+</html>

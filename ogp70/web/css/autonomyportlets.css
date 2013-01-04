@@ -1,0 +1,287 @@
+A.normal
+{
+    COLOR: #4e6790;
+    FONT-FAMILY: Arial, sans-serif;
+    FONT-SIZE: 8pt;
+    FONT-WEIGHT: normal;
+    TEXT-DECORATION: none
+}
+A.normal:link
+{
+    COLOR: #4e6790;
+    FONT-FAMILY: Arial, sans-serif;
+    FONT-SIZE: 8pt;
+    FONT-WEIGHT: normal;
+    TEXT-DECORATION: none
+}
+A.normal:visited
+{
+    COLOR: #4e6790;
+    FONT-FAMILY: Arial, sans-serif;
+    FONT-SIZE: 8pt;
+    FONT-WEIGHT: normal;
+    TEXT-DECORATION: none
+}
+A:visited
+{
+    COLOR: #4e6790;
+    FONT-FAMILY: Arial, sans-serif;
+    FONT-SIZE: 8pt;
+    FONT-WEIGHT: normal;
+    TEXT-DECORATION: none
+}
+A
+{
+    COLOR: #4e6790;
+    FONT-FAMILY: Arial, sans-serif;
+    FONT-SIZE: 8pt;
+    FONT-WEIGHT: normal;
+    TEXT-DECORATION: none
+}
+A:link
+{
+    COLOR: #4e6790;
+    FONT-FAMILY: Arial, sans-serif;
+    FONT-SIZE: 8pt;
+    FONT-WEIGHT: normal;
+    TEXT-DECORATION: none
+}
+
+A.head:active
+{
+    COLOR: #004D88;
+    FONT-FAMILY: Tahoma,Helvetica,Arial,Verdana;
+    FONT-SIZE: 8pt;
+    FONT-WEIGHT: bold;
+    TEXT-DECORATION: none
+}
+A.head:visited
+{
+    COLOR: #004D88;
+    FONT-FAMILY: Tahoma,Helvetica,Arial,Verdana;
+    FONT-SIZE: 8pt;
+    FONT-WEIGHT: bold;
+    TEXT-DECORATION: none
+}
+A.head
+{
+    COLOR: #004D88;
+    FONT-FAMILY: Tahoma,Helvetica,Arial,Verdana;
+    FONT-SIZE: 8pt;
+    FONT-WEIGHT: bold;
+    TEXT-DECORATION: none
+}
+A.head:link
+{
+    COLOR: #004D88;
+    FONT-FAMILY: Tahoma,Helvetica,Arial,Verdana;
+    FONT-SIZE: 8pt;
+    FONT-WEIGHT: bold;
+    TEXT-DECORATION: none
+}
+
+A.admin:active
+{
+    COLOR: #004d88;
+    FONT-FAMILY: Arial, sans-serif;
+    FONT-SIZE: 8pt;
+    FONT-WEIGHT: normal;
+    TEXT-DECORATION: none
+}
+A.admin:visited
+{
+    COLOR: #004d88;
+    FONT-FAMILY: Arial, sans-serif;
+    FONT-SIZE: 8pt;
+    FONT-WEIGHT: normal;
+    TEXT-DECORATION: none
+}
+A.admin
+{
+    COLOR: #004d88;
+    FONT-FAMILY: Arial, sans-serif;
+    FONT-SIZE: 8pt;
+    FONT-WEIGHT: normal;
+    TEXT-DECORATION: none
+}
+A.admin:link
+{
+    COLOR: #004d88;
+    FONT-FAMILY: Arial, sans-serif;
+    FONT-SIZE: 8pt;
+    FONT-WEIGHT: normal;
+    TEXT-DECORATION: none
+}
+FONT
+{
+    FONT-FAMILY: Verdana, Arial, sans-serif;
+    FONT-SIZE: 8pt;
+    FONT-WEIGHT: normal;
+    TEXT-DECORATION: none
+}
+FONT.normal
+{
+    FONT-FAMILY: Verdana, Arial, sans-serif;
+    FONT-SIZE: 8pt
+}
+FONT.generic
+{
+    COLOR: white;
+    FONT-FAMILY: Verdana, Arial, sans-serif;
+    FONT-SIZE: 8pt
+}
+FONT.genericbold
+{
+    COLOR: black;
+    FONT-FAMILY: Verdana, Arial, sans-serif;
+    FONT-SIZE: 8pt;
+    FONT-WEIGHT: bold
+}
+FONT.normalbold
+{
+    FONT-FAMILY: Verdana, Arial, sans-serif;
+    FONT-SIZE: 8pt;
+    FONT-WEIGHT: bold
+}
+FONT.head
+{
+    FONT-FAMILY: Verdana, Arial, sans-serif;
+    FONT-SIZE: 10pt;
+    FONT-WEIGHT: bold
+}
+FONT.summary
+{
+    COLOR: #808080;
+    FONT-FAMILY: Verdana, Arial, sans-serif;
+    FONT-SIZE: 8pt;
+    FONT-STYLE: italic
+}
+FONT.note
+{
+    COLOR: black;
+    FONT-FAMILY: Verdana, Arial, sans-serif;
+    FONT-SIZE: 8pt;
+    FONT-STYLE: italic
+}
+FONT.tab
+{
+    COLOR: black;
+    FONT-FAMILY: Verdana, Arial, sans-serif;
+    FONT-SIZE: 8pt
+}
+FONT.warning
+{
+    COLOR: #c00000;
+    FONT-FAMILY: Verdana, Arial, sans-serif;
+    FONT-SIZE: 8pt;
+    FONT-WEIGHT: bold
+}
+FONT.adminwarning
+{
+    COLOR: #b62828;
+    FONT-FAMILY: Verdana, Arial, sans-serif;
+    FONT-SIZE: 8pt;
+    FONT-WEIGHT: bold
+}
+FONT.message
+{
+    FONT-FAMILY: Verdana, Arial, sans-serif;
+    FONT-SIZE: 8pt;
+    font-color: #808080
+}
+TABLE
+{
+    FONT-FAMILY: Verdana, Arial, sans-serif;
+    FONT-SIZE: 8pt;
+    MARGIN: 0px;
+    font-COLOR: black
+}
+TABLE.pane1
+{
+    BORDER-BOTTOM: 0px groove;
+    BORDER-LEFT: 0px groove;
+    BORDER-RIGHT: 0px groove;
+    BORDER-TOP: 0px groove;
+    FONT-FAMILY: Verdana, Arial, sans-serif;
+    FONT-SIZE: 8pt;
+    MARGIN: 0px;
+    TEXT-ALIGN: center;
+    font-COLOR: black
+}
+TABLE.pane2
+{
+    COLOR: black;
+    FONT-FAMILY: Verdana, Arial, sans-serif;
+    FONT-SIZE: 8pt;
+    FONT-WEIGHT: bold;
+    MARGIN: 0px;
+    TEXT-ALIGN: center
+}
+TABLE.normal
+{
+    BACKGROUND: none transparent scroll repeat 0% 0%;
+    FONT-FAMILY: Verdana, Arial, sans-serif;
+    FONT-SIZE: 8pt;
+    MARGIN: 0px;
+    font-color: black
+}
+TABLE.head1
+{
+    BACKGROUND: #a8c4d8;
+    FONT-FAMILY: Verdana, Arial, sans-serif;
+    FONT-SIZE: 10pt;
+    FONT-WEIGHT: bold;
+    MARGIN: 0px;
+    font-color: #ffffff
+}
+TABLE.head2
+{
+    BACKGROUND: #a8bac6;
+    FONT-FAMILY: Verdana, Arial, sans-serif;
+    FONT-SIZE: 8pt;
+    MARGIN: 0px;
+    font-color: #ffffff
+}
+TABLE.admin1
+{
+    BACKGROUND: #a8c4d8;
+    BORDER-BOTTOM-COLOR: #000000;
+    BORDER-LEFT-COLOR: #000000;
+    BORDER-RIGHT-COLOR: #000000;
+    BORDER-TOP-COLOR: #000000;
+    COLOR: black;
+    FONT-FAMILY: Verdana, Arial, sans-serif;
+    FONT-SIZE: 8pt;
+    FONT-WEIGHT: bold;
+    border-spacing: 1pt
+}
+TABLE.admin2
+{
+    BACKGROUND: none transparent scroll repeat 0% 0%;
+    BORDER-BOTTOM-COLOR: #000000;
+    BORDER-LEFT-COLOR: #000000;
+    BORDER-RIGHT-COLOR: #000000;
+    BORDER-TOP-COLOR: #000000;
+    COLOR: black;
+    FONT-FAMILY: Verdana, Arial, sans-serif;
+    FONT-SIZE: 8pt;
+    border-spacing: 1pt
+}
+SELECT
+{
+    FONT-FAMILY: Verdana, Arial, sans-serif;
+    FONT-SIZE: 11px
+}
+TEXTAREA
+{
+    COLOR: #000000;
+    FONT-FAMILY: Verdana, Arial, sans-serif;
+    FONT-SIZE: 8pt;
+    FONT-WEIGHT: normal
+}
+UNKNOWN
+{
+    COLOR: #000000;
+    FONT-FAMILY: Verdana, Arial, sans-serif;
+    FONT-SIZE: 8pt
+}

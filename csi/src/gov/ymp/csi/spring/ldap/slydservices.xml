@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	<bean id="contextSource"
+		class="org.springframework.ldap.support.LdapContextSource">
+		<property name="url" value="ldaps://10.70.134.4:636" />
+		<!-- try one of the following if the above ip address does not work -->
+		<!-- 192.12.95.59 -->
+		<!-- 192.12.95.58 -->
+		<!-- ydservices.ymp.gov -->
+		<property name="base" value="DC=ydservices,DC=ymp,DC=gov" />
+		<property name="userName" value="ServiceCSI" />
+		<property name="password" value="zaq1@WSX" />
+	</bean>
+	<bean id="ldapTemplate" class="org.springframework.ldap.LdapTemplate">
+		<constructor-arg ref="contextSource" />
+	</bean>
+	<bean id="ldapContact"
+		class="gov.ymp.csi.spring.ldap.LDAPContactDAO">
+		<property name="ldapTemplate" ref="ldapTemplate" />
+	</bean>
+</beans>

@@ -1,0 +1,207 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+
+<head>
+<title>Xin Calendar 2 Example: The foot links</title>
+<link rel=stylesheet href="xc2.css" type="text/css">
+
+<link rel=stylesheet href="../css/xc2_default.css" type="text/css">
+<style type="text/css">
+.head { background-color:#f0f0ff; }
+
+.row_foot {
+  margin:1px 0px 2px 0px;
+}
+
+.today_link {
+  width:20px;
+  height:20px;
+  line-height:20px;
+  margin-right:4px;
+  cursor:pointer;
+  border:1px solid #f0f0f0;
+  background:url("../images/today.gif") center center no-repeat;
+}
+.today_over {
+  width:20px;
+  height:20px;
+  line-height:20px;
+  margin-right:4px;
+  cursor:pointer;
+  border:1px solid #f0f0f0;
+  background:url("../images/today_.gif") center center no-repeat;
+}
+.today_down {
+  width:20px;
+  height:20px;
+  line-height:20px;
+  margin-right:4px;
+  cursor:pointer;
+  border-width:1px;
+  border-style:solid;
+  border-color:#c0c0c0 #f0f0f0 #f0f0f0 #c0c0c0;
+  background:url("../images/today_.gif") right bottom no-repeat;
+}
+
+.reset_link {
+  width:20px;
+  height:20px;
+  line-height:20px;
+  margin-right:2px;
+  cursor:pointer;
+  border:1px solid #f0f0f0;
+  background:url("../images/reset.gif") center center no-repeat;
+}
+.reset_over {
+  width:20px;
+  height:20px;
+  line-height:20px;
+  margin-right:2px;
+  cursor:pointer;
+  border:1px solid #f0f0f0;
+  background:url("../images/reset_.gif") center center no-repeat;
+}
+.reset_down {
+  width:20px;
+  height:20px;
+  line-height:20px;
+  margin-right:2px;
+  cursor:pointer;
+  border-width:1px;
+  border-style:solid;
+  border-color:#c0c0c0 #f0f0f0 #f0f0f0 #c0c0c0;
+  background:url("../images/reset_.gif") right bottom no-repeat;
+}
+
+.back_link {
+  width:20px;
+  height:20px;
+  line-height:20px;
+  margin-left:2px;
+  cursor:pointer;
+  border:1px solid #f0f0f0;
+  background:url("../images/back.gif") center center no-repeat;
+}
+.back_over {
+  width:20px;
+  height:20px;
+  line-height:20px;
+  margin-left:2px;
+  cursor:pointer;
+  border:1px solid #f0f0f0;
+  background:url("../images/back_.gif") center center no-repeat;
+}
+.back_down {
+  width:20px;
+  height:20px;
+  line-height:20px;
+  margin-left:2px;
+  cursor:pointer;
+  border-width:1px;
+  border-style:solid;
+  border-color:#c0c0c0 #f0f0f0 #f0f0f0 #c0c0c0;
+  background:url("../images/back_.gif") right bottom no-repeat;
+}
+
+.close_link {
+  width:20px;
+  height:20px;
+  line-height:20px;
+  margin-left:4px;
+  cursor:pointer;
+  border:1px solid #f0f0f0;
+  background:url("../images/close.gif") center center no-repeat;
+}
+.close_over {
+  width:20px;
+  height:20px;
+  line-height:20px;
+  margin-left:4px;
+  cursor:pointer;
+  border:1px solid #f0f0f0;
+  background:url("../images/close_.gif") center center no-repeat;
+}
+.close_down {
+  width:20px;
+  height:20px;
+  line-height:20px;
+  margin-left:4px;
+  cursor:pointer;
+  border-width:1px;
+  border-style:solid;
+  border-color:#c0c0c0 #f0f0f0 #f0f0f0 #c0c0c0;
+  background:url("../images/close_.gif") right bottom no-repeat;
+}
+
+.button {
+  font-family:verdana;
+  font-size:11px;
+  text-align:center;
+  color:#ffffff;
+  background-color:#99b3cc;
+  border-width:1px;
+  border-style:solid;
+  border-color:#cce6ff #668099 #668099 #cce6ff;
+  padding:1px 10px;
+}
+</style>
+
+<script language="javascript" src="../config/xc2_default.js"></script>
+<script language="javascript">
+xcCSSFootToday=["today_link", "today_over", "today_down"];
+xcCSSFootReset=["reset_link", "reset_over", "reset_down"];
+xcCSSFootBack=["back_link", "back_over", "back_down"];
+xcCSSFootClose=["close_link", "close_over", "close_down"];
+
+xcFootTags=["", "Clear", "", "", "", "_Today_", "_Back_", "_Reset_"];
+xcFootTagSwitch=[1, 0, 3, 4, 2, 0, 0, 0];
+</script>
+
+<script language="javascript" src="../script/xc2_inpage.js"></script>
+</head>
+
+<body>
+
+<p align="center" class="title">Xin Calendar 2 Example: The foot links</p>
+<p align="center" class="copyright"><a href="http://www.yxscripts.com">yxScripts.com</a></p>
+
+<form>
+
+<table cellpadding="0" cellspacing="0" border="0" align="right" width="220" height="210">
+<tr valign="top">
+<td id="holder"><input class="button" type="button" value="2004-07-01" onclick="showCalendar('',this,null,'2004-07-01','holder',0,25,1)"</td>
+</tr>
+</table>
+
+</form>
+
+<p class="para">In Xin Calendar 2, we can choose from five foot links and three alternatives:</p>
+<ul>
+<li>[ Today ]</li>
+<li>[ Clear ]</li>
+<li>[ Back ]</li>
+<li>[ Close ]</li>
+<li>[ Reset ]</li>
+<li>Alternative to [ Today ]</li>
+<li>Alternative to [ Back ]</li>
+<li>Alternative to [ Reset ]</li>
+</ul>
+<p class="para">In the default config file, you would find something like this:</p>
+<pre>
+xcFootTags=["Today", "Clear", "Back", "Close", "Reset", "_Today_", "_Back_", "_Reset_"];
+xcFootTagSwitch=[1, 0, 0, 2, 0, 0, 0, 0];
+xcFootTagAdjustment=0;
+</pre>
+<p class="para">The display text of these foot links are defined in the [ xcFootTags ] array, and the order of these foot links are defined in the [ xcFootTagSwitch ] array accordingly. If the order of a foot link is set to 0 (zero), this foot link won't be displayed. If all the order numbers are set to 0 (zero), the foot link block won't be displayed.</p>
+<p class="para">A foot link with a smaller order number in the [ xcFootTagSwitch ] array displays to the left of those with a larger number.</p>
+<p class="para">CSS styles can be defined for each foot link individually. In this example, we use some images instead of text for the foot links, and when we mouse-over the foot links, we can tell which link does what from its tooltip. Also, we use a form button to store the date picked.</p>
+<p class="para">The links of [ Today ], [ Clear ] and [ Close ] are straight forward, the [ Back ] link scrolls the calendar to the date last picked, and the [ Reset ] link picks the default date (same as [ Today ] if the default date is not defined).</p>
+<p class="para">The three alternative links, [ _Today_ ], [ _Back_ ] and [ _Reset_ ], will display the date corresponding to [ Today ], [ Back ] and [ Reset ] as the link text. The alternative links call the same functions and use the same CSS styles as their counter parts do, so usually we just switch on either the link or its alternative link.</p>
+<p class="para">The following example uses the alternative link of [ Back ].</p>
+
+<p class="para">[<a href="static.html">Static calendar</a>]&nbsp;[<a href="../index.html#examples">Back to index page</a>]</p>
+<p align="center"># # #</p>
+<p>&nbsp;</p>
+</body>
+
+</html>

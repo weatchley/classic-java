@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+
+<head>
+<title>Xin Calendar 2 Examples: Start date & end date</title>
+<link rel=stylesheet href="xc2.css" type="text/css">
+<link rel=stylesheet href="../css/xc2_default.css" type="text/css">
+<script language="javascript" src="../config/xc2_default.js"></script>
+<script language="javascript" src="../script/xc2_inpage.js"></script>
+<script language="javascript">
+function beforeSetDateValue(ref_field, target_field, date) {
+  if (date!="") {
+    var startDate=document.forms[0]["start_date"];
+    var endDate=document.forms[0]["end_date"];
+
+    if (target_field==endDate &&
+        checkDate(getDateValue(startDate))==0 &&
+        compareDates(getDateValue(startDate), date)>0) {
+      date=getDateValue(endDate);
+      alert("End Date should not be earlier than Start Date, please select again.");
+    }
+  }
+
+  return date;
+}
+
+function afterSetDateValue(ref_field, target_field, date) {
+  if (date!="") {
+    var startDate=document.forms[0]["start_date"];
+    var endDate=document.forms[0]["end_date"];
+
+    if (target_field==startDate &&
+        checkDate(getDateValue(endDate))==0 &&
+        compareDates(date, getDateValue(endDate))>0) {
+      setDateValue(endDate, date);
+      alert("End Date was earlier than Start Date, it's now set to Start Date.");
+    }
+  }
+}
+
+function checkForm() {
+  var startDate=document.forms[0]["start_date"];
+  var endDate=document.forms[0]["end_date"];
+
+  if (checkDate(getDateValue(startDate))!=0) {
+    alert("Please select a Start Date.");
+  }
+  else if (checkDate(getDateValue(endDate))!=0) {
+    alert("Please select an End Date.");
+  }
+  else if (compareDates(getDateValue(startDate), getDateValue(endDate))>0) {
+    alert("End Date should not be earlier than Start Date.");
+  }
+  else {
+    alert("Dates are good.");
+  }
+}
+</script>
+</head>
+
+<body>
+
+<p align="center" class="title">Xin Calendar 2 Examples: Start date & end date</p>
+<p align="center" class="copyright"><a href="http://www.yxscripts.com">yxScripts.com</a></p>
+
+<form method="post">
+
+<table cellpadding="0" cellspacing="0" border="0" align="center">
+<tr>
+<td>&nbsp;</td>
+<td>Start Date</td>
+<td>&nbsp;</td>
+<td>End Date</td>
+</tr>
+<tr valign="top">
+<td id="holder1">&nbsp;</td>
+<td><input type="text" name="start_date" value="" onfocus="showCalendar('',this,this,'','holder1',0,30,1)"></td>
+<td id="holder2">&nbsp;</td>
+<td><input type="text" name="end_date" value="" onfocus="showCalendar('',this,this,'','holder2',0,30,1)"></td>
+<td>&nbsp;</td>
+<td><input type="button" value="Check" onclick="checkForm()"></td>
+</tr>
+</table>
+
+</form>
+
+<p class="para">It's quite often that we would have calendar for two date fields and we want to have some control on how dates are picked up for these two date fields. Examples could be start date and end date of a rental period, or start date and return date of a round trip ticket, and we will want the end date to be certain days behind the start date.</p>
+<p class="para">Obviously this would be another example of customizing the user functions. Let's see how we make sure that the End Date is not earlier than the Start Date.</p>
+<p class="para">Usually if we want to validate a field when a date is being picked for it, we will look at the user function of beforeSetDateValue(), and if we want to check how a field would affect other fields after a date is picked for it, we go for the user function of afterSetDateValue().</p>
+<p class="para">In this example, we will check to make sure that when the End Date is being picked (beforeSetDateValue) and the Start Date is not empty, then the End Date picked should not be earlier than the Start Date or it's will remain unchanged, and we also need to make sure that when the Start Date is picked (afterSetDateValue) and the End Date is not empty, the End Date should not be earlier than the Start Date or it will be set to the same date picked for the Start Date.</p>
+<p class="para">Of course, the users can input a date manually, so we will need to check the dates before the form is submitted. We simulate this with a [ Check ] button.</p>
+
+<p class="para">[<a href="dates2.html">Start date & end date II</a>]&nbsp;[<a href="../index.html#examples">Back to index page</a>]</p>
+<p align="center"># # #</p>
+<p>&nbsp;</p>
+</body>
+
+</html>

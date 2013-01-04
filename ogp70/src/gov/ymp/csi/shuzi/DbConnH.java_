@@ -1,0 +1,62 @@
+//package gov.ymp.csi.db;
+package gov.ymp.csi.shuzi;
+import java.sql.*;
+import java.util.*;
+import java.io.*;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+
+/**
+* DbConn is a modified class for managing hypersonic db connections 
+*
+* @author   Shuhei Higashi
+*/
+public class DbConnH {
+    public String server = null;
+    public Connection conn = null;
+
+    /**
+    * Creates a new DbConn object given a schema
+    *
+    * @param schemaIN     The Oracle schema to connect to (String)
+    */
+    public DbConnH () {
+        this.conn = getNew();
+    }
+
+    /**
+    * Make a coonnection to the db
+    * @return myconn     The db connection handle (Connection)
+    */
+    
+    public Connection getNew() {
+      
+    	Connection myconn = null;
+        try {
+            DriverManager.registerDriver(new org.hsqldb.jdbcDriver());
+            Context initCtx = new InitialContext();
+    		String dataDirPath = null;
+    		dataDirPath = (String) initCtx.lookup("java:comp/env/dataDirPath");
+            myconn = DriverManager.getConnection ("jdbc:hsqldb:file:"+dataDirPath, "sa", "");
+            System.out.println("myconn obj created with: jdbc:hsqldb:file:"+dataDirPath);
+        }
+        catch (Exception e) {
+            System.out.println(e + e.getMessage());
+        }
+        return(myconn);
+    }
+
+    /**
+    * Release a coonnection to the db
+    */
+    public void release() {
+        try {
+            conn.close();
+			org.hsqldb.DatabaseManager.closeDatabases(0);
+        }
+        catch (java.sql.SQLException e) {
+            System.out.println(e + e.getMessage());
+        }
+    }
+
+}

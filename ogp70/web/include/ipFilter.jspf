@@ -1,0 +1,6 @@
+<%
+//migrate the following two lines into Session Manager Class
+		String rCoast = request.getAttribute("rCoastString").toString().trim();
+		session.setAttribute("coastName",rCoast);
+%>
+<%--=request.getAttribute("rAddressString")%>, <%="session: coastName = "+session.getAttribute("coastName").toString().trim()--%>

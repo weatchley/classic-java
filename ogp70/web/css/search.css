@@ -1,0 +1,47 @@
+INPUT, TEXTAREA, SELECT, OPTION
+{
+  background-color: #FFFFFF;
+  background-image: url(../images/elementbg.gif);
+  background-repeat: repeat-x;
+  font-family: Arial;
+  font-color: #000000;
+  color: #000000;
+  font-size: 10pt;
+
+}
+
+body.text
+{
+  font-family: Arial;
+  font-color: #000000;
+  font-size: 12pt;
+}
+
+body.link
+{
+  font-family: Arial;
+  font-color: #0000FF;
+  font-size: 12pt;
+}
+
+body.alink
+{
+  font-family: Arial;
+  font-color: #0000FF;
+  font-size: 12pt;
+}
+
+body.vlink
+{
+  font-family: Arial;
+  font-color: Purple;
+  font-size: 12pt;
+}
+
+td.icons
+{
+  font-family: Arial;
+  color: Navy;
+  font-size: 8pt;
+  background-color: #E1EAEB;
+}

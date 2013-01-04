@@ -1,0 +1,177 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+
+<head>
+<title>Xin Calendar 2 Mods</title>
+<link rel=stylesheet href="xc2.css" type="text/css">
+</head>
+
+<body>
+
+<p align="center" class="title">Xin Calendar 2 Mods</p>
+<p align="center" class="copyright"><a href="http://www.yxscripts.com">yxScripts.com</a></p>
+
+<p class="para">A mod is a JS script that changes the behavior of the calendars. The changes could be the look and feel of the calendar, or extra features added to the calendar. Some mods will apply to all the calendars once installed, some mods will only apply to calendars that reference them.</p>
+<p class="para">Currently Xin Calendar 2 provides the following mods:</p>
+<table cellpadding="0" cellspacing="1" border="0" bgcolor="#cccccc" align="center" width="90%"><tr><td>
+<table cellpadding="6" cellspacing="1" border="0" bgcolor="#ffffff" width="100%">
+<tr class="section">
+<td><b>Mod</b></td>
+<td><b>Description</b></td>
+<td><b>Script</b></td>
+<td><b>Type</b></td>
+<td><nobr><b>I/P</b>*</nobr></td>
+</tr>
+
+<tr valign="top" class="odd">
+<td nowrap><p>Month/Year List</p></td>
+<td><p>To replace the month/year title with two select lists</p></td>
+<td><p>mod_list.js</p></td>
+<td><p>all</p></td>
+<td><p>Yes</p></td>
+</tr>
+
+<tr valign="top" class="even">
+<td nowrap><p>Date Range</p></td>
+<td><p>To enable/disable date ranges, weekdays and dates</p></td>
+<td><p>mod_date.js</p></td>
+<td><p>reference</p></td>
+<td><p>Yes</p></td>
+</tr>
+
+<tr valign="top" class="odd">
+<td nowrap><p>Special Days</p></td>
+<td><p>To display dates with different CSS styles</p></td>
+<td><p>mod_days.js</p></td>
+<td><p>reference</p></td>
+<td><p>Yes</p></td>
+</tr>
+
+<tr valign="top" class="even">
+<td nowrap><p>Date Info</p></td>
+<td><p>To display date info inside the date cells</p></td>
+<td><p>mod_info.js</p></td>
+<td><p>reference</p></td>
+<td><p>Yes</p></td>
+</tr>
+
+<tr valign="top" class="odd">
+<td nowrap><p>Journal</p></td>
+<td><p>To open the journal page when click on a date</p></td>
+<td><p>mod_journal.js</p></td>
+<td><p>all</p></td>
+<td><p>Yes</p></td>
+</tr>
+
+<tr valign="top" class="even">
+<td nowrap><p>Date Link</p></td>
+<td><p>To open the specified page when click on a date</p></td>
+<td><p>mod_link.js</p></td>
+<td><p>reference</p></td>
+<td><p>Yes</p></td>
+</tr>
+
+<tr valign="top" class="odd">
+<td nowrap><p>Long Date Format</p></td>
+<td><p>To use full month/weekday names in date format</p></td>
+<td><p>mod_long.js</p></td>
+<td><p>all</p></td>
+<td><p>Yes</p></td>
+</tr>
+
+<tr valign="top" class="even">
+<td nowrap><p>Tiles</p></td>
+<td><p>To display background tile images for a calendar</p></td>
+<td><p>mod_tiles.js</p></td>
+<td><p>reference</p></td>
+<td><p>Yes/No</p></td>
+</tr>
+
+<tr valign="top" class="odd">
+<td nowrap><p>Date Tips</p></td>
+<td><p>To show tooltips for dates</p></td>
+<td><p>mod_tips.js</p></td>
+<td><p>reference</p></td>
+<td><p>Yes/No</p></td>
+</tr>
+
+<tr valign="top" class="odd">
+<td nowrap><p>Time</p></td>
+<td><p>To support time</p></td>
+<td><p>mod_time.js</p></td>
+<td><p>all</p></td>
+<td><p>Yes</p></td>
+</tr>
+</table>
+<div>&nbsp;&nbsp;I/P: specifies whether the mod will work with In-Page/Popup-Window calendars.</div>
+</td></tr></table><br><br>
+
+<p class="para">The default config file (config/xc2_default.js) lists all the mods so that we can turn on/off a mod with ease:</p>
+<pre style="font-family:courier">
+...
+xcModPath="../script/";
+xcMods=[{"order": 0,  "mod": "Month/Year List",   "script": "mod_list.js"},
+        {"order": 0,  "mod": "Date Range",        "script": "mod_date.js"},
+        {"order": 0,  "mod": "Special Days",      "script": "mod_days.js"},
+        {"order": 0,  "mod": "Date Info",         "script": "mod_info.js"},
+        {"order": 0,  "mod": "Journal",           "script": "mod_journal.js"},
+        {"order": 0,  "mod": "Date Link",         "script": "mod_link.js"},
+        {"order": 0,  "mod": "Long Date Format",  "script": "mod_long.js"},
+        {"order": 0,  "mod": "Tiles",             "script": "mod_tiles.js"},
+        {"order": 0,  "mod": "Date Tips",         "script": "mod_tips.js"},
+        {"order": 0,  "mod": "Time",              "script": "mod_time.js"}];
+...
+</pre>
+<p class="para">Say we want to turn on the Date Range mod, we can simply change its "order" to 1:</p>
+<pre style="font-family:courier">
+...
+xcModPath="../script/";
+xcMods=[{"order": 0,  "mod": "Month/Year List",   "script": "mod_list.js"},
+        {"order": <font color="red">1</font>,  "mod": "Date Range",        "script": "mod_date.js"},
+        {"order": 0,  "mod": "Special Days",      "script": "mod_days.js"},
+        {"order": 0,  "mod": "Date Info",         "script": "mod_info.js"},
+        {"order": 0,  "mod": "Journal",           "script": "mod_journal.js"},
+        {"order": 0,  "mod": "Date Link",         "script": "mod_link.js"},
+        {"order": 0,  "mod": "Long Date Format",  "script": "mod_long.js"},
+        {"order": 0,  "mod": "Tiles",             "script": "mod_tiles.js"},
+        {"order": 0,  "mod": "Date Tips",         "script": "mod_tips.js"},
+        {"order": 0,  "mod": "Time",              "script": "mod_time.js"}];
+...
+</pre><br>
+<p class="para">If we don't want to touch the default config file, we can do that in the JS way. For the Date Range mod, it's the second entry in the list (index starts from 0) and we can have:</p>
+<pre>
+&lt;script language="javascript" src="../config/xc2_default.js"&gt;&lt;/script&gt;
+&lt;script language="javascript"&gt;
+  xcMods[1].order=1;
+&lt;/script&gt;
+</pre>
+<p class="para">which does the same thing as to set "order" to 1 for the Date Rande mod.</p><br>
+<p class="para">After we turn on a mod, we might need to adjust some CSS styles, change some config settings and call some functions provided by the mod:</p>
+<pre>
+&lt;head&gt;
+&lt;link rel=stylesheet href="../css/xc2_default.css" type="text/css"&gt;
+&lt;style type="text/css"&gt;
+... customized CSS styles ...
+&lt;/style&gt;
+
+&lt;script language="javascript" src="../config/xc2_default.js"&gt;&lt;/script&gt;
+&lt;script language="javascript"&gt;
+... customized config settings ...
+&lt;/script&gt;
+
+&lt;script language="javascript" src="../script/xc2_inpage.js"&gt;&lt;/script&gt;
+&lt;script language="javascript"&gt;
+... mod settings ...
+&lt;/script&gt;
+&lt;/head&gt;
+</pre>
+
+<p class="para">The mod setup for Popup-Window version is almost the same, except that the CSS part is included in the calendar template file (script/xc2_template.html).</p>
+<p class="para">Now let's go through the mods one by one.</p>
+
+<p class="para">[<a href="mod_list.html">Month/Year List</a>]&nbsp;[<a href="../index.html#mod">Back to index page</a>]</p>
+<p align="center"># # #</p>
+<p>&nbsp;</p>
+</body>
+
+</html>

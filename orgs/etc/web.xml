@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Development version of web.xml file -->
+
+<web-app>
+
+    <!-- Set up ******************************************** -->
+    <display-name>orgs</display-name>
+    <description>
+	Organization pages
+    </description>
+
+    <session-config>
+      <session-timeout>480</session-timeout>
+    </session-config>
+
+    <welcome-file-list>
+      <welcome-file>/index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- Servlet config/mapping ******************************************** -->
+    <servlet>
+        <servlet-name>orgs</servlet-name>
+        <servlet-class>gov.ymp.orgs</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>orgs</servlet-name>
+        <url-pattern>/orgs</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doDynaPage</servlet-name>
+        <servlet-class>gov.ymp.orgs.doDynaPage</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doDynaPage</servlet-name>
+        <url-pattern>/doDynaPage</url-pattern>
+    </servlet-mapping>
+
+
+    <!-- Environment Entries ******************************************** -->
+    <env-entry>
+      <env-entry-name>SystemName</env-entry-name>
+      <env-entry-value>Organization Pages</env-entry-value>
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>
+    <env-entry>
+      <env-entry-name>SystemAcronym</env-entry-name>
+      <env-entry-value>orgs</env-entry-value>
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>
+
+    <env-entry>
+      <env-entry-name>AppSchema</env-entry-name>
+      <env-entry-value>csi</env-entry-value>
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>
+
+</web-app>

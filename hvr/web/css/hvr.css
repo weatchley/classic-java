@@ -1,0 +1,90 @@
+body {
+    font-family: Georgia, Helvetica, Arial;
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+a:hover, a:link, a:visited, a:active {
+    color: #0000cc;
+    text-decoration: none;
+}
+
+#login {
+    width:600px;
+    border-collapse: collapse;
+    margin: auto;
+}
+
+#loginwidgets {
+    width:300px;
+    border-collapse: collapse;
+    margin: auto;
+}
+
+.label {
+    width: 230px;
+    text-align: right;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: bold;
+    vertical-align: top;
+    font-size: 12px;
+}
+
+.formw {
+    margin-left: 5px;
+    padding-left: 5px;
+    text-align: left;
+    font-size: 12px;
+}
+
+.widget {
+    width: 140px;
+}
+
+#logo {
+    margin: auto;
+    border-bottom: 0px solid;
+    width: 300px;
+}
+
+#version {
+    width:250px;
+    font-size: x-small;
+    text-align: right;
+    color: #ccc;
+	margin-right:20px;
+}
+
+.help {
+	border:2px solid #ccc;
+	width:250px;
+	padding: 3px;
+	background: #eee;
+}
+
+h5 {
+	display:inline;
+	padding-left: 23px;	
+    background: url(../images/info.gif) no-repeat bottom left;
+}
+
+/* hr {color: sienna} */
+p {margin-left: 20px; font-family: georgia; font-size: 12px}
+font {font-family: georgia; font-size: 10px}
+/* body {font-family: georgia; font-size: small; padding: 40px} */
+input {font-family: georgia; font-size: 12px}
+select {font-family: georgia; font-size: 12px}
+textarea {font-family: Georgia, Helvetica, Arial; font-size: 12px}
+td {font-size: 12px} 
+td.sm {font-size: 11px} 
+td.big {font-size: 20px}
+td.bigred {font-size: 24px; color: red}
+h1 {font-family: georgia; color: #000fab}
+h2 {font-family: georgia; color: #000000}
+h3 {font-family: georgia; color: #000fab}
+
+/* tr {display: table-row; vertical-align: top} */
+

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Development version of web.xml file -->
+
+<web-app>
+
+    <!-- Set up ******************************************** -->
+    <display-name>iats</display-name>
+    <description>
+	Integrated Assessment Tracking System
+    </description>
+
+    <session-config>
+      <session-timeout>240</session-timeout>
+    </session-config>
+
+    <welcome-file-list>
+      <welcome-file>/index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- Servlet config/mapping ******************************************** -->
+    <servlet>
+        <servlet-name>iats</servlet-name>
+        <servlet-class>gov.ymp.iats</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>iats</servlet-name>
+        <url-pattern>/iats</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doLogin</servlet-name>
+        <servlet-class>gov.ymp.iats.control.doLogin</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doLogin</servlet-name>
+        <url-pattern>/doLogin</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+	        <servlet-name>doSync</servlet-name>
+	        <servlet-class>gov.ymp.iats.control.doSync</servlet-class>
+    </servlet>
+    <servlet-mapping>
+	        <servlet-name>doSync</servlet-name>
+	        <url-pattern>/doSync</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doPermissions</servlet-name>
+        <servlet-class>gov.ymp.iats.control.doPermissions</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doPermissions</servlet-name>
+        <url-pattern>/doPermissions</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doRoles</servlet-name>
+        <servlet-class>gov.ymp.iats.control.doRoles</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doRoles</servlet-name>
+        <url-pattern>/doRoles</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doTextItem</servlet-name>
+        <servlet-class>gov.ymp.iats.control.doTextItem</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doTextItem</servlet-name>
+        <url-pattern>/doTextItem</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doPerson</servlet-name>
+        <servlet-class>gov.ymp.iats.control.doPerson</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doPerson</servlet-name>
+        <url-pattern>/doPerson</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doUList</servlet-name>
+        <servlet-class>gov.ymp.iats.control.doUList</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doUList</servlet-name>
+        <url-pattern>/doUList</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doUHash</servlet-name>
+        <servlet-class>gov.ymp.iats.control.doUHash</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doUHash</servlet-name>
+        <url-pattern>/doUHash</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>encrypt</servlet-name>
+        <servlet-class>gov.ymp.iats.control.encrypt</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>encrypt</servlet-name>
+        <url-pattern>/encrypt</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>doPdfReport</servlet-name>
+        <servlet-class>gov.ymp.iats.control.doPdfReport</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doPdfReport</servlet-name>
+        <url-pattern>/doPdfReport</url-pattern>
+    </servlet-mapping>
+        <servlet>
+        <servlet-name>doXslReport</servlet-name>
+        <servlet-class>gov.ymp.iats.control.doXslReport</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doXslReport</servlet-name>
+        <url-pattern>/doXslReport</url-pattern>
+    </servlet-mapping>
+        <servlet>
+        <servlet-name>doBrowse</servlet-name>
+        <servlet-class>gov.ymp.iats.control.doBrowse</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doBrowse</servlet-name>
+        <url-pattern>/doBrowse</url-pattern>
+    </servlet-mapping>
+    <!-- Environment Entries ******************************************** -->
+    <env-entry>
+      <env-entry-name>SystemName</env-entry-name>
+      <env-entry-value>Integrated Assessment Tracking System</env-entry-value>
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>
+
+    <env-entry>
+      <env-entry-name>SystemAcronym</env-entry-name>
+      <env-entry-value>sat</env-entry-value>
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>
+    
+    <env-entry>
+      <env-entry-name>AppSchema</env-entry-name>
+      <env-entry-value>sat</env-entry-value>
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>
+
+</web-app>

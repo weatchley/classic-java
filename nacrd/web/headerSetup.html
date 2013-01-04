@@ -1,0 +1,29 @@
+<!-- Header file for NACRD JSP files -->
+<%@ page import="java.io.*,java.util.*,javax.xml.parsers.DocumentBuilder,javax.xml.parsers.DocumentBuilderFactory,org.w3c.dom.*" %>
+<%@ page import="org.xml.sax.SAXException,org.xml.sax.SAXParseException,gov.ymp.nacrd.*,javax.naming.*,gov.ymp.util.db.*" %>
+<script language=javascript><!--
+   function submitForm(script,command) {
+       document.main.command.value = command;
+       document.main.action = script;
+       document.main.submit();
+   }
+   function submitFormResults(script,command) {
+       document.main.command.value = command;
+       document.main.action = script;
+       document.main.target = 'results';
+       document.main.submit();
+   }
+   function displayDocument(name) {
+       var myDate = new Date();
+       var winName = myDate.getTime();
+       var newwin = window.open('',winName);
+       newwin.creator = self;
+       newwin.location = '/<%= getServletContext().getServletContextName().toLowerCase()  %>/docFiles/' + name;
+   }
+//-->
+</script>
+
+<% boolean useFileUpload = false; %>
+<% boolean isAuthenticated = false; %>
+<% boolean isAdmin = false; %>
+<% boolean isState = false; %>

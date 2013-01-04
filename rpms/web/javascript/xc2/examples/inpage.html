@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+
+<head>
+<title>Xin Calendar 2 Step-by-step: Set up an In-Page calendar</title>
+<link rel=stylesheet href="xc2.css" type="text/css">
+<link rel=stylesheet href="../css/xc2_default.css" type="text/css">
+<script language="javascript" src="../config/xc2_default.js"></script>
+<script language="javascript" src="../script/xc2_inpage.js"></script>
+</head>
+
+<body>
+
+<p align="center" class="title">Xin Calendar 2 Step-by-step: Set up an In-Page calendar</p>
+<p align="center" class="copyright"><a href="http://www.yxscripts.com">yxScripts.com</a></p>
+
+<form method="post">
+
+<table cellpadding="0" cellspacing="0" border="0" align="center">
+<tr valign="top">
+<td id="holder1">&nbsp;</td>
+<td><input type="text" name="date1" value="" onfocus="showCalendar('',this,this,'','holder1',0,30,1)"></td>
+<td id="holder2">&nbsp;</td>
+<td><input type="text" name="date2" value="" onfocus="showCalendar('',this,this,'','holder2',0,30,1)"></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>[<a href="javascript:showCalendar('',document.forms[0].date1,null,'','',-80,16,1)">Show Calendar</a>]</td>
+<td>&nbsp;</td>
+<td>[<a href="javascript:showCalendar('',document.forms[0].date2,null,'','',-80,16,1)">Show Calendar</a>]</td>
+</tr>
+</table>
+
+</form>
+
+<p class="para">To set up an In-Page calendar, we can follow the steps below:</p>
+<ol>
+<li>Set up the HTML page as usual, so we have some date fields in a form.
+<p>For example, we have:</p>
+<pre>
+&lt;form&gt;
+&lt;input type="text" name="start_date" value=""&gt;
+&lt;input type="text" name="end_date" value=""&gt;
+&lt;/form&gt;
+</pre><br>
+</li>
+<li>In the &lt;HEAD&gt; section of the page source, include the following scripts:
+<ul>
+<li>the CSS file (or the embedded CSS definitions) for calendar styles</li>
+<li>the config file ... a Javascript file that stores the calendar settings</li>
+<li>the In-Page function script ... xc2_inpage.js</li>
+</ul>
+<p>For example:</p>
+<pre>
+&lt;head&gt;
+&lt;link rel=stylesheet href="../css/xc2_default.css" type="text/css"&gt;
+&lt;script language="javascript" src="../config/xc2_default.js"&gt;&lt;/script&gt;
+&lt;script language="javascript" src="../script/xc2_inpage.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+</pre><br>
+</li>
+<li>Set up the popup triggers for the calendars
+<p>Usually we can set a popup trigger in two ways:</p>
+<ul>
+<li>bind to the onfocus event of the date field</li>
+<li>put it in a link</li>
+</ul>
+<p>If we use the onfocus event, we would also set up a place holder to position the calendar. A place holder is no more than a HTML tag with an Id attribute, and usually a TD tag will be used as a place holder, for example:</p>
+<pre>
+&lt;td id="holder"&gt;&lt;input type="text" name="start_date" value=""&gt;&lt;/td&gt;
+</pre>
+<p>and then the popup trigger will be like:</p>
+<pre>
+&lt;input ... onfocus="showCalendar('',this,this,'2004-07-01','holder',0,30,1)"&gt;
+</pre>
+<p>The showCalendar() call is what we need to pop up a calendar, it has the following syntax:</p>
+<ul>
+<li>showCalendar("conf_name", target_field, ref_field, "default_date", "holder_Id", dx, dy, mode)
+<ol>
+<li>conf_name ... the name for the mod configuration reference</li>
+<li>target_field ... the date field whose value will be set by the calendar</li>
+<li>ref_field ... the date field whose value will be the date reference for the calendar</li>
+<li>default_date ... default date reference for the calendar, if empty, today will be used</li>
+<li>holder_Id ... place holder Id for relative positioning, if empty, use mouse click spot for positioning</li>
+<li>dx, dy ... position offset away from the place holder or mouse click spot</li>
+<li>mode ... 1 for popup calendar, 0 for static calendar</li>
+</ol>
+</li>
+</ul>
+<p>If we use a link to set up the popup trigger, we can still use the place holder but we usually don't need to, and the calendar will then pop up against the mouse click spot on the link. For example:</p>
+<pre>
+&lt;a href="javascript:showCalendar('',document.forms[0].start_date,null,'','',0,30,1)"&gt;Show Calendar&lt;/a&gt;
+</pre>
+<p>We can use a [ null ] parameter for the [ ref_field ] parameter to save some typings and tell the calendar to use the [ target_field ] object for both writing and reading.</p>
+</li>
+</ol><br>
+
+<p class="para">Users from Xin Calendar might wonder why we don't define some names for the calendars. Actually this is one of the major changes made in Xin Calendar 2 that internally a calendar can be re-used by more than one date field. In Xin Calendar, we use addCalendar() to define a calendar with an unique name then use showCalendar() to popup the calendar with the specified name. In Xin Calendar 2, we just combine them into one showCalendar() call and save the name parameter.</p>
+<p class="para">And since the showCalendar() call now takes objects instead of names for the two date field parameters, we can pass objects rather than an input field to the call and use some customized functions to write the date to and read the date from the object. We will talk about it later.</p><br>
+
+<P class="para">As a summary, an In-Page popup calendar page will probably look like this:</p>
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" ...&gt;
+
+&lt;html&gt;
+&lt;head&gt;
+&lt;link rel=stylesheet href="../css/xc2_default.css" type="text/css"&gt;
+&lt;script language="javascript" src="../config/xc2_default.js"&gt;&lt;/script&gt;
+&lt;script language="javascript" src="../script/xc2_inpage.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+...
+&lt;form&gt;
+&lt;table&gt;
+...
+&lt;td id="holder"&gt;&lt;input type="text" name="start_date" value=""
+  onfocus="showCalendar('', this, this, '2004-07-01', 'holder', 0,30, 1)"&gt;&lt;/td&gt;
+
+&lt;input type="text" name="end_date" value=""&gt;&lt;a
+  href="javascript:showCalendar('', document.forms[0].end_date, document.forms[0].start_date, '','', 0,30, 1)"&gt;Calendar&lt;/a&gt;
+...
+&lt;/table&gt;
+&lt;/form&gt;
+...
+&lt;/body&gt;
+&lt;/html&gt;
+</pre><br>
+
+<p class="para">[<a href="window.html">Set up a Popup-Window calendar</a>]&nbsp;[<a href="../index.html#steps">Back to index page</a>]</p>
+<p align="center"># # #</p>
+<p>&nbsp;</p>
+</body>
+
+</html>

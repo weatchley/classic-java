@@ -1,0 +1,124 @@
+<?xml version="1.0" ?>
+<project name="PCLWR" default="" basedir=".">
+
+
+<!--  ==================== Initial Property setup ==================== -->
+
+<property name="project.name" value="pclwr" />
+<property file="${user.home}/${project.name}.build.properties" />	
+
+<!-- ===================== Task Definitions =========================== -->
+
+<taskdef name="deploy"   classname="org.apache.catalina.ant.DeployTask"/>
+<taskdef name="install"  classname="org.apache.catalina.ant.InstallTask"/>
+<taskdef name="list"     classname="org.apache.catalina.ant.ListTask"/>
+<taskdef name="reload"   classname="org.apache.catalina.ant.ReloadTask"/>
+<taskdef name="undeploy" classname="org.apache.catalina.ant.UndeployTask"/>
+<taskdef name="start"    classname="org.apache.catalina.ant.StartTask"/>
+<taskdef name="stop"     classname="org.apache.catalina.ant.StopTask"/>
+
+<!--  ==================== Property setup ==================== -->
+
+<property name="app.path"      value="/${app.name}"/>
+
+<property name="build.home"    location="${basedir}/build"   />
+<property name="dist.home"     location="${basedir}/dist"    />
+<property name="web.home"      location="${basedir}/web"     />
+<property name="src.home"      location="${basedir}/src"     />
+<property name="lib.home"      location="${basedir}/lib"     />
+
+<!--  ==================== Compilation Control Options ==================== -->
+
+<property name="compile.debug"       value="true"  />
+<property name="compile.deprecation" value="false" />
+<property name="compile.optimize"    value="true"  />
+
+<!-- ==================== Compilation Classpath =========================== -->
+
+<path id="compile.classpath">
+    <fileset dir="${catalina.home}/common/endorsed">
+    <include name="*.jar"/>
+    </fileset>
+
+    <fileset dir="${catalina.home}/common/lib">
+    <include name="*.jar"/>
+    </fileset>
+
+    <fileset dir="${catalina.base}/shared/lib">
+    <include name="*.jar"/>
+    </fileset>
+
+    <fileset dir="${lib.home}">
+    <include name="*.jar"/>
+    </fileset>
+</path>
+
+<!-- ==================== All Target ====================================== -->
+<target name="all" depends="clean,compile" />
+
+<!-- ==================== List Target ====================================== -->
+<target name="list">
+    <list url="${manager.url}" username="${manager.username}" password="${manager.password}" />
+</target>
+
+<!-- ==================== Clean Target ====================================== -->
+<target name="clean">
+    <delete dir="${build.home}"/>
+    <delete dir="${dist.home}"/>
+</target>
+
+<!-- ==================== Deploy Target ====================================== -->
+<target name="deploy" depends="install" />
+	
+<!-- ==================== Install Target ====================================== -->
+<target name="install" depends="compile,dist">
+    <deploy url="${manager.url}" username="${manager.username}" password="${manager.password}" path="${app.path}" war="${dist.home}/${app.name}.war" update="true" />
+</target>
+
+<!-- ==================== Remove Target ====================================== -->
+<target name="remove">
+    <undeploy url="${manager.url}" username="${manager.username}" password="${manager.password}" path="${app.path}"/>
+</target>
+
+<!-- ==================== Dist Target ====================================== -->
+<target name="dist" depends="compile">
+    <mkdir dir="${dist.home}"/>
+    <jar jarfile="${dist.home}/${app.name}.war" basedir="${build.home}"/>
+</target>
+
+<!-- ==================== Compile Target ====================================== -->
+<target name="compile" depends="prepare">
+    <javac srcdir="${src.home}"
+          destdir="${build.home}/WEB-INF/classes"
+            debug="${compile.debug}"
+      deprecation="${compile.deprecation}"
+         optimize="${compile.optimize}">
+        <classpath refid="compile.classpath"/>
+    </javac>
+</target>
+
+<!-- ==================== Prepare Target ====================================== -->
+<target name="prepare">
+	
+    <!-- Create build directories as needed -->
+    <mkdir dir="${build.home}"/>
+    <mkdir dir="${build.home}/WEB-INF"/>
+    <mkdir dir="${build.home}/WEB-INF/lib"/>
+    <mkdir dir="${build.home}/WEB-INF/classes"/>
+
+    <!-- Copy static content of this web application -->
+  
+    <copy todir="${build.home}">
+        <fileset dir="${web.home}" />
+    </copy>
+    
+    <copy todir="${build.home}/WEB-INF">
+        <fileset dir="${basedir}/etc" />
+    </copy>
+    
+    <copy todir="${build.home}/WEB-INF/lib">
+        <fileset dir="${lib.home}" />
+    </copy>       
+
+</target>
+</project>

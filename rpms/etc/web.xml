@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Development version of web.xml file -->
+
+<web-app>
+
+    <!-- Set up ******************************************** -->
+    <display-name>rpms</display-name>
+    <description>
+	Record Plan Management System
+    </description>
+
+    <session-config>
+      <session-timeout>240</session-timeout>
+    </session-config>
+
+    <welcome-file-list>
+      <welcome-file>/index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- Servlet config/mapping ******************************************** -->
+    <servlet>
+        <servlet-name>rpms</servlet-name>
+        <servlet-class>gov.ymp.rpms</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>rpms</servlet-name>
+        <url-pattern>/rpms</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doLogin</servlet-name>
+        <servlet-class>gov.ymp.rpms.doLogin</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doLogin</servlet-name>
+        <url-pattern>/doLogin</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doNewsletter</servlet-name>
+        <servlet-class>gov.ymp.rpms.doNewsletter</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doNewsletter</servlet-name>
+        <url-pattern>/doNewsletter</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doFAQ</servlet-name>
+        <servlet-class>gov.ymp.rpms.doFAQ</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doFAQ</servlet-name>
+        <url-pattern>/doFAQ</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doPerson</servlet-name>
+        <servlet-class>gov.ymp.rpms.doPerson</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doPerson</servlet-name>
+        <url-pattern>/doPerson</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doRequirement</servlet-name>
+        <servlet-class>gov.ymp.rpms.doRequirement</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doRequirement</servlet-name>
+        <url-pattern>/doRequirement</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doFOrganization</servlet-name>
+        <servlet-class>gov.ymp.rpms.doFOrganization</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doFOrganization</servlet-name>
+        <url-pattern>/doFOrganization</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doCCategory</servlet-name>
+        <servlet-class>gov.ymp.rpms.doCCategory</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doCCategory</servlet-name>
+        <url-pattern>/doCCategory</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doCutoffList</servlet-name>
+        <servlet-class>gov.ymp.rpms.doCutoffList</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doCutoffList</servlet-name>
+        <url-pattern>/doCutoffList</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doRetentionPeriod</servlet-name>
+        <servlet-class>gov.ymp.rpms.doRetentionPeriod</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doRetentionPeriod</servlet-name>
+        <url-pattern>/doRetentionPeriod</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doARestriction</servlet-name>
+        <servlet-class>gov.ymp.rpms.doARestriction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doARestriction</servlet-name>
+        <url-pattern>/doARestriction</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doRecordSeries</servlet-name>
+        <servlet-class>gov.ymp.rpms.doRecordSeries</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doRecordSeries</servlet-name>
+        <url-pattern>/doRecordSeries</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doReportXLS</servlet-name>
+        <servlet-class>gov.ymp.rpms.doReportXLS</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doReportXLS</servlet-name>
+        <url-pattern>/doReportXLS</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doRetentionCode</servlet-name>
+        <servlet-class>gov.ymp.rpms.doRetentionCode</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doRetentionCode</servlet-name>
+        <url-pattern>/doRetentionCode</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doHomePage</servlet-name>
+        <servlet-class>gov.ymp.rpms.doHomePage</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doHomePage</servlet-name>
+        <url-pattern>/doHomePage</url-pattern>
+    </servlet-mapping>
+
+
+    <!-- Environment Entries ******************************************** -->
+    <env-entry>
+      <env-entry-name>SystemName</env-entry-name>
+      <env-entry-value>Records Plan Management System</env-entry-value>
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>
+    
+    <env-entry>
+      <env-entry-name>SystemAcronym</env-entry-name>
+      <env-entry-value>rpms</env-entry-value>
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>
+    
+    <env-entry>
+      <env-entry-name>AppSchema</env-entry-name>
+      <env-entry-value>rpms</env-entry-value>
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>
+    
+</web-app>

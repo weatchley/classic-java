@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app>
+
+    <display-name>HVR</display-name>
+    <description>
+	Hillshire Visitor Requests Database
+    </description>
+    
+    <session-config>
+      <session-timeout>240</session-timeout>
+    </session-config>
+
+    <welcome-file-list>
+      <welcome-file>/index.html</welcome-file>
+    </welcome-file-list>
+
+    <servlet>
+        <servlet-name>hvr</servlet-name>
+        <servlet-class>gov.ymp.hvr.Hvr</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>hvr</servlet-name>
+        <url-pattern>/hvr</url-pattern>
+    </servlet-mapping>
+
+    <env-entry>
+      <env-entry-name>SystemName</env-entry-name>
+      <env-entry-value>Hillshire Visitors Database</env-entry-value>
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>
+    
+    <env-entry>
+      <env-entry-name>SystemAcronym</env-entry-name>
+      <env-entry-value>HVR</env-entry-value>
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>
+</web-app>

@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+
+<head>
+<title>Xin Calendar 2 Mods: Date Info</title>
+<link rel=stylesheet href="xc2.css" type="text/css">
+<link rel=stylesheet href="../css/xc2_default.css" type="text/css">
+<style type="text/css">
+.head {
+  font-size:14px;
+}
+.row_week {
+  background-color:#99b3cc;
+}
+.weekday {
+  margin:1px;
+  font-size:14px;
+  width:100px;
+}
+.day, .day_over, .day_down, .day_empty, .day_disabled, .day_current, .day_special {
+  margin:1px;
+  width:100px; height:60px; overflow:hidden;
+  text-align:right;
+}
+.day_other, .day_other_over, .day_other_current {
+  margin:1px;
+  font-size:11px;
+  width:100px; height:60px; overflow:hidden;
+  text-align:left;
+}
+.day {
+  border-color:#cccccc;
+}
+.foot, .foot_over, .foot_down {
+  font-size:14px;
+  width:180px;
+}
+.arrow_prev, .arrow_prev_over, .arrow_prev_down, .arrow_next, .arrow_next_over, .arrow_next_down {
+  width:20px;
+  font-size:14px;
+}
+</style>
+
+<script language="javascript" src="../config/xc2_default.js"></script>
+<script language="javascript">
+xcMods[3].order=1;
+xcWeekdayDisplay=["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+xcArrowPosition=1;
+xcFootTagSwitch[3]=0;
+</script>
+
+<script language="javascript" src="../script/xc2_inpage.js"></script>
+<script language="javascript">
+xcCopyrightDisplay="&#169;yxScripts.com";
+
+addDateInfo("conf", "", "", "info", "", "2004-01-01", "New Year's Day", 0);
+addDateInfo("conf", "", "", "info", "", "2004-02-14", "Valentine's Day", 0);
+addDateInfo("conf", "", "", "info", "", "2004-04-01", "Fool's Day", 0);
+
+addDateInfo("conf", "", "", "info", "", "2004-04-09", "Good Friday", 1);
+addDateInfo("conf", "", "", "info", "", "2005-03-25", "Good Friday", 1);
+addDateInfo("conf", "", "", "info", "", "2006-04-14", "Good Friday", 1);
+addDateInfo("conf", "", "", "info", "", "2007-04-06", "Good Friday", 1);
+
+addDateInfo("conf", "", "", "info", "", "2004-04-12", "Easter Monday", 1);
+addDateInfo("conf", "", "", "info", "", "2005-03-28", "Easter Monday", 1);
+addDateInfo("conf", "", "", "info", "", "2006-04-17", "Easter Monday", 1);
+addDateInfo("conf", "", "", "info", "", "2007-04-09", "Easter Monday", 1);
+
+addDateInfo("conf", "", "", "info", "", "2004-05-24", "Victoria Day", 1);
+addDateInfo("conf", "", "", "info", "", "2005-05-23", "Victoria Day", 1);
+addDateInfo("conf", "", "", "info", "", "2006-05-22", "Victoria Day", 1);
+addDateInfo("conf", "", "", "info", "", "2007-05-21", "Victoria Day", 1);
+
+addDateInfo("conf", "", "", "info", "", "2004-07-01", "Canada Day", 1);
+addDateInfo("conf", "", "", "info", "", "2005-07-01", "Canada Day", 1);
+addDateInfo("conf", "", "", "info", "", "2006-07-01", "Canada Day", 1);
+addDateInfo("conf", "", "", "info", "", "2007-07-02", "Canada Day", 1);
+
+addDateInfo("conf", "", "", "info", "", "2004-09-06", "Labour Day", 1);
+addDateInfo("conf", "", "", "info", "", "2005-09-05", "Labour Day", 1);
+addDateInfo("conf", "", "", "info", "", "2006-09-04", "Labour Day", 1);
+addDateInfo("conf", "", "", "info", "", "2007-09-03", "Labour Day", 1);
+
+addDateInfo("conf", "", "", "info", "", "2004-10-11", "Thanksgiving Day", 1);
+addDateInfo("conf", "", "", "info", "", "2005-10-10", "Thanksgiving Day", 1);
+addDateInfo("conf", "", "", "info", "", "2006-10-09", "Thanksgiving Day", 1);
+addDateInfo("conf", "", "", "info", "", "2007-10-08", "Thanksgiving Day", 1);
+
+addDateInfo("conf", "", "", "info", "", "2004-11-11", "Remembrance Day");
+addDateInfo("conf", "", "", "info", "", "2004-12-25", "Christmas");
+addDateInfo("conf", "", "", "info", "", "2004-12-26", "Boxing Day");
+</script>
+
+</head>
+
+<body onload="showCalendar('conf',null,null,'','holder',20,0,0)">
+
+<p align="center" class="title">Xin Calendar 2 Mods: Date Info</p>
+<p align="center" class="copyright"><a href="http://www.yxscripts.com">yxScripts.com</a></p>
+
+<table><tr><td id="holder" height="500">&nbsp;</td></tr></table>
+
+<p class="para">The Date Info mod lets us embed date related contents into date cells.</p>
+<p class="para">To turn it on:</p>
+<pre style="font-family:courier">
+xcMods=[...
+        {"order": <font color="red">1</font>,  "mod": "Date Info",  "script": "mod_info.js"},
+        ...
+</pre>
+<p class="para">or:</p>
+<pre>
+&lt;script language="javascript" src="../config/xc2_default.js"&gt;&lt;/script&gt;
+&lt;script language="javascript"&gt;
+  xcMods[3].order=1;
+&lt;/script&gt;
+</pre><br>
+
+<p class="para">To define the contents for dates, we have:</p>
+<ul>
+<li><p>addDateInfo(conf_name, css, css_disabled, css_info, date_format, date, info, mode)
+<ol>
+<li>conf_name ... a name for the configuration reference</li>
+<li>css ... css class (or two classes separated by a colon) for dates with contents defined, if empty, use the ones defined by [ xcCSSDaySpecial ] and [ xcCSSDayOtherSpecial ] in the config file</li>
+<li>css_disabled ... css class (or two classes separated by a colon) for dates with contents defined that are disabled, if empty, use the one defined by [ xcCSSDaySpecialDisabled ] and [ xcCSSDayOtherSpecial ]</li>
+<li>css_info ... css class for date content</li>
+<li>date_format ... date format used for following date parameter, if empty, use the one defined by [ xcDateFormat ]</li>
+<li>date ... date string (the year portion will be ignored for repeating mode)</li>
+<li>info ... date content in plain TEXT or HTML</li>
+<li>mode ... 1:one-time only, 0 (or absent):repeat yearly
+</ol>
+<pre>
+addDateInfo("conf", "", "", "info", "", "2004-01-01", "New Year's Day", 0);
+addDateInfo("conf", "", "", "info", "", "2004-02-14", "Valentine's Day", 0);
+addDateInfo("conf", "", "", "info", "", "2004-04-01", "Fool's Day", 0);
+
+addDateInfo("conf", "", "", "info", "", "2004-04-09", "Good Friday", 1);
+addDateInfo("conf", "", "", "info", "", "2005-03-25", "Good Friday", 1);
+addDateInfo("conf", "", "", "info", "", "2006-04-14", "Good Friday", 1);
+addDateInfo("conf", "", "", "info", "", "2007-04-06", "Good Friday", 1);
+
+addDateInfo("conf", "", "", "info", "", "2004-04-12", "Easter Monday", 1);
+addDateInfo("conf", "", "", "info", "", "2005-03-28", "Easter Monday", 1);
+addDateInfo("conf", "", "", "info", "", "2006-04-17", "Easter Monday", 1);
+addDateInfo("conf", "", "", "info", "", "2007-04-09", "Easter Monday", 1);
+
+addDateInfo("conf", "", "", "info", "", "2004-05-24", "Victoria Day", 1);
+addDateInfo("conf", "", "", "info", "", "2005-05-23", "Victoria Day", 1);
+addDateInfo("conf", "", "", "info", "", "2006-05-22", "Victoria Day", 1);
+addDateInfo("conf", "", "", "info", "", "2007-05-21", "Victoria Day", 1);
+
+addDateInfo("conf", "", "", "info", "", "2004-07-01", "Canada Day", 1);
+addDateInfo("conf", "", "", "info", "", "2005-07-01", "Canada Day", 1);
+addDateInfo("conf", "", "", "info", "", "2006-07-01", "Canada Day", 1);
+addDateInfo("conf", "", "", "info", "", "2007-07-02", "Canada Day", 1);
+
+addDateInfo("conf", "", "", "info", "", "2004-09-06", "Labour Day", 1);
+addDateInfo("conf", "", "", "info", "", "2005-09-05", "Labour Day", 1);
+addDateInfo("conf", "", "", "info", "", "2006-09-04", "Labour Day", 1);
+addDateInfo("conf", "", "", "info", "", "2007-09-03", "Labour Day", 1);
+
+addDateInfo("conf", "", "", "info", "", "2004-10-11", "Thanksgiving Day", 1);
+addDateInfo("conf", "", "", "info", "", "2005-10-10", "Thanksgiving Day", 1);
+addDateInfo("conf", "", "", "info", "", "2006-10-09", "Thanksgiving Day", 1);
+addDateInfo("conf", "", "", "info", "", "2007-10-08", "Thanksgiving Day", 1);
+
+addDateInfo("conf", "", "", "info", "", "2004-11-11", "Remembrance Day");
+addDateInfo("conf", "", "", "info", "", "2004-12-25", "Christmas");
+addDateInfo("conf", "", "", "info", "", "2004-12-26", "Boxing Day");
+</pre>
+</p><br></li>
+</ul>
+
+<p class="para">Usually we will have a larger size for the date cells when using the Date Info mod, and the default CSS file (css/xc2_default.cs) comes with the definition for the "info" class already, we can overwrite part of it or just define another if it doesn't fit.</p>
+
+<p class="para">[<a href="mod_journal.html">Journal</a>]&nbsp;[<a href="../index.html#mod">Back to index page</a>]</p>
+<p align="center"># # #</p>
+<p>&nbsp;</p>
+</body>
+
+</html>

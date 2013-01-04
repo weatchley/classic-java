@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Xin Calendar 2 Mods: Time</title>
+<link rel=stylesheet href="xc2.css" type="text/css">
+
+<link rel=stylesheet href="../css/xc2_default.css" type="text/css">
+
+<script language="javascript" src="../config/xc2_default.js"></script>
+<script language="javascript">
+xcDateFormat="yyyy-mm-dd hr:mi:ss am";
+
+xcMods[9].order=1;
+
+xcFootTagSwitch=[0, 0, 0, 0, 0, 0, 0, 0];
+</script>
+
+<script language="javascript" src="../script/xc2_inpage.js"></script>
+</head>
+
+<body>
+
+<p align="center" class="title">Xin Calendar 2 Mods: Time</p>
+<p align="center" class="copyright"><a href="http://www.yxscripts.com">yxScripts.com</a></p>
+
+
+<form method="post">
+
+<table cellpadding="0" cellspacing="0" border="0" align="center">
+<tr valign="middle">
+<td id="holder">&nbsp;</td>
+<td><input type="text" name="date" value="" onfocus="showCalendar('',this,this,'2006-01-01 00:00 AM','holder',0,30,1)"></td>
+<td id="holder2">&nbsp;</td>
+<td><input type="text" name="date2" value="" onfocus="showCalendar('',this,this,'','holder2',0,30,1)"></td>
+<td>&nbsp;</td>
+<td><input type="button" value="Compare Dates" onclick="alert(compareDates(this.form.date.value,this.form.date2.value))"></td>
+</tr>
+</table>
+
+</form>
+
+<p class="para">With the Time mod, we can have time in the date string. The time format can be 24 hours or 12 hours with AM/PM, for example:</p>
+<pre>
+xcDateFormat="yyyy-mm-dd hr:mi";
+</pre>
+<pre>
+xcDateFormat="yyyy-mm-dd hr:mi am";
+</pre>
+<pre>
+xcDateFormat="yyyy-mm-dd hr:mi:ss";
+</pre>
+
+<p class="para">To turn it on:</p>
+<pre style="font-family:courier">
+xcMods=[...
+        {"order": <font color="red">1</font>,  "mod": "Time",              "script": "mod_time.js"}];
+</pre>
+<p class="para">or:</p>
+<pre>
+&lt;script language="javascript" src="../config/xc2_default.js"&gt;&lt;/script&gt;
+&lt;script language="javascript"&gt;
+  xcDateFormat="yyyy-mm-dd hr:mi am";
+  xcMods[9].order=1;
+&lt;/script&gt;
+</pre><br>
+
+<p class="para">Since we use select lists to pick up the time (hour, minute and AM/PM) and the block of select lists will be placed at foot bar, we usually turn off other foot links to make room for it:</p>
+<pre>
+&lt;script language="javascript" src="../config/xc2_default.js"&gt;&lt;/script&gt;
+&lt;script language="javascript"&gt;
+  xcFootTagSwitch=[0, 0, 0, 0, 0, 0, 0, 0];
+&lt;/script&gt;
+</pre>
+<p class="para">and the Time mod will append the block of select lists as a customized foot link.</p>
+<br><p class="para">The Time mod has some default settings in the default config file (config/xc2_default.js):</p>
+<pre>
+xcHours=["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]; // for AM/PM setting
+xcMinutes=["00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55"]; // simplified
+xcSeconds=["00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55"]; // simplified
+xcAMPM=["AM", "PM"]; // to be used when "am" presents in date format
+xcTimeBlockOrder=1; // foot link order for time block
+xcCSSTimeBlock=["","",""]; // CSS classes for the block of select lists, ["mouse-out", "mouse-over", "mouse-down"]
+xcCSSTimeList="time_list"; // CSS class for the select list
+</pre>
+<p class="para">and the CSS definition of "time_list" in the default CSS file (css/xc2_default.css):</p>
+<pre>
+.time_list {
+  font-family:verdana;
+  font-size:12px;
+}
+</pre>
+
+<br><p class="para">When a date is picked already and the calendar is re-opened, changes of time in calendar popup will reflect on the date field. And since other foot links are usually turned off to keep a simple look, we can re-pick the same date to close the calendar (in-page version) or just close the popup window (window version).</p>
+
+<p class="para">[<a href="combo.html">Putting mods together</a>]&nbsp;[<a href="../index.html#mod">Back to index page</a>]</p>
+<p>&nbsp;</p>
+</body>
+
+</html>

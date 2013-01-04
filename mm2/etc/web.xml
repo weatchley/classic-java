@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Development version of web.xml file -->
+
+<web-app>
+
+    <!-- Set up ******************************************** -->
+    <display-name>mms</display-name>
+    <description>
+	Materials Management System
+    </description>
+
+    <session-config>
+      <session-timeout>240</session-timeout>
+    </session-config>
+
+    <welcome-file-list>
+      <welcome-file>/index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- Servlet config/mapping ******************************************** -->
+    <servlet>
+        <servlet-name>mms</servlet-name>
+        <servlet-class>gov.ymp.mms</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>mms</servlet-name>
+        <url-pattern>/mms</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doBidAbstractXLS</servlet-name>
+        <servlet-class>gov.ymp.mms.doBidAbstractXLS</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doBidAbstractXLS</servlet-name>
+        <url-pattern>/doBidAbstractXLS</url-pattern>
+    </servlet-mapping>
+
+
+
+    <!-- Environment Entries ******************************************** -->
+    <env-entry>
+      <env-entry-name>SystemName</env-entry-name>
+      <env-entry-value>Materials Management System</env-entry-value>
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>
+    
+    <env-entry>
+      <env-entry-name>SystemAcronym</env-entry-name>
+      <env-entry-value>mms</env-entry-value>
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>
+    
+    <env-entry>
+      <env-entry-name>AppSchema</env-entry-name>
+      <env-entry-value>mms</env-entry-value>
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>
+    
+</web-app>

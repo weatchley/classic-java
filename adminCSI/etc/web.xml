@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Development version of web.xml file -->
+
+<web-app>
+
+    <!-- Set up ******************************************** -->
+    <display-name>adminCSI</display-name>
+    <description>
+	CSI Administration Application
+    </description>
+
+    <session-config>
+      <session-timeout>240</session-timeout>
+    </session-config>
+
+    <welcome-file-list>
+      <welcome-file>/index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- Servlet config/mapping ******************************************** -->
+    <servlet>
+        <servlet-name>adminCSI</servlet-name>
+        <servlet-class>gov.ymp.adminCSI</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>adminCSI</servlet-name>
+        <url-pattern>/adminCSI</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doLogin</servlet-name>
+        <servlet-class>gov.ymp.adminCSI.doLogin</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doLogin</servlet-name>
+        <url-pattern>/doLogin</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+	        <servlet-name>doSync</servlet-name>
+	        <servlet-class>gov.ymp.adminCSI.doSync</servlet-class>
+    </servlet>
+    <servlet-mapping>
+	        <servlet-name>doSync</servlet-name>
+	        <url-pattern>/doSync</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doPermissions</servlet-name>
+        <servlet-class>gov.ymp.adminCSI.doPermissions</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doPermissions</servlet-name>
+        <url-pattern>/doPermissions</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doRoles</servlet-name>
+        <servlet-class>gov.ymp.adminCSI.doRoles</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doRoles</servlet-name>
+        <url-pattern>/doRoles</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doTextItem</servlet-name>
+        <servlet-class>gov.ymp.adminCSI.doTextItem</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doTextItem</servlet-name>
+        <url-pattern>/doTextItem</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doPerson</servlet-name>
+        <servlet-class>gov.ymp.adminCSI.doPerson</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doPerson</servlet-name>
+        <url-pattern>/doPerson</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doUList</servlet-name>
+        <servlet-class>gov.ymp.adminCSI.doUList</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doUList</servlet-name>
+        <url-pattern>/doUList</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doUHash</servlet-name>
+        <servlet-class>gov.ymp.adminCSI.doUHash</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doUHash</servlet-name>
+        <url-pattern>/doUHash</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>doDomains</servlet-name>
+        <servlet-class>gov.ymp.adminCSI.doDomains</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doDomains</servlet-name>
+        <url-pattern>/doDomains</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>encrypt</servlet-name>
+        <servlet-class>gov.ymp.adminCSI.encrypt</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>encrypt</servlet-name>
+        <url-pattern>/encrypt</url-pattern>
+    </servlet-mapping>
+
+    <!-- Environment Entries ******************************************** -->
+    <env-entry>
+      <env-entry-name>SystemName</env-entry-name>
+      <env-entry-value>CSI Administration Application</env-entry-value>
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>
+
+    <env-entry>
+      <env-entry-name>SystemAcronym</env-entry-name>
+      <env-entry-value>adminCSI</env-entry-value>
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>
+    
+    <env-entry>
+      <env-entry-name>AppSchema</env-entry-name>
+      <env-entry-value>csi</env-entry-value>
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>
+
+</web-app>

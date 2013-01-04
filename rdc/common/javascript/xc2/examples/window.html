@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+
+<head>
+<title>Xin Calendar 2 Step-by-step: Set up a Popup-Window calendar</title>
+<link rel=stylesheet href="xc2.css" type="text/css">
+<script language="javascript" src="../config/xc2_default.js"></script>
+<script language="javascript" src="../script/xc2_window.js"></script>
+</head>
+
+<body>
+
+<p align="center" class="title">Xin Calendar 2 Step-by-step: Set up a Popup-Window calendar</p>
+<p align="center" class="copyright"><a href="http://www.yxscripts.com">yxScripts.com</a></p>
+
+<form method="post">
+
+<table cellpadding="0" cellspacing="0" border="0" align="center">
+<tr valign="top">
+<td id="holder1">&nbsp;</td>
+<td><input type="text" name="date1" value=""></td>
+<td id="holder2">&nbsp;</td>
+<td><input type="text" name="date2" value=""></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>[<a href="javascript:showCalendar('',document.forms[0].date1,null,'','Start Date',-80,16)">Show Calendar</a>]</td>
+<td>&nbsp;</td>
+<td>[<a href="javascript:showCalendar('',document.forms[0].date2,null,'','End Date',-80,16)">Show Calendar</a>]</td>
+</tr>
+</table>
+
+</form>
+
+<p class="para">To set up a Popup-Window calendar, we can follow the same steps as we did for the In-Page calendar:</p>
+<ol>
+<li>Set up the HTML page as usual, so we have some date fields in a form.
+<p>For example, we have:</p>
+<pre>
+&lt;form&gt;
+&lt;input type="text" name="start_date" value=""&gt;
+&lt;input type="text" name="end_date" value=""&gt;
+&lt;/form&gt;
+</pre><br>
+</li>
+
+<li>In the &lt;HEAD&gt; section of the page source, include the following scripts:
+<ul>
+<li>the CSS file (or the embedded CSS definitions) for calendar styles</li>
+<li>the config file ... a Javascript file that stores the calendar settings</li>
+<li>the Popup-Window function script ... xc2_window.js</li>
+</ul>
+<p>The CSS file and the config file for an In-Page calendar can be re-used here. For example:</p>
+<pre>
+&lt;head&gt;
+&lt;script language="javascript" src="../config/xc2_default.js"&gt;&lt;/script&gt;
+&lt;script language="javascript" src="../script/xc2_window.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+</pre><br>
+</li>
+
+<li>Set up the popup triggers for the calendars
+<p>We can only use links as triggers for Popup-Window calendars, for example:</p>
+<pre>
+&lt;a href="javascript:showCalendar('',document.forms[0].start_date,null,'','Start Date',0,30)"&gt;Show Calendar&lt;/a&gt;
+</pre>
+<p>The showCalendar() call is very similar to the one we just used for In-Page calendars, the differences are that in the place of the place holder Id parameter for an In-Page calendar, we have the title of the popup window, and we don't need the last parameter in the showCalendar() call for an In-Page calendar since Popup-Window calendars won't be static:</p>
+<ul>
+<li>showCalendar("conf_name", target_field, ref_field, "default_date", "window_title", dx, dy)
+<ol>
+<li>conf_name ... the name for the mod configuration reference</li>
+<li>target_field ... the date field whose value will be set by the calendar</li>
+<li>ref_field ... the date field whose value will be the date reference for the calendar</li>
+<li>default_date ... default date reference for the calendar, if empty, today will be used</li>
+<li>window_title ... title of the popup window</li>
+<li>dx, dy ... position offset away from the mouse click spot</li>
+</ol>
+</li>
+</ul>
+<br>
+</li>
+
+<li>Adjust the window size and calendar template (optional)
+<p>If we take a look at the default config file (config/xc2_default.js), we will notice some window settings at the end of the file:</p>
+<pre>
+xcWindowWidth=215;
+xcWindowHeight=195;
+xcWindowTemplate="../script/xc2_template.html"
+</pre>
+<p>The calendar template for the popup window is just a simple table layout with a DIV tag as the place holder for the calendar, it also includes the default CSS file (css/xc2_default.css) for calendar styling and a control script (script/xc2_control.js) to interact with the opener window:</p>
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" ...&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;link rel=stylesheet href="../css/<font color="red">xc2_default.css</font>" type="text/css"&gt;
+&lt;script language="javascript" src="<font color="red">xc2_control.js</font>"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;table cellpadding="0" cellspacing="0" border="0" width="100%"&gt;&lt;tr&gt;&lt;td&gt;
+&lt;div id="<font color="red">xcPopup</font>" style="visibility:hidden"&gt;Keep this DIV intact.&lt;/div&gt;</font>
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>We can use a different template file as long as we have the DOCTYPE line, the CSS file, the control script and the DIV place holder for the new template.</p>
+</li>
+</ol>
+
+<p class="para">[<a href="layout.html">The blocks of a calendar</a>]&nbsp;[<a href="../index.html#steps">Back to index page</a>]</p>
+<p align="center"># # #</p>
+<p>&nbsp;</p>
+</body>
+
+</html>
